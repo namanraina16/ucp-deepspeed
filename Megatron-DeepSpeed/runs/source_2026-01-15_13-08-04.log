@@ -1,0 +1,942 @@
+Warning: The cache directory for DeepSpeed Triton autotune, /u/namanr2/.triton/autotune, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+[2026-01-15 13:08:13,863] [WARNING] [runner.py:232:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+Detected VISIBLE_DEVICES=0,1,2,3 but ignoring it because one or several of --include/--exclude/--num_gpus/--num_nodes cl args were used. If you want to use CUDA_VISIBLE_DEVICES don't pass any of these arguments to deepspeed.
+[2026-01-15 13:08:13,863] [INFO] [runner.py:630:main] cmd = /u/namanr2/.conda/envs/ucp_env/bin/python3.10 -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMSwgMiwgM119 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None --log_level=info pretrain_gpt.py --tensor-model-parallel-size 1 --pipeline-model-parallel-size 1 --train-iters 200 --eval-interval 10 --save z1_uni_ckpt/checkpoints/source_tp1_pp1_dp4_sp1 --global-batch-size 4 --micro-batch-size 4 --data-path /u/namanr2/Univ_Ckpt/Megatron-DeepSpeed/data/my-gpt2_text_document --vocab-file data/gpt2-vocab.json --merge-file data/gpt2-merges.txt --tensorboard-dir z1_uni_ckpt/tensorboard/bf16/source_tp1_pp1_dp4_sp1 --deepspeed --deepspeed_config ds_config_source.json --num-layers 4 --hidden-size 512 --num-attention-heads 32 --seq-length 512 --max-position-embeddings 512 --lr 6.0e-3 --min-lr 6.0e-4 --lr-decay-style cosine --split 98,2,0 --clip-grad 1.0 --weight-decay 0.1 --adam-beta1 0.9 --adam-beta2 0.95 --init-method-std 0.006 --bf16 --checkpoint-activations --deepspeed-activation-checkpointing --tensorboard-log-interval 1 --eval-iters 40 --save-interval 100 --make-vocab-size-divisible-by 256 --global-batch-size 16
+Warning: The cache directory for DeepSpeed Triton autotune, /u/namanr2/.triton/autotune, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+[2026-01-15 13:08:19,986] [INFO] [launch.py:162:main] WORLD INFO DICT: {'localhost': [0, 1, 2, 3]}
+[2026-01-15 13:08:19,986] [INFO] [launch.py:168:main] nnodes=1, num_local_procs=4, node_rank=0
+[2026-01-15 13:08:19,986] [INFO] [launch.py:179:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1, 2, 3]})
+[2026-01-15 13:08:19,986] [INFO] [launch.py:180:main] dist_world_size=4
+[2026-01-15 13:08:19,986] [INFO] [launch.py:184:main] Setting CUDA_VISIBLE_DEVICES=0,1,2,3
+[2026-01-15 13:08:19,988] [INFO] [launch.py:272:main] process 3172012 spawned with command: ['/u/namanr2/.conda/envs/ucp_env/bin/python3.10', '-u', 'pretrain_gpt.py', '--local_rank=0', '--tensor-model-parallel-size', '1', '--pipeline-model-parallel-size', '1', '--train-iters', '200', '--eval-interval', '10', '--save', 'z1_uni_ckpt/checkpoints/source_tp1_pp1_dp4_sp1', '--global-batch-size', '4', '--micro-batch-size', '4', '--data-path', '/u/namanr2/Univ_Ckpt/Megatron-DeepSpeed/data/my-gpt2_text_document', '--vocab-file', 'data/gpt2-vocab.json', '--merge-file', 'data/gpt2-merges.txt', '--tensorboard-dir', 'z1_uni_ckpt/tensorboard/bf16/source_tp1_pp1_dp4_sp1', '--deepspeed', '--deepspeed_config', 'ds_config_source.json', '--num-layers', '4', '--hidden-size', '512', '--num-attention-heads', '32', '--seq-length', '512', '--max-position-embeddings', '512', '--lr', '6.0e-3', '--min-lr', '6.0e-4', '--lr-decay-style', 'cosine', '--split', '98,2,0', '--clip-grad', '1.0', '--weight-decay', '0.1', '--adam-beta1', '0.9', '--adam-beta2', '0.95', '--init-method-std', '0.006', '--bf16', '--checkpoint-activations', '--deepspeed-activation-checkpointing', '--tensorboard-log-interval', '1', '--eval-iters', '40', '--save-interval', '100', '--make-vocab-size-divisible-by', '256', '--global-batch-size', '16']
+[2026-01-15 13:08:19,988] [INFO] [launch.py:272:main] process 3172013 spawned with command: ['/u/namanr2/.conda/envs/ucp_env/bin/python3.10', '-u', 'pretrain_gpt.py', '--local_rank=1', '--tensor-model-parallel-size', '1', '--pipeline-model-parallel-size', '1', '--train-iters', '200', '--eval-interval', '10', '--save', 'z1_uni_ckpt/checkpoints/source_tp1_pp1_dp4_sp1', '--global-batch-size', '4', '--micro-batch-size', '4', '--data-path', '/u/namanr2/Univ_Ckpt/Megatron-DeepSpeed/data/my-gpt2_text_document', '--vocab-file', 'data/gpt2-vocab.json', '--merge-file', 'data/gpt2-merges.txt', '--tensorboard-dir', 'z1_uni_ckpt/tensorboard/bf16/source_tp1_pp1_dp4_sp1', '--deepspeed', '--deepspeed_config', 'ds_config_source.json', '--num-layers', '4', '--hidden-size', '512', '--num-attention-heads', '32', '--seq-length', '512', '--max-position-embeddings', '512', '--lr', '6.0e-3', '--min-lr', '6.0e-4', '--lr-decay-style', 'cosine', '--split', '98,2,0', '--clip-grad', '1.0', '--weight-decay', '0.1', '--adam-beta1', '0.9', '--adam-beta2', '0.95', '--init-method-std', '0.006', '--bf16', '--checkpoint-activations', '--deepspeed-activation-checkpointing', '--tensorboard-log-interval', '1', '--eval-iters', '40', '--save-interval', '100', '--make-vocab-size-divisible-by', '256', '--global-batch-size', '16']
+[2026-01-15 13:08:19,990] [INFO] [launch.py:272:main] process 3172014 spawned with command: ['/u/namanr2/.conda/envs/ucp_env/bin/python3.10', '-u', 'pretrain_gpt.py', '--local_rank=2', '--tensor-model-parallel-size', '1', '--pipeline-model-parallel-size', '1', '--train-iters', '200', '--eval-interval', '10', '--save', 'z1_uni_ckpt/checkpoints/source_tp1_pp1_dp4_sp1', '--global-batch-size', '4', '--micro-batch-size', '4', '--data-path', '/u/namanr2/Univ_Ckpt/Megatron-DeepSpeed/data/my-gpt2_text_document', '--vocab-file', 'data/gpt2-vocab.json', '--merge-file', 'data/gpt2-merges.txt', '--tensorboard-dir', 'z1_uni_ckpt/tensorboard/bf16/source_tp1_pp1_dp4_sp1', '--deepspeed', '--deepspeed_config', 'ds_config_source.json', '--num-layers', '4', '--hidden-size', '512', '--num-attention-heads', '32', '--seq-length', '512', '--max-position-embeddings', '512', '--lr', '6.0e-3', '--min-lr', '6.0e-4', '--lr-decay-style', 'cosine', '--split', '98,2,0', '--clip-grad', '1.0', '--weight-decay', '0.1', '--adam-beta1', '0.9', '--adam-beta2', '0.95', '--init-method-std', '0.006', '--bf16', '--checkpoint-activations', '--deepspeed-activation-checkpointing', '--tensorboard-log-interval', '1', '--eval-iters', '40', '--save-interval', '100', '--make-vocab-size-divisible-by', '256', '--global-batch-size', '16']
+[2026-01-15 13:08:19,991] [INFO] [launch.py:272:main] process 3172015 spawned with command: ['/u/namanr2/.conda/envs/ucp_env/bin/python3.10', '-u', 'pretrain_gpt.py', '--local_rank=3', '--tensor-model-parallel-size', '1', '--pipeline-model-parallel-size', '1', '--train-iters', '200', '--eval-interval', '10', '--save', 'z1_uni_ckpt/checkpoints/source_tp1_pp1_dp4_sp1', '--global-batch-size', '4', '--micro-batch-size', '4', '--data-path', '/u/namanr2/Univ_Ckpt/Megatron-DeepSpeed/data/my-gpt2_text_document', '--vocab-file', 'data/gpt2-vocab.json', '--merge-file', 'data/gpt2-merges.txt', '--tensorboard-dir', 'z1_uni_ckpt/tensorboard/bf16/source_tp1_pp1_dp4_sp1', '--deepspeed', '--deepspeed_config', 'ds_config_source.json', '--num-layers', '4', '--hidden-size', '512', '--num-attention-heads', '32', '--seq-length', '512', '--max-position-embeddings', '512', '--lr', '6.0e-3', '--min-lr', '6.0e-4', '--lr-decay-style', 'cosine', '--split', '98,2,0', '--clip-grad', '1.0', '--weight-decay', '0.1', '--adam-beta1', '0.9', '--adam-beta2', '0.95', '--init-method-std', '0.006', '--bf16', '--checkpoint-activations', '--deepspeed-activation-checkpointing', '--tensorboard-log-interval', '1', '--eval-iters', '40', '--save-interval', '100', '--make-vocab-size-divisible-by', '256', '--global-batch-size', '16']
+Warning: The cache directory for DeepSpeed Triton autotune, /u/namanr2/.triton/autotune, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+Warning: The cache directory for DeepSpeed Triton autotune, /u/namanr2/.triton/autotune, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+Warning: The cache directory for DeepSpeed Triton autotune, /u/namanr2/.triton/autotune, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+Warning: The cache directory for DeepSpeed Triton autotune, /u/namanr2/.triton/autotune, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+--------------------------------------------------
+DeepSpeed C++/CUDA extension op report
+--------------------------------------------------
+NOTE: Ops not installed will be just-in-time (JIT) compiled at
+      runtime if needed. Op compatibility means that your system
+      meet the required dependencies to JIT install the op.
+--------------------------------------------------
+JIT compiled ops requires ninja
+ninja .................. [92m[OKAY][0m
+--------------------------------------------------
+op name ................ installed .. compatible
+--------------------------------------------------
+--------------------------------------------------
+DeepSpeed C++/CUDA extension op report
+--------------------------------------------------
+NOTE: Ops not installed will be just-in-time (JIT) compiled at
+      runtime if needed. Op compatibility means that your system
+      meet the required dependencies to JIT install the op.
+--------------------------------------------------
+JIT compiled ops requires ninja
+ninja .................. [92m[OKAY][0m
+--------------------------------------------------
+op name ................ installed .. compatible
+--------------------------------------------------
+--------------------------------------------------
+DeepSpeed C++/CUDA extension op report
+--------------------------------------------------
+NOTE: Ops not installed will be just-in-time (JIT) compiled at
+      runtime if needed. Op compatibility means that your system
+      meet the required dependencies to JIT install the op.
+--------------------------------------------------
+JIT compiled ops requires ninja
+ninja .................. [92m[OKAY][0m
+--------------------------------------------------
+op name ................ installed .. compatible
+--------------------------------------------------
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+--------------------------------------------------
+DeepSpeed C++/CUDA extension op report
+--------------------------------------------------
+NOTE: Ops not installed will be just-in-time (JIT) compiled at
+      runtime if needed. Op compatibility means that your system
+      meet the required dependencies to JIT install the op.
+--------------------------------------------------
+JIT compiled ops requires ninja
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+async_io ............... [93m[NO][0m ....... [93m[NO][0m
+fused_adam ............. [93m[NO][0m ....... [92m[OKAY][0m
+cpu_adam ............... [93m[NO][0m ....... [92m[OKAY][0m
+cpu_adagrad ............ [93m[NO][0m ....... [92m[OKAY][0m
+cpu_lion ............... [93m[NO][0m ....... [92m[OKAY][0m
+dc ..................... [93m[NO][0m ....... [92m[OKAY][0m
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+evoformer_attn ......... [93m[NO][0m ....... [93m[NO][0m
+ninja .................. [92m[OKAY][0m
+--------------------------------------------------
+op name ................ installed .. compatible
+--------------------------------------------------
+fp_quantizer ........... [93m[NO][0m ....... [92m[OKAY][0m
+fused_lamb ............. [93m[NO][0m ....... [92m[OKAY][0m
+fused_lion ............. [93m[NO][0m ....... [92m[OKAY][0m
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+async_io ............... [93m[NO][0m ....... [93m[NO][0m
+fused_adam ............. [93m[NO][0m ....... [92m[OKAY][0m
+cpu_adam ............... [93m[NO][0m ....... [92m[OKAY][0m
+cpu_adagrad ............ [93m[NO][0m ....... [92m[OKAY][0m
+cpu_lion ............... [93m[NO][0m ....... [92m[OKAY][0m
+dc ..................... [93m[NO][0m ....... [92m[OKAY][0m
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+evoformer_attn ......... [93m[NO][0m ....... [93m[NO][0m
+fp_quantizer ........... [93m[NO][0m ....... [92m[OKAY][0m
+fused_lamb ............. [93m[NO][0m ....... [92m[OKAY][0m
+fused_lion ............. [93m[NO][0m ....... [92m[OKAY][0m
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+async_io ............... [93m[NO][0m ....... [93m[NO][0m
+fused_adam ............. [93m[NO][0m ....... [92m[OKAY][0m
+cpu_adam ............... [93m[NO][0m ....... [92m[OKAY][0m
+cpu_adagrad ............ [93m[NO][0m ....... [92m[OKAY][0m
+cpu_lion ............... [93m[NO][0m ....... [92m[OKAY][0m
+dc ..................... [93m[NO][0m ....... [92m[OKAY][0m
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+evoformer_attn ......... [93m[NO][0m ....... [93m[NO][0m
+fp_quantizer ........... [93m[NO][0m ....... [92m[OKAY][0m
+fused_lamb ............. [93m[NO][0m ....... [92m[OKAY][0m
+fused_lion ............. [93m[NO][0m ....... [92m[OKAY][0m
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+gds .................... [93m[NO][0m ....... [93m[NO][0m
+transformer_inference .. [93m[NO][0m ....... [92m[OKAY][0m
+inference_core_ops ..... [93m[NO][0m ....... [92m[OKAY][0m
+cutlass_ops ............ [93m[NO][0m ....... [92m[OKAY][0m
+quantizer .............. [93m[NO][0m ....... [92m[OKAY][0m
+gds .................... [93m[NO][0m ....... [93m[NO][0m
+ragged_device_ops ...... [93m[NO][0m ....... [92m[OKAY][0m
+transformer_inference .. [93m[NO][0m ....... [92m[OKAY][0m
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+async_io ............... [93m[NO][0m ....... [93m[NO][0m
+fused_adam ............. [93m[NO][0m ....... [92m[OKAY][0m
+cpu_adam ............... [93m[NO][0m ....... [92m[OKAY][0m
+cpu_adagrad ............ [93m[NO][0m ....... [92m[OKAY][0m
+cpu_lion ............... [93m[NO][0m ....... [92m[OKAY][0m
+dc ..................... [93m[NO][0m ....... [92m[OKAY][0m
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+evoformer_attn ......... [93m[NO][0m ....... [93m[NO][0m
+ragged_ops ............. [93m[NO][0m ....... [92m[OKAY][0m
+random_ltd ............. [93m[NO][0m ....... [92m[OKAY][0m
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.5
+[93m [WARNING] [0m using untested triton version (3.1.0), only 1.0.0 is known to be compatible
+sparse_attn ............ [93m[NO][0m ....... [93m[NO][0m
+inference_core_ops ..... [93m[NO][0m ....... [92m[OKAY][0m
+spatial_inference ...... [93m[NO][0m ....... [92m[OKAY][0m
+transformer ............ [93m[NO][0m ....... [92m[OKAY][0m
+stochastic_transformer . [93m[NO][0m ....... [92m[OKAY][0m
+utils .................. [93m[NO][0m ....... [92m[OKAY][0m
+--------------------------------------------------
+fp_quantizer ........... [93m[NO][0m ....... [92m[OKAY][0m
+fused_lamb ............. [93m[NO][0m ....... [92m[OKAY][0m
+fused_lion ............. [93m[NO][0m ....... [92m[OKAY][0m
+cutlass_ops ............ [93m[NO][0m ....... [92m[OKAY][0m
+quantizer .............. [93m[NO][0m ....... [92m[OKAY][0m
+DeepSpeed general environment info:
+torch install path ............... ['/u/namanr2/.conda/envs/ucp_env/lib/python3.10/site-packages/torch']
+torch version .................... 2.5.1+cu121
+deepspeed install path ........... ['/u/namanr2/.conda/envs/ucp_env/lib/python3.10/site-packages/deepspeed']
+deepspeed info ................... 0.18.4, unknown, unknown
+torch cuda version ............... 12.1
+torch hip version ................ None
+nvcc version ..................... 12.8
+deepspeed wheel compiled w. ...... torch 0.0, cuda 0.0
+shared memory (/dev/shm) size .... 125.81 GB
+ragged_device_ops ...... [93m[NO][0m ....... [92m[OKAY][0m
+ragged_ops ............. [93m[NO][0m ....... [92m[OKAY][0m
+random_ltd ............. [93m[NO][0m ....... [92m[OKAY][0m
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.5
+[93m [WARNING] [0m using untested triton version (3.1.0), only 1.0.0 is known to be compatible
+sparse_attn ............ [93m[NO][0m ....... [93m[NO][0m
+spatial_inference ...... [93m[NO][0m ....... [92m[OKAY][0m
+transformer ............ [93m[NO][0m ....... [92m[OKAY][0m
+stochastic_transformer . [93m[NO][0m ....... [92m[OKAY][0m
+utils .................. [93m[NO][0m ....... [92m[OKAY][0m
+--------------------------------------------------
+DeepSpeed general environment info:
+torch install path ............... ['/u/namanr2/.conda/envs/ucp_env/lib/python3.10/site-packages/torch']
+torch version .................... 2.5.1+cu121
+deepspeed install path ........... ['/u/namanr2/.conda/envs/ucp_env/lib/python3.10/site-packages/deepspeed']
+deepspeed info ................... 0.18.4, unknown, unknown
+torch cuda version ............... 12.1
+torch hip version ................ None
+nvcc version ..................... 12.8
+deepspeed wheel compiled w. ...... torch 0.0, cuda 0.0
+shared memory (/dev/shm) size .... 125.81 GB
+**** Git info for Megatron: git_hash=aab2f31 git_branch=main ****
+using world size: 4, data-parallel-size: 4, sequence-parallel size: 1, tensor-model-parallel size: 1, pipeline-model-parallel size: 1 
+accumulate and all-reduce gradients in fp32 for bfloat16 data type.
+using torch.bfloat16 for parameters ...
+------------------------ arguments ------------------------
+  accumulate_allreduce_grads_in_fp32 .............. True
+  adam_beta1 ...................................... 0.9
+  adam_beta2 ...................................... 0.95
+  adam_eps ........................................ 1e-08
+  add_bias_linear ................................. True
+  add_position_embedding .......................... True
+  adlr_autoresume ................................. False
+  adlr_autoresume_interval ........................ 1000
+  aml_data_download_path .......................... None
+  apply_layernorm_1p .............................. False
+  apply_query_key_layer_scaling ................... True
+  apply_residual_connection_post_layernorm ........ False
+  async_tensor_model_parallel_allreduce ........... False
+  attention_dropout ............................... 0.1
+  attention_softmax_in_fp32 ....................... False
+  barrier_with_L1_time ............................ True
+  bert_binary_head ................................ True
+  bert_embedder_type .............................. megatron
+  bert_load ....................................... None
+  bf16 ............................................ True
+  bias_dropout_fusion ............................. True
+  bias_gelu_fusion ................................ True
+  biencoder_projection_dim ........................ 0
+  biencoder_shared_query_context_model ............ False
+  block_data_path ................................. None
+  checkpoint_activations .......................... True
+  checkpoint_in_cpu ............................... False
+  checkpoint_num_layers ........................... 1
+  classes_fraction ................................ 1.0
+  clip_grad ....................................... 1.0
+  compression_training ............................ False
+  consumed_train_samples .......................... 0
+  consumed_train_tokens ........................... 0
+  consumed_valid_samples .......................... 0
+  contigious_checkpointing ........................ False
+  cpu_optimizer ................................... False
+  cpu_torch_adam .................................. False
+  create_moe_param_group .......................... False
+  curriculum_learning_legacy ...................... False
+  data_cache_path ................................. None
+  data_efficiency_curriculum_learning ............. False
+  data_impl ....................................... infer
+  data_parallel_random_init ....................... False
+  data_parallel_size .............................. 4
+  data_path ....................................... ['/u/namanr2/Univ_Ckpt/Megatron-DeepSpeed/data/my-gpt2_text_document']
+  data_per_class_fraction ......................... 1.0
+  data_sharding ................................... True
+  dataloader_type ................................. single
+  DDP_impl ........................................ local
+  decoder_num_layers .............................. None
+  decoder_seq_length .............................. None
+  deepscale ....................................... False
+  deepscale_config ................................ None
+  deepspeed ....................................... True
+  deepspeed_activation_checkpointing .............. True
+  deepspeed_config ................................ ds_config_source.json
+  dino_bottleneck_size ............................ 256
+  dino_freeze_last_layer .......................... 1
+  dino_head_hidden_size ........................... 2048
+  dino_local_crops_number ......................... 10
+  dino_local_img_size ............................. 96
+  dino_norm_last_layer ............................ False
+  dino_teacher_temp ............................... 0.07
+  dino_warmup_teacher_temp ........................ 0.04
+  dino_warmup_teacher_temp_epochs ................. 30
+  distribute_checkpointed_activations ............. False
+  distribute_saved_activations .................... False
+  distributed_backend ............................. nccl
+  distributed_timeout_minutes ..................... 10
+  ds_fused_adam ................................... False
+  ds_inference .................................... False
+  ds_pipeline_enabled ............................. True
+  ds_sequence_parallel_fpdt ....................... False
+  ds_sequence_parallel_fpdt_chunk_size ............ 65536
+  ds_sequence_parallel_fpdt_offloading ............ False
+  ds_sequence_parallel_size ....................... 1
+  embedding_path .................................. None
+  embedding_weights_in_fp32 ....................... False
+  empty_unused_memory_level ....................... 0
+  enable_expert_tensor_parallelism ................ False
+  enable_zbh1_exact_semantics ..................... False
+  enable_zbh1_pipeline ............................ False
+  encoder_num_layers .............................. 4
+  encoder_seq_length .............................. 512
+  end_weight_decay ................................ 0.1
+  eod_mask_loss ................................... False
+  eval_interval ................................... 10
+  eval_iters ...................................... 40
+  evidence_data_path .............................. None
+  exit_duration_in_mins ........................... None
+  exit_interval ................................... None
+  exit_on_missing_checkpoint ...................... False
+  exit_signal_handler ............................. False
+  expert_interval ................................. 2
+  ffn_hidden_size ................................. 2048
+  finetune ........................................ False
+  force_ds_sequence_parallel ...................... False
+  fp16 ............................................ False
+  fp16_lm_cross_entropy ........................... False
+  fp32_residual_connection ........................ False
+  fp8_amax_compute_algo ........................... most_recent
+  fp8_amax_history_len ............................ 1
+  fp8_e4m3 ........................................ False
+  fp8_hybrid ...................................... False
+  fp8_interval .................................... 1
+  fp8_margin ...................................... 0
+  fp8_wgrad ....................................... True
+  global_batch_size ............................... 16
+  gradient_accumulation_fusion .................... True
+  head_lr_mult .................................... 1.0
+  hidden_dropout .................................. 0.1
+  hidden_size ..................................... 512
+  hidden_size_teacher ............................. None
+  hysteresis ...................................... 2
+  ict_head_size ................................... None
+  ict_load ........................................ None
+  img_h ........................................... 224
+  img_w ........................................... 224
+  indexer_batch_size .............................. 128
+  indexer_log_interval ............................ 1000
+  inference ....................................... False
+  inference_batch_times_seqlen_threshold .......... 512
+  init_method_std ................................. 0.006
+  init_method_xavier_uniform ...................... False
+  initial_loss_scale .............................. 4294967296
+  iter_per_epoch .................................. 1250
+  kd .............................................. False
+  kd_alpha_ce ..................................... 1
+  kd_beta_ce ...................................... 1
+  kd_temp ......................................... 1.0
+  kill_switch_file ................................ None
+  kv_channels ..................................... 16
+  layernorm_epsilon ............................... 1e-05
+  lazy_mpu_init ................................... None
+  load ............................................ None
+  load_tag ........................................ None
+  load_teacher .................................... None
+  local_rank ...................................... 0
+  log_batch_size_to_tensorboard ................... False
+  log_interval .................................... 100
+  log_learning_rate_to_tensorboard ................ True
+  log_loss_scale_to_tensorboard ................... True
+  log_memory_to_tensorboard ....................... False
+  log_num_zeros_in_grad ........................... False
+  log_optimizer_states_to_tensorboard ............. False
+  log_params_norm ................................. False
+  log_timers_to_tensorboard ....................... False
+  log_validation_ppl_to_tensorboard ............... False
+  log_world_size_to_tensorboard ................... False
+  loss_scale ...................................... None
+  loss_scale_window ............................... 1000
+  lr .............................................. 0.006
+  lr_decay_iters .................................. None
+  lr_decay_samples ................................ None
+  lr_decay_style .................................. cosine
+  lr_decay_tokens ................................. None
+  lr_warmup_fraction .............................. None
+  lr_warmup_iters ................................. 0
+  lr_warmup_samples ............................... 0
+  lr_warmup_tokens ................................ None
+  make_vocab_size_divisible_by .................... 256
+  mask_factor ..................................... 1.0
+  mask_prob ....................................... 0.15
+  mask_type ....................................... random
+  masked_softmax_fusion ........................... True
+  max_position_embeddings ......................... 512
+  max_tokens_to_oom ............................... 12000
+  mem_efficient_ln ................................ True
+  memory_centric_tiled_linear ..................... False
+  merge_file ...................................... data/gpt2-merges.txt
+  micro_batch_size ................................ 4
+  min_loss_scale .................................. 1.0
+  min_lr .......................................... 0.0006
+  mlp_type ........................................ standard
+  mmap_warmup ..................................... False
+  moe_eval_capacity_factor ........................ 1.0
+  moe_expert_parallel_size ........................ 1
+  moe_loss_coeff .................................. 0.1
+  moe_min_capacity ................................ 4
+  moe_token_dropping .............................. True
+  moe_top2_2nd_expert_sampling .................... True
+  moe_train_capacity_factor ....................... 1.0
+  mos ............................................. False
+  no_load_lr_state ................................ False
+  no_load_optim ................................... None
+  no_load_rng ..................................... None
+  no_persist_layer_norm ........................... False
+  no_pipeline_parallel ............................ False
+  no_save_optim ................................... None
+  no_save_rng ..................................... None
+  normalization ................................... layernorm
+  num_attention_heads ............................. 32
+  num_attention_heads_teacher ..................... None
+  num_channels .................................... 3
+  num_classes ..................................... 1000
+  num_experts ..................................... [1]
+  num_experts_switch .............................. None
+  num_experts_teacher ............................. [1]
+  num_key_value_heads ............................. 32
+  num_layers ...................................... 4
+  num_layers_per_virtual_pipeline_stage ........... None
+  num_layers_teacher .............................. None
+  num_workers ..................................... 2
+  onnx_safe ....................................... None
+  openai_gelu ..................................... False
+  optimizer ....................................... adam
+  output_bert_embeddings .......................... False
+  overlap_p2p_comm ................................ False
+  override_opt_param_scheduler .................... False
+  params_dtype .................................... torch.bfloat16
+  partition_activations ........................... False
+  patch_dim ....................................... 16
+  perform_initialization .......................... True
+  pipeline_model_parallel_size .................... 1
+  pipeline_model_parallel_split_rank .............. None
+  profile ......................................... None
+  profile_backward ................................ False
+  profile_ranks ................................... None
+  profile_steps ................................... 2,3
+  query_in_block_prob ............................. 0.1
+  rampup_batch_size ............................... None
+  random_ltd ...................................... False
+  rank ............................................ 0
+  recompute_granularity ........................... None
+  recompute_method ................................ None
+  recompute_num_layers ............................ 1
+  remote_device ................................... none
+  repeated_dataloader ............................. False
+  reset_attention_mask ............................ False
+  reset_iteration ................................. False
+  reset_position_ids .............................. False
+  retriever_report_topk_accuracies ................ []
+  retriever_score_scaling ......................... False
+  retriever_seq_length ............................ 256
+  retro_add_retriever ............................. False
+  retro_cyclic_train_iters ........................ None
+  retro_encoder_attention_dropout ................. 0.1
+  retro_encoder_hidden_dropout .................... 0.1
+  retro_encoder_layers ............................ 2
+  retro_num_neighbors ............................. 2
+  retro_num_retrieved_chunks ...................... 2
+  retro_return_doc_ids ............................ False
+  retro_workdir ................................... None
+  return_data_index ............................... False
+  rope_theta ...................................... 10000
+  rotary_percent .................................. 1.0
+  sample_rate ..................................... 1.0
+  save ............................................ z1_uni_ckpt/checkpoints/source_tp1_pp1_dp4_sp1
+  save_interval ................................... 100
+  scatter_gather_tensors_in_pipeline .............. True
+  scattered_embeddings ............................ False
+  seed ............................................ 1234
+  seq_length ...................................... 512
+  sequence_parallel ............................... False
+  sgd_momentum .................................... 0.9
+  short_seq_prob .................................. 0.1
+  skip_train ...................................... False
+  split ........................................... 98,2,0
+  split_transformers .............................. False
+  squared_relu .................................... False
+  standalone_embedding_stage ...................... False
+  start_weight_decay .............................. 0.1
+  swiglu .......................................... False
+  swin_backbone_type .............................. tiny
+  synchronize_each_layer .......................... False
+  tensor_model_parallel_size ...................... 1
+  tensorboard_dir ................................. z1_uni_ckpt/tensorboard/bf16/source_tp1_pp1_dp4_sp1
+  tensorboard_log_interval ........................ 1
+  tensorboard_queue_size .......................... 1000
+  test_data_path .................................. None
+  tile_factor ..................................... 1
+  timing_log_level ................................ 0
+  timing_log_option ............................... minmax
+  titles_data_path ................................ None
+  tokenizer_model ................................. None
+  tokenizer_type .................................. GPT2BPETokenizer
+  topk ............................................ 1
+  train_data_exact_num_epochs ..................... None
+  train_data_path ................................. None
+  train_desc_path ................................. None
+  train_doc_idx_path .............................. None
+  train_idx_path .................................. None
+  train_iters ..................................... 200
+  train_sample_idx_path ........................... None
+  train_samples ................................... None
+  train_shuffle_idx_path .......................... None
+  train_tokens .................................... None
+  transformer_impl ................................ local
+  transformer_pipeline_model_parallel_size ........ 1
+  trust_remote_code ............................... False
+  universal_checkpoint ............................ False
+  untie_embeddings_and_output_weights ............. False
+  use_checkpoint_args ............................. False
+  use_checkpoint_opt_param_scheduler .............. False
+  use_contiguous_buffers_in_local_ddp ............. True
+  use_cpu_initialization .......................... None
+  use_dataset_only ................................ False
+  use_distributed_optimizer ....................... False
+  use_flash_attn .................................. False
+  use_flash_attn_builder .......................... False
+  use_flash_attn_triton ........................... False
+  use_flash_attn_v1 ............................... False
+  use_flash_attn_v2 ............................... False
+  use_one_sent_docs ............................... False
+  use_pin_memory .................................. False
+  use_ring_exchange_p2p ........................... False
+  use_rotary_position_embeddings .................. False
+  use_tutel ....................................... False
+  valid_data_path ................................. None
+  variable_seq_lengths ............................ False
+  virtual_pipeline_model_parallel_size ............ None
+  vision_backbone_type ............................ vit
+  vision_pretraining .............................. False
+  vision_pretraining_type ......................... classify
+  vocab_extra_ids ................................. 0
+  vocab_file ...................................... data/gpt2-vocab.json
+  vocab_size ...................................... None
+  wandb_exp_name .................................. 
+  wandb_project ................................... 
+  wandb_save_dir .................................. 
+  weight_decay .................................... 0.1
+  weight_decay_incr_style ......................... constant
+  world_size ...................................... 4
+  zero_allgather_bucket_size ...................... 0.0
+  zero_contigious_gradients ....................... False
+  zero_reduce_bucket_size ......................... 0.0
+  zero_reduce_scatter ............................. False
+  zero_stage ...................................... 1.0
+-------------------- end of arguments ---------------------
+setting number of micro-batches to constant 1
+> building GPT2BPETokenizer tokenizer ...
+**** Git info for Megatron: git_hash=aab2f31 git_branch=main ****
+gds .................... [93m[NO][0m ....... [93m[NO][0m
+transformer_inference .. [93m[NO][0m ....... [92m[OKAY][0m
+inference_core_ops ..... [93m[NO][0m ....... [92m[OKAY][0m
+cutlass_ops ............ [93m[NO][0m ....... [92m[OKAY][0m
+quantizer .............. [93m[NO][0m ....... [92m[OKAY][0m
+ragged_device_ops ...... [93m[NO][0m ....... [92m[OKAY][0m
+ragged_ops ............. [93m[NO][0m ....... [92m[OKAY][0m
+random_ltd ............. [93m[NO][0m ....... [92m[OKAY][0m
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.5
+[93m [WARNING] [0m using untested triton version (3.1.0), only 1.0.0 is known to be compatible
+sparse_attn ............ [93m[NO][0m ....... [93m[NO][0m
+spatial_inference ...... [93m[NO][0m ....... [92m[OKAY][0m
+transformer ............ [93m[NO][0m ....... [92m[OKAY][0m
+stochastic_transformer . [93m[NO][0m ....... [92m[OKAY][0m
+utils .................. [93m[NO][0m ....... [92m[OKAY][0m
+--------------------------------------------------
+ > padded vocab (size: 50257) with 175 dummy tokens (new size: 50432)
+> initializing torch distributed ...
+DeepSpeed general environment info:
+torch install path ............... ['/u/namanr2/.conda/envs/ucp_env/lib/python3.10/site-packages/torch']
+torch version .................... 2.5.1+cu121
+deepspeed install path ........... ['/u/namanr2/.conda/envs/ucp_env/lib/python3.10/site-packages/deepspeed']
+deepspeed info ................... 0.18.4, unknown, unknown
+torch cuda version ............... 12.1
+torch hip version ................ None
+nvcc version ..................... 12.8
+deepspeed wheel compiled w. ...... torch 0.0, cuda 0.0
+shared memory (/dev/shm) size .... 125.81 GB
+**** Git info for Megatron: git_hash=aab2f31 git_branch=main ****
+gds .................... [93m[NO][0m ....... [93m[NO][0m
+transformer_inference .. [93m[NO][0m ....... [92m[OKAY][0m
+inference_core_ops ..... [93m[NO][0m ....... [92m[OKAY][0m
+cutlass_ops ............ [93m[NO][0m ....... [92m[OKAY][0m
+quantizer .............. [93m[NO][0m ....... [92m[OKAY][0m
+ragged_device_ops ...... [93m[NO][0m ....... [92m[OKAY][0m
+ragged_ops ............. [93m[NO][0m ....... [92m[OKAY][0m
+random_ltd ............. [93m[NO][0m ....... [92m[OKAY][0m
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.5
+[93m [WARNING] [0m using untested triton version (3.1.0), only 1.0.0 is known to be compatible
+sparse_attn ............ [93m[NO][0m ....... [93m[NO][0m
+spatial_inference ...... [93m[NO][0m ....... [92m[OKAY][0m
+transformer ............ [93m[NO][0m ....... [92m[OKAY][0m
+stochastic_transformer . [93m[NO][0m ....... [92m[OKAY][0m
+utils .................. [93m[NO][0m ....... [92m[OKAY][0m
+--------------------------------------------------
+DeepSpeed general environment info:
+torch install path ............... ['/u/namanr2/.conda/envs/ucp_env/lib/python3.10/site-packages/torch']
+torch version .................... 2.5.1+cu121
+deepspeed install path ........... ['/u/namanr2/.conda/envs/ucp_env/lib/python3.10/site-packages/deepspeed']
+deepspeed info ................... 0.18.4, unknown, unknown
+torch cuda version ............... 12.1
+torch hip version ................ None
+nvcc version ..................... 12.8
+deepspeed wheel compiled w. ...... torch 0.0, cuda 0.0
+shared memory (/dev/shm) size .... 125.81 GB
+**** Git info for Megatron: git_hash=aab2f31 git_branch=main ****
+> setting tensorboard ...
+WARNING: WANDB writing requested but no legit wandb project or experiment name provided, therefore no WANDB logs will be written according to random generated project or experiment name.
+> initialized tensor model parallel with size 1
+> initialized pipeline model parallel with size 1
+> setting random seeds to 1234 ...
+> compiling dataset index builder ...
+make: Entering directory '/u/namanr2/Univ_Ckpt/Megatron-DeepSpeed/megatron/data'
+make: Nothing to be done for 'default'.
+make: Leaving directory '/u/namanr2/Univ_Ckpt/Megatron-DeepSpeed/megatron/data'
+>>> done with dataset index builder. Compilation time: 0.089 seconds
+> compiling and loading fused kernels ...
+ninja: no work to do.
+ninja: no work to do.
+ninja: no work to do.
+>>> done with compiling and loading fused kernels. Compilation time: 2.353 seconds
+time to initialize megatron (seconds): 5.019
+[after megatron is initialized] datetime: 2026-01-15 13:08:31 
+building GPT model ...
+Before Building Model
+MA 0.0 GB         Max_MA 0.13 GB         CA 0.0 GB         Max_CA 0 GB 
+CPU Virtual Memory:  used = 23.4 GB, percent = 9.3%
+SEED_LAYERS=False BASE_SEED=1234 SEED_FN=None
+Using topology: {ProcessCoord(pipe=0, data=0, model=0): 0, ProcessCoord(pipe=0, data=1, model=0): 1, ProcessCoord(pipe=0, data=2, model=0): 2, ProcessCoord(pipe=0, data=3, model=0): 3}
+stage=0 layers=9
+     0: _to_float16
+     1: EmbeddingPipe
+     2: ParallelTransformerLayerPipe
+     3: ParallelTransformerLayerPipe
+     4: ParallelTransformerLayerPipe
+     5: ParallelTransformerLayerPipe
+     6: MixedFusedLayerNorm
+     7: EmbeddingPipe
+     8: float16_to_fp32
+  loss: loss_func
+After Building Model
+MA 0.07 GB         Max_MA 0.08 GB         CA 0.09 GB         Max_CA 0 GB 
+CPU Virtual Memory:  used = 24.31 GB, percent = 9.7%
+ > number of parameters on (tensor, pipeline) model parallel rank (0, 0): 38693888
+> learning rate decay style: cosine
+DeepSpeed is enabled.
+Before initializing optimizer states
+MA 0.11 GB         Max_MA 0.11 GB         CA 0.11 GB         Max_CA 0 GB 
+CPU Virtual Memory:  used = 24.6 GB, percent = 9.8%
+After initializing optimizer states
+MA 0.11 GB         Max_MA 0.14 GB         CA 0.15 GB         Max_CA 0 GB 
+CPU Virtual Memory:  used = 24.6 GB, percent = 9.8%
+After initializing ZeRO optimizer
+MA 0.11 GB         Max_MA 0.11 GB         CA 0.15 GB         Max_CA 0 GB 
+CPU Virtual Memory:  used = 24.6 GB, percent = 9.8%
+[after model, optimizer, and learning rate scheduler are built] datetime: 2026-01-15 13:08:34 
+> building train, validation, and test datasets ...
+ > datasets target sizes (minimum size):
+    train:      3200
+    validation: 13440
+    test:       640
+> building train, validation, and test datasets for GPT ...
+Single data path provided for train, valid & test
+ > building dataset index ...
+    reading sizes...
+    reading pointers...
+    reading document index...
+    creating numpy buffer of mmap...
+    creating memory view of numpy buffer...
+ > finished creating indexed dataset in 0.001997 seconds
+    number of documents: 79000
+ > dataset split:
+    train:
+     document indices in [0, 77420) total of 77420 documents
+    validation:
+     document indices in [77420, 79000) total of 1580 documents
+    test:
+     document indices in [79000, 79000) total of 0 documents
+ > loading doc-idx mapping from /u/namanr2/Univ_Ckpt/Megatron-DeepSpeed/data/index-cache/dcef44fc8695afcdb8824718c10951c6_doc_idx.npy
+ > loading sample-idx mapping from /u/namanr2/Univ_Ckpt/Megatron-DeepSpeed/data/index-cache/dcef44fc8695afcdb8824718c10951c6_sample_idx.npy
+ > loading shuffle-idx mapping from /u/namanr2/Univ_Ckpt/Megatron-DeepSpeed/data/index-cache/dcef44fc8695afcdb8824718c10951c6_shuffle_idx.npy
+    loaded indexed file in 0.003 seconds
+    total number of samples: 447561
+    total number of epochs: 1
+ > loading doc-idx mapping from /u/namanr2/Univ_Ckpt/Megatron-DeepSpeed/data/index-cache/17b7b66529d8fb19c0289c55cf41b375_doc_idx.npy
+ > loading sample-idx mapping from /u/namanr2/Univ_Ckpt/Megatron-DeepSpeed/data/index-cache/17b7b66529d8fb19c0289c55cf41b375_sample_idx.npy
+ > loading shuffle-idx mapping from /u/namanr2/Univ_Ckpt/Megatron-DeepSpeed/data/index-cache/17b7b66529d8fb19c0289c55cf41b375_shuffle_idx.npy
+    loaded indexed file in 0.002 seconds
+    total number of samples: 19959
+    total number of epochs: 2
+> finished creating GPT datasets ...
+[after dataloaders are built] datetime: 2026-01-15 13:08:34 
+done with setup ...
+(min, max) time across ranks (ms):
+    model-and-optimizer-setup ......................: (1818.00, 2411.69)
+    train/valid/test-data-iterators-setup ..........: (285.76, 293.51)
+training ...
+[before the start of training step] datetime: 2026-01-15 13:08:34 
+steps: 1 loss: 10.8385 iter time (s): 0.284 samples/sec: 56.423
+steps: 2 loss: 10.2773 iter time (s): 0.054 samples/sec: 295.726
+steps: 3 loss: 8.7784 iter time (s): 0.053 samples/sec: 301.228
+steps: 4 loss: 8.6379 iter time (s): 0.053 samples/sec: 303.139
+steps: 5 loss: 10.2474 iter time (s): 0.053 samples/sec: 302.804
+steps: 6 loss: 10.1063 iter time (s): 0.052 samples/sec: 305.905
+steps: 7 loss: 10.3126 iter time (s): 0.053 samples/sec: 303.039
+steps: 8 loss: 9.6298 iter time (s): 0.052 samples/sec: 305.247
+steps: 9 loss: 9.3179 iter time (s): 0.053 samples/sec: 302.096
+steps: 10 loss: 8.8214 iter time (s): 0.052 samples/sec: 304.866
+----------------------------------------------------------------------------------------------
+ validation loss at iteration 10 | lm loss value: 8.783522E+00 | lm loss PPL: 6.525818E+03 | 
+----------------------------------------------------------------------------------------------
+steps: 11 loss: 8.6610 iter time (s): 0.052 samples/sec: 305.711
+steps: 12 loss: 8.7011 iter time (s): 0.052 samples/sec: 305.408
+steps: 13 loss: 8.4694 iter time (s): 0.053 samples/sec: 303.657
+steps: 14 loss: 8.1495 iter time (s): 0.052 samples/sec: 305.606
+steps: 15 loss: 8.8217 iter time (s): 0.053 samples/sec: 303.569
+steps: 16 loss: 8.2942 iter time (s): 0.052 samples/sec: 306.355
+steps: 17 loss: 9.0034 iter time (s): 0.053 samples/sec: 303.598
+steps: 18 loss: 8.4807 iter time (s): 0.053 samples/sec: 301.507
+steps: 19 loss: 8.3484 iter time (s): 0.053 samples/sec: 302.178
+steps: 20 loss: 8.4041 iter time (s): 0.053 samples/sec: 304.024
+----------------------------------------------------------------------------------------------
+ validation loss at iteration 20 | lm loss value: 8.244637E+00 | lm loss PPL: 3.807155E+03 | 
+----------------------------------------------------------------------------------------------
+steps: 21 loss: 8.2258 iter time (s): 0.052 samples/sec: 305.775
+steps: 22 loss: 8.5134 iter time (s): 0.052 samples/sec: 305.917
+steps: 23 loss: 8.0344 iter time (s): 0.053 samples/sec: 304.142
+steps: 24 loss: 8.4837 iter time (s): 0.052 samples/sec: 306.150
+steps: 25 loss: 8.1906 iter time (s): 0.052 samples/sec: 305.116
+steps: 26 loss: 8.3697 iter time (s): 0.052 samples/sec: 305.570
+steps: 27 loss: 8.1722 iter time (s): 0.053 samples/sec: 304.450
+steps: 28 loss: 8.2822 iter time (s): 0.052 samples/sec: 307.264
+steps: 29 loss: 8.1052 iter time (s): 0.053 samples/sec: 304.284
+steps: 30 loss: 8.2672 iter time (s): 0.052 samples/sec: 305.462
+----------------------------------------------------------------------------------------------
+ validation loss at iteration 30 | lm loss value: 8.121364E+00 | lm loss PPL: 3.365607E+03 | 
+----------------------------------------------------------------------------------------------
+steps: 31 loss: 8.1781 iter time (s): 0.052 samples/sec: 306.175
+steps: 32 loss: 8.2676 iter time (s): 0.052 samples/sec: 305.959
+steps: 33 loss: 8.0909 iter time (s): 0.053 samples/sec: 303.770
+steps: 34 loss: 7.9669 iter time (s): 0.052 samples/sec: 306.397
+steps: 35 loss: 7.9866 iter time (s): 0.052 samples/sec: 305.069
+steps: 36 loss: 8.4059 iter time (s): 0.052 samples/sec: 306.758
+steps: 37 loss: 8.0839 iter time (s): 0.052 samples/sec: 304.884
+steps: 38 loss: 8.3102 iter time (s): 0.052 samples/sec: 306.655
+steps: 39 loss: 8.1017 iter time (s): 0.052 samples/sec: 305.176
+steps: 40 loss: 7.9922 iter time (s): 0.052 samples/sec: 307.282
+----------------------------------------------------------------------------------------------
+ validation loss at iteration 40 | lm loss value: 7.980271E+00 | lm loss PPL: 2.922724E+03 | 
+----------------------------------------------------------------------------------------------
+steps: 41 loss: 8.0037 iter time (s): 0.053 samples/sec: 303.058
+steps: 42 loss: 8.0656 iter time (s): 0.052 samples/sec: 306.794
+steps: 43 loss: 7.9339 iter time (s): 0.053 samples/sec: 304.516
+steps: 44 loss: 7.9859 iter time (s): 0.052 samples/sec: 306.126
+steps: 45 loss: 7.9571 iter time (s): 0.053 samples/sec: 304.551
+steps: 46 loss: 7.8094 iter time (s): 0.052 samples/sec: 307.307
+steps: 47 loss: 7.8465 iter time (s): 0.053 samples/sec: 304.130
+steps: 48 loss: 7.9013 iter time (s): 0.052 samples/sec: 307.023
+steps: 49 loss: 7.9360 iter time (s): 0.053 samples/sec: 303.982
+steps: 50 loss: 7.8948 iter time (s): 0.052 samples/sec: 306.589
+----------------------------------------------------------------------------------------------
+ validation loss at iteration 50 | lm loss value: 7.918847E+00 | lm loss PPL: 2.748600E+03 | 
+----------------------------------------------------------------------------------------------
+steps: 51 loss: 7.8668 iter time (s): 0.052 samples/sec: 305.133
+steps: 52 loss: 7.9396 iter time (s): 0.052 samples/sec: 307.597
+steps: 53 loss: 7.9827 iter time (s): 0.053 samples/sec: 304.474
+steps: 54 loss: 8.0256 iter time (s): 0.052 samples/sec: 306.037
+steps: 55 loss: 7.9940 iter time (s): 0.053 samples/sec: 304.569
+steps: 56 loss: 7.8377 iter time (s): 0.052 samples/sec: 306.445
+steps: 57 loss: 8.0159 iter time (s): 0.053 samples/sec: 301.333
+steps: 58 loss: 7.9684 iter time (s): 0.052 samples/sec: 306.938
+steps: 59 loss: 7.9440 iter time (s): 0.053 samples/sec: 303.492
+steps: 60 loss: 7.7347 iter time (s): 0.052 samples/sec: 306.547
+----------------------------------------------------------------------------------------------
+ validation loss at iteration 60 | lm loss value: 7.821135E+00 | lm loss PPL: 2.492733E+03 | 
+----------------------------------------------------------------------------------------------
+steps: 61 loss: 7.9299 iter time (s): 0.052 samples/sec: 306.435
+steps: 62 loss: 7.9013 iter time (s): 0.052 samples/sec: 306.379
+steps: 63 loss: 7.9868 iter time (s): 0.053 samples/sec: 303.681
+steps: 64 loss: 7.9069 iter time (s): 0.052 samples/sec: 306.529
+steps: 65 loss: 7.6747 iter time (s): 0.055 samples/sec: 293.378
+steps: 66 loss: 7.7266 iter time (s): 0.054 samples/sec: 297.144
+steps: 67 loss: 7.7749 iter time (s): 0.053 samples/sec: 303.693
+steps: 68 loss: 7.9249 iter time (s): 0.052 samples/sec: 306.276
+steps: 69 loss: 7.7483 iter time (s): 0.052 samples/sec: 305.116
+steps: 70 loss: 7.9728 iter time (s): 0.052 samples/sec: 306.571
+----------------------------------------------------------------------------------------------
+ validation loss at iteration 70 | lm loss value: 7.799507E+00 | lm loss PPL: 2.439399E+03 | 
+----------------------------------------------------------------------------------------------
+steps: 71 loss: 7.8095 iter time (s): 0.053 samples/sec: 304.264
+steps: 72 loss: 7.8202 iter time (s): 0.052 samples/sec: 305.935
+steps: 73 loss: 8.1089 iter time (s): 0.053 samples/sec: 303.846
+steps: 74 loss: 7.8917 iter time (s): 0.052 samples/sec: 306.764
+steps: 75 loss: 7.6924 iter time (s): 0.053 samples/sec: 304.272
+steps: 76 loss: 7.7783 iter time (s): 0.052 samples/sec: 307.186
+steps: 77 loss: 7.7416 iter time (s): 0.053 samples/sec: 304.676
+steps: 78 loss: 7.7008 iter time (s): 0.052 samples/sec: 306.583
+steps: 79 loss: 8.1862 iter time (s): 0.053 samples/sec: 304.581
+steps: 80 loss: 7.7417 iter time (s): 0.052 samples/sec: 306.547
+----------------------------------------------------------------------------------------------
+ validation loss at iteration 80 | lm loss value: 7.724144E+00 | lm loss PPL: 2.262315E+03 | 
+----------------------------------------------------------------------------------------------
+steps: 81 loss: 7.7134 iter time (s): 0.052 samples/sec: 305.546
+steps: 82 loss: 7.7550 iter time (s): 0.054 samples/sec: 298.011
+steps: 83 loss: 7.6755 iter time (s): 0.052 samples/sec: 304.842
+steps: 84 loss: 7.6670 iter time (s): 0.052 samples/sec: 306.541
+steps: 85 loss: 7.6132 iter time (s): 0.052 samples/sec: 305.307
+steps: 86 loss: 7.6556 iter time (s): 0.052 samples/sec: 307.343
+steps: 87 loss: 7.5871 iter time (s): 0.053 samples/sec: 304.201
+steps: 88 loss: 7.7879 iter time (s): 0.052 samples/sec: 305.959
+steps: 89 loss: 7.9420 iter time (s): 0.053 samples/sec: 299.881
+steps: 90 loss: 7.4717 iter time (s): 0.052 samples/sec: 306.848
+----------------------------------------------------------------------------------------------
+ validation loss at iteration 90 | lm loss value: 7.700974E+00 | lm loss PPL: 2.210501E+03 | 
+----------------------------------------------------------------------------------------------
+steps: 91 loss: 7.7477 iter time (s): 0.054 samples/sec: 295.051
+steps: 92 loss: 8.0672 iter time (s): 0.053 samples/sec: 299.795
+steps: 93 loss: 7.5114 iter time (s): 0.053 samples/sec: 304.581
+steps: 94 loss: 7.8051 iter time (s): 0.052 samples/sec: 305.923
+steps: 95 loss: 7.7657 iter time (s): 0.052 samples/sec: 304.932
+steps: 96 loss: 7.6683 iter time (s): 0.052 samples/sec: 306.481
+steps: 97 loss: 7.7843 iter time (s): 0.053 samples/sec: 303.787
+steps: 98 loss: 7.4960 iter time (s): 0.053 samples/sec: 303.345
+steps: 99 loss: 7.6677 iter time (s): 0.053 samples/sec: 300.100
+steps: 100 loss: 7.4074 iter time (s): 0.052 samples/sec: 306.427
+ iteration      100/     200 | consumed samples:         1600 | consumed tokens:       819200 | elapsed time per iteration (ms): 111.8 | learning rate: 3.300E-03 | global batch size:    16 | lm loss: 8.157805E+00 | loss scale: 1.0 | grad norm: 0.315 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 143.068 | tokens per gpu per second (tgs): 18312.716 | TFLOPs: 5.93 |
+[Rank 0] (after 100 iterations) memory (MB) | allocated: 659.56689453125 | max allocated: 2643.61962890625 | reserved: 3734.0 | max reserved: 3734.0
+-----------------------------------------------------------------------------------------------
+ validation loss at iteration 100 | lm loss value: 7.610021E+00 | lm loss PPL: 2.018320E+03 | 
+-----------------------------------------------------------------------------------------------
+saving checkpoint at iteration     100 to z1_uni_ckpt/checkpoints/source_tp1_pp1_dp4_sp1
+  successfully saved checkpoint at iteration     100 to z1_uni_ckpt/checkpoints/source_tp1_pp1_dp4_sp1
+Checkpoint Save GB: 0.542, GB/Sec: 1.19, Latency(second): 0.455
+(min, max) time across ranks (ms):
+    save-checkpoint ................................: (455.40, 455.48)
+steps: 101 loss: 7.7942 iter time (s): 0.054 samples/sec: 296.675
+steps: 102 loss: 7.6637 iter time (s): 0.052 samples/sec: 305.989
+steps: 103 loss: 7.5939 iter time (s): 0.052 samples/sec: 306.337
+steps: 104 loss: 7.7389 iter time (s): 0.052 samples/sec: 306.505
+steps: 105 loss: 7.6537 iter time (s): 0.053 samples/sec: 302.916
+steps: 106 loss: 7.3215 iter time (s): 0.052 samples/sec: 306.962
+steps: 107 loss: 7.8221 iter time (s): 0.053 samples/sec: 304.723
+steps: 108 loss: 7.6584 iter time (s): 0.052 samples/sec: 306.511
+steps: 109 loss: 7.3787 iter time (s): 0.052 samples/sec: 305.881
+steps: 110 loss: 7.5010 iter time (s): 0.052 samples/sec: 306.102
+-----------------------------------------------------------------------------------------------
+ validation loss at iteration 110 | lm loss value: 7.549998E+00 | lm loss PPL: 1.900739E+03 | 
+-----------------------------------------------------------------------------------------------
+steps: 111 loss: 7.7930 iter time (s): 0.052 samples/sec: 306.405
+steps: 112 loss: 7.5435 iter time (s): 0.052 samples/sec: 306.174
+steps: 113 loss: 7.3596 iter time (s): 0.053 samples/sec: 304.190
+steps: 114 loss: 7.6508 iter time (s): 0.052 samples/sec: 306.836
+steps: 115 loss: 7.6985 iter time (s): 0.052 samples/sec: 305.899
+steps: 116 loss: 7.3502 iter time (s): 0.052 samples/sec: 307.017
+steps: 117 loss: 7.4916 iter time (s): 0.052 samples/sec: 305.331
+steps: 118 loss: 7.5735 iter time (s): 0.052 samples/sec: 306.511
+steps: 119 loss: 7.5480 iter time (s): 0.053 samples/sec: 302.704
+steps: 120 loss: 7.4560 iter time (s): 0.052 samples/sec: 305.671
+-----------------------------------------------------------------------------------------------
+ validation loss at iteration 120 | lm loss value: 7.512914E+00 | lm loss PPL: 1.831543E+03 | 
+-----------------------------------------------------------------------------------------------
+steps: 121 loss: 7.3799 iter time (s): 0.053 samples/sec: 301.608
+steps: 122 loss: 7.4462 iter time (s): 0.052 samples/sec: 305.307
+steps: 123 loss: 7.6263 iter time (s): 0.052 samples/sec: 305.319
+steps: 124 loss: 7.3758 iter time (s): 0.052 samples/sec: 306.252
+steps: 125 loss: 7.6713 iter time (s): 0.053 samples/sec: 304.486
+steps: 126 loss: 7.2765 iter time (s): 0.052 samples/sec: 306.842
+steps: 127 loss: 7.5339 iter time (s): 0.053 samples/sec: 304.486
+steps: 128 loss: 7.3657 iter time (s): 0.053 samples/sec: 303.846
+steps: 129 loss: 7.5709 iter time (s): 0.053 samples/sec: 304.296
+steps: 130 loss: 7.2609 iter time (s): 0.052 samples/sec: 305.331
+-----------------------------------------------------------------------------------------------
+ validation loss at iteration 130 | lm loss value: 7.483784E+00 | lm loss PPL: 1.778959E+03 | 
+-----------------------------------------------------------------------------------------------
+steps: 131 loss: 7.6346 iter time (s): 0.053 samples/sec: 304.221
+steps: 132 loss: 7.4509 iter time (s): 0.052 samples/sec: 305.295
+steps: 133 loss: 7.4870 iter time (s): 0.053 samples/sec: 301.170
+steps: 134 loss: 7.7293 iter time (s): 0.052 samples/sec: 305.146
+steps: 135 loss: 7.4833 iter time (s): 0.053 samples/sec: 304.415
+steps: 136 loss: 7.6101 iter time (s): 0.052 samples/sec: 306.824
+steps: 137 loss: 7.2897 iter time (s): 0.053 samples/sec: 304.444
+steps: 138 loss: 7.1460 iter time (s): 0.052 samples/sec: 306.481
+steps: 139 loss: 7.5478 iter time (s): 0.053 samples/sec: 304.700
+steps: 140 loss: 7.4580 iter time (s): 0.052 samples/sec: 306.001
+-----------------------------------------------------------------------------------------------
+ validation loss at iteration 140 | lm loss value: 7.416059E+00 | lm loss PPL: 1.662468E+03 | 
+-----------------------------------------------------------------------------------------------
+steps: 141 loss: 7.3741 iter time (s): 0.054 samples/sec: 298.877
+steps: 142 loss: 7.2576 iter time (s): 0.053 samples/sec: 304.261
+steps: 143 loss: 7.2768 iter time (s): 0.053 samples/sec: 303.935
+steps: 144 loss: 7.1292 iter time (s): 0.053 samples/sec: 304.533
+steps: 145 loss: 7.5799 iter time (s): 0.053 samples/sec: 303.057
+steps: 146 loss: 7.1735 iter time (s): 0.052 samples/sec: 306.739
+steps: 147 loss: 7.2697 iter time (s): 0.053 samples/sec: 304.107
+steps: 148 loss: 7.5145 iter time (s): 0.052 samples/sec: 305.935
+steps: 149 loss: 7.2059 iter time (s): 0.052 samples/sec: 305.689
+steps: 150 loss: 7.2735 iter time (s): 0.052 samples/sec: 306.090
+-----------------------------------------------------------------------------------------------
+ validation loss at iteration 150 | lm loss value: 7.361177E+00 | lm loss PPL: 1.573688E+03 | 
+-----------------------------------------------------------------------------------------------
+steps: 151 loss: 7.1915 iter time (s): 0.053 samples/sec: 304.127
+steps: 152 loss: 7.3547 iter time (s): 0.052 samples/sec: 306.132
+steps: 153 loss: 7.5365 iter time (s): 0.053 samples/sec: 304.030
+steps: 154 loss: 7.2043 iter time (s): 0.052 samples/sec: 305.815
+steps: 155 loss: 7.5573 iter time (s): 0.052 samples/sec: 305.731
+steps: 156 loss: 7.3724 iter time (s): 0.052 samples/sec: 305.983
+steps: 157 loss: 7.1167 iter time (s): 0.053 samples/sec: 304.178
+steps: 158 loss: 7.3079 iter time (s): 0.053 samples/sec: 303.392
+steps: 159 loss: 7.3440 iter time (s): 0.053 samples/sec: 302.277
+steps: 160 loss: 7.3422 iter time (s): 0.052 samples/sec: 305.719
+-----------------------------------------------------------------------------------------------
+ validation loss at iteration 160 | lm loss value: 7.323005E+00 | lm loss PPL: 1.514749E+03 | 
+-----------------------------------------------------------------------------------------------
+steps: 161 loss: 7.2719 iter time (s): 0.052 samples/sec: 306.248
+steps: 162 loss: 7.4271 iter time (s): 0.052 samples/sec: 306.048
+steps: 163 loss: 7.1536 iter time (s): 0.053 samples/sec: 303.882
+steps: 164 loss: 7.1877 iter time (s): 0.052 samples/sec: 306.727
+steps: 165 loss: 7.1833 iter time (s): 0.053 samples/sec: 304.444
+steps: 166 loss: 7.2649 iter time (s): 0.052 samples/sec: 304.938
+steps: 167 loss: 7.4713 iter time (s): 0.053 samples/sec: 303.876
+steps: 168 loss: 7.3564 iter time (s): 0.052 samples/sec: 306.186
+steps: 169 loss: 7.1812 iter time (s): 0.053 samples/sec: 304.729
+steps: 170 loss: 7.2031 iter time (s): 0.052 samples/sec: 306.019
+-----------------------------------------------------------------------------------------------
+ validation loss at iteration 170 | lm loss value: 7.312626E+00 | lm loss PPL: 1.499109E+03 | 
+-----------------------------------------------------------------------------------------------
+steps: 171 loss: 7.2788 iter time (s): 0.052 samples/sec: 305.661
+steps: 172 loss: 7.4206 iter time (s): 0.052 samples/sec: 305.875
+steps: 173 loss: 7.1472 iter time (s): 0.053 samples/sec: 303.616
+steps: 174 loss: 7.1300 iter time (s): 0.052 samples/sec: 306.938
+steps: 175 loss: 7.1781 iter time (s): 0.052 samples/sec: 305.528
+steps: 176 loss: 7.3141 iter time (s): 0.053 samples/sec: 302.570
+steps: 177 loss: 7.1279 iter time (s): 0.053 samples/sec: 303.186
+steps: 178 loss: 7.5592 iter time (s): 0.052 samples/sec: 305.947
+steps: 179 loss: 7.5043 iter time (s): 0.052 samples/sec: 305.576
+steps: 180 loss: 7.3701 iter time (s): 0.052 samples/sec: 307.174
+-----------------------------------------------------------------------------------------------
+ validation loss at iteration 180 | lm loss value: 7.216972E+00 | lm loss PPL: 1.362357E+03 | 
+-----------------------------------------------------------------------------------------------
+steps: 181 loss: 7.1805 iter time (s): 0.052 samples/sec: 306.647
+steps: 182 loss: 7.1008 iter time (s): 0.052 samples/sec: 306.294
+steps: 183 loss: 7.4218 iter time (s): 0.052 samples/sec: 306.096
+steps: 184 loss: 7.4145 iter time (s): 0.052 samples/sec: 306.025
+steps: 185 loss: 7.3501 iter time (s): 0.053 samples/sec: 304.243
+steps: 186 loss: 7.3592 iter time (s): 0.053 samples/sec: 303.080
+steps: 187 loss: 7.3016 iter time (s): 0.052 samples/sec: 305.671
+steps: 188 loss: 7.3966 iter time (s): 0.052 samples/sec: 306.595
+steps: 189 loss: 7.0053 iter time (s): 0.052 samples/sec: 305.003
+steps: 190 loss: 7.1954 iter time (s): 0.052 samples/sec: 307.095
+-----------------------------------------------------------------------------------------------
+ validation loss at iteration 190 | lm loss value: 7.192031E+00 | lm loss PPL: 1.328800E+03 | 
+-----------------------------------------------------------------------------------------------
+steps: 191 loss: 7.2866 iter time (s): 0.053 samples/sec: 304.525
+steps: 192 loss: 7.2511 iter time (s): 0.052 samples/sec: 304.813
+steps: 193 loss: 7.3571 iter time (s): 0.053 samples/sec: 302.558
+steps: 194 loss: 7.1376 iter time (s): 0.052 samples/sec: 305.450
+steps: 195 loss: 7.2632 iter time (s): 0.053 samples/sec: 304.118
+steps: 196 loss: 7.1723 iter time (s): 0.052 samples/sec: 306.168
+steps: 197 loss: 7.3471 iter time (s): 0.053 samples/sec: 304.723
+steps: 198 loss: 7.2009 iter time (s): 0.052 samples/sec: 306.216
+steps: 199 loss: 7.3544 iter time (s): 0.052 samples/sec: 305.385
+steps: 200 loss: 7.1488 iter time (s): 0.052 samples/sec: 305.570
+ iteration      200/     200 | consumed samples:         3200 | consumed tokens:      1638400 | elapsed time per iteration (ms): 120.3 | learning rate: 6.000E-04 | global batch size:    16 | lm loss: 7.382928E+00 | loss scale: 1.0 | grad norm: 0.273 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 133.006 | tokens per gpu per second (tgs): 17024.737 | TFLOPs: 5.52 |
+-----------------------------------------------------------------------------------------------
+ validation loss at iteration 200 | lm loss value: 7.147330E+00 | lm loss PPL: 1.270708E+03 | 
+-----------------------------------------------------------------------------------------------
+saving checkpoint at iteration     200 to z1_uni_ckpt/checkpoints/source_tp1_pp1_dp4_sp1
+  successfully saved checkpoint at iteration     200 to z1_uni_ckpt/checkpoints/source_tp1_pp1_dp4_sp1
+Checkpoint Save GB: 0.542, GB/Sec: 1.05, Latency(second): 0.517
+(min, max) time across ranks (ms):
+    save-checkpoint ................................: (516.82, 516.86)
+[after training is done] datetime: 2026-01-15 13:08:58 
+saving checkpoint at iteration     200 to z1_uni_ckpt/checkpoints/source_tp1_pp1_dp4_sp1
+  successfully saved checkpoint at iteration     200 to z1_uni_ckpt/checkpoints/source_tp1_pp1_dp4_sp1
+--------------------------------------------------------------------------------------------------------------------------------------
+ validation loss at iteration 200 on 640-sample draw from validation set | lm loss value: 7.184072E+00 | lm loss PPL: 1.318265E+03 | 
+--------------------------------------------------------------------------------------------------------------------------------------
+[2026-01-15 13:09:06,035] [INFO] [launch.py:367:main] Process 3172013 exits successfully.
+[2026-01-15 13:09:06,035] [INFO] [launch.py:367:main] Process 3172014 exits successfully.
+[2026-01-15 13:09:06,036] [INFO] [launch.py:367:main] Process 3172015 exits successfully.
+[2026-01-15 13:09:06,036] [INFO] [launch.py:367:main] Process 3172012 exits successfully.

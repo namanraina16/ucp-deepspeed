@@ -1,0 +1,11 @@
+# Large checkpoint files
+**/*.pt
+**/*.pth
+**/*.bin
+**/*.safetensors
+
+# Logs/cache
+__pycache__/
+*.pyc
+.DS_Store
+wandb/

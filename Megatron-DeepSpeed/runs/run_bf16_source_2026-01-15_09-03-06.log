@@ -1,0 +1,1126 @@
+Warning: The cache directory for DeepSpeed Triton autotune, /u/namanr2/.triton/autotune, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+[2026-01-15 09:03:15,034] [WARNING] [runner.py:232:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+Detected VISIBLE_DEVICES=0,1,2,3 but ignoring it because one or several of --include/--exclude/--num_gpus/--num_nodes cl args were used. If you want to use CUDA_VISIBLE_DEVICES don't pass any of these arguments to deepspeed.
+[2026-01-15 09:03:15,035] [INFO] [runner.py:630:main] cmd = /u/namanr2/.conda/envs/ucp_env/bin/python3.10 -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMSwgMiwgM119 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None --log_level=info pretrain_gpt.py --tensor-model-parallel-size 1 --pipeline-model-parallel-size 1 --num-layers 4 --hidden-size 512 --num-attention-heads 32 --seq-length 512 --max-position-embeddings 512 --micro-batch-size 4 --global-batch-size 16 --train-iters 200 --lr 6.0e-3 --min-lr 6.0e-4 --lr-decay-style cosine --log-interval 1 --eval-iters 40 --eval-interval 100 --data-path /u/namanr2/Univ_Ckpt/Megatron-DeepSpeed/data/my-gpt2_text_document --vocab-file data/gpt2-vocab.json --merge-file data/gpt2-merges.txt --save-interval 100 --save z1_uni_ckpt/checkpoints/gpt2/source_bf16_dp4 --split 98,2,0 --clip-grad 1.0 --weight-decay 0.1 --adam-beta1 0.9 --adam-beta2 0.95 --init-method-std 0.006 --bf16 --checkpoint-activations --tensorboard-dir z1_uni_ckpt/tensorboard/bf16/source_dp4 --tensorboard-log-interval 1 --deepspeed --deepspeed_config ds_config_bf16_source.json --zero-stage=1 --deepspeed-activation-checkpointing
+Warning: The cache directory for DeepSpeed Triton autotune, /u/namanr2/.triton/autotune, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+[2026-01-15 09:03:21,142] [INFO] [launch.py:162:main] WORLD INFO DICT: {'localhost': [0, 1, 2, 3]}
+[2026-01-15 09:03:21,142] [INFO] [launch.py:168:main] nnodes=1, num_local_procs=4, node_rank=0
+[2026-01-15 09:03:21,142] [INFO] [launch.py:179:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1, 2, 3]})
+[2026-01-15 09:03:21,142] [INFO] [launch.py:180:main] dist_world_size=4
+[2026-01-15 09:03:21,142] [INFO] [launch.py:184:main] Setting CUDA_VISIBLE_DEVICES=0,1,2,3
+[2026-01-15 09:03:21,143] [INFO] [launch.py:272:main] process 2874317 spawned with command: ['/u/namanr2/.conda/envs/ucp_env/bin/python3.10', '-u', 'pretrain_gpt.py', '--local_rank=0', '--tensor-model-parallel-size', '1', '--pipeline-model-parallel-size', '1', '--num-layers', '4', '--hidden-size', '512', '--num-attention-heads', '32', '--seq-length', '512', '--max-position-embeddings', '512', '--micro-batch-size', '4', '--global-batch-size', '16', '--train-iters', '200', '--lr', '6.0e-3', '--min-lr', '6.0e-4', '--lr-decay-style', 'cosine', '--log-interval', '1', '--eval-iters', '40', '--eval-interval', '100', '--data-path', '/u/namanr2/Univ_Ckpt/Megatron-DeepSpeed/data/my-gpt2_text_document', '--vocab-file', 'data/gpt2-vocab.json', '--merge-file', 'data/gpt2-merges.txt', '--save-interval', '100', '--save', 'z1_uni_ckpt/checkpoints/gpt2/source_bf16_dp4', '--split', '98,2,0', '--clip-grad', '1.0', '--weight-decay', '0.1', '--adam-beta1', '0.9', '--adam-beta2', '0.95', '--init-method-std', '0.006', '--bf16', '--checkpoint-activations', '--tensorboard-dir', 'z1_uni_ckpt/tensorboard/bf16/source_dp4', '--tensorboard-log-interval', '1', '--deepspeed', '--deepspeed_config', 'ds_config_bf16_source.json', '--zero-stage=1', '--deepspeed-activation-checkpointing']
+[2026-01-15 09:03:21,144] [INFO] [launch.py:272:main] process 2874318 spawned with command: ['/u/namanr2/.conda/envs/ucp_env/bin/python3.10', '-u', 'pretrain_gpt.py', '--local_rank=1', '--tensor-model-parallel-size', '1', '--pipeline-model-parallel-size', '1', '--num-layers', '4', '--hidden-size', '512', '--num-attention-heads', '32', '--seq-length', '512', '--max-position-embeddings', '512', '--micro-batch-size', '4', '--global-batch-size', '16', '--train-iters', '200', '--lr', '6.0e-3', '--min-lr', '6.0e-4', '--lr-decay-style', 'cosine', '--log-interval', '1', '--eval-iters', '40', '--eval-interval', '100', '--data-path', '/u/namanr2/Univ_Ckpt/Megatron-DeepSpeed/data/my-gpt2_text_document', '--vocab-file', 'data/gpt2-vocab.json', '--merge-file', 'data/gpt2-merges.txt', '--save-interval', '100', '--save', 'z1_uni_ckpt/checkpoints/gpt2/source_bf16_dp4', '--split', '98,2,0', '--clip-grad', '1.0', '--weight-decay', '0.1', '--adam-beta1', '0.9', '--adam-beta2', '0.95', '--init-method-std', '0.006', '--bf16', '--checkpoint-activations', '--tensorboard-dir', 'z1_uni_ckpt/tensorboard/bf16/source_dp4', '--tensorboard-log-interval', '1', '--deepspeed', '--deepspeed_config', 'ds_config_bf16_source.json', '--zero-stage=1', '--deepspeed-activation-checkpointing']
+[2026-01-15 09:03:21,145] [INFO] [launch.py:272:main] process 2874319 spawned with command: ['/u/namanr2/.conda/envs/ucp_env/bin/python3.10', '-u', 'pretrain_gpt.py', '--local_rank=2', '--tensor-model-parallel-size', '1', '--pipeline-model-parallel-size', '1', '--num-layers', '4', '--hidden-size', '512', '--num-attention-heads', '32', '--seq-length', '512', '--max-position-embeddings', '512', '--micro-batch-size', '4', '--global-batch-size', '16', '--train-iters', '200', '--lr', '6.0e-3', '--min-lr', '6.0e-4', '--lr-decay-style', 'cosine', '--log-interval', '1', '--eval-iters', '40', '--eval-interval', '100', '--data-path', '/u/namanr2/Univ_Ckpt/Megatron-DeepSpeed/data/my-gpt2_text_document', '--vocab-file', 'data/gpt2-vocab.json', '--merge-file', 'data/gpt2-merges.txt', '--save-interval', '100', '--save', 'z1_uni_ckpt/checkpoints/gpt2/source_bf16_dp4', '--split', '98,2,0', '--clip-grad', '1.0', '--weight-decay', '0.1', '--adam-beta1', '0.9', '--adam-beta2', '0.95', '--init-method-std', '0.006', '--bf16', '--checkpoint-activations', '--tensorboard-dir', 'z1_uni_ckpt/tensorboard/bf16/source_dp4', '--tensorboard-log-interval', '1', '--deepspeed', '--deepspeed_config', 'ds_config_bf16_source.json', '--zero-stage=1', '--deepspeed-activation-checkpointing']
+[2026-01-15 09:03:21,146] [INFO] [launch.py:272:main] process 2874320 spawned with command: ['/u/namanr2/.conda/envs/ucp_env/bin/python3.10', '-u', 'pretrain_gpt.py', '--local_rank=3', '--tensor-model-parallel-size', '1', '--pipeline-model-parallel-size', '1', '--num-layers', '4', '--hidden-size', '512', '--num-attention-heads', '32', '--seq-length', '512', '--max-position-embeddings', '512', '--micro-batch-size', '4', '--global-batch-size', '16', '--train-iters', '200', '--lr', '6.0e-3', '--min-lr', '6.0e-4', '--lr-decay-style', 'cosine', '--log-interval', '1', '--eval-iters', '40', '--eval-interval', '100', '--data-path', '/u/namanr2/Univ_Ckpt/Megatron-DeepSpeed/data/my-gpt2_text_document', '--vocab-file', 'data/gpt2-vocab.json', '--merge-file', 'data/gpt2-merges.txt', '--save-interval', '100', '--save', 'z1_uni_ckpt/checkpoints/gpt2/source_bf16_dp4', '--split', '98,2,0', '--clip-grad', '1.0', '--weight-decay', '0.1', '--adam-beta1', '0.9', '--adam-beta2', '0.95', '--init-method-std', '0.006', '--bf16', '--checkpoint-activations', '--tensorboard-dir', 'z1_uni_ckpt/tensorboard/bf16/source_dp4', '--tensorboard-log-interval', '1', '--deepspeed', '--deepspeed_config', 'ds_config_bf16_source.json', '--zero-stage=1', '--deepspeed-activation-checkpointing']
+Warning: The cache directory for DeepSpeed Triton autotune, /u/namanr2/.triton/autotune, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+Warning: The cache directory for DeepSpeed Triton autotune, /u/namanr2/.triton/autotune, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+Warning: The cache directory for DeepSpeed Triton autotune, /u/namanr2/.triton/autotune, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+Warning: The cache directory for DeepSpeed Triton autotune, /u/namanr2/.triton/autotune, appears to be on an NFS system. While this is generally acceptable, if you experience slowdowns or hanging when DeepSpeed exits, it is recommended to set the TRITON_CACHE_DIR environment variable to a non-NFS path.
+--------------------------------------------------
+DeepSpeed C++/CUDA extension op report
+--------------------------------------------------
+NOTE: Ops not installed will be just-in-time (JIT) compiled at
+      runtime if needed. Op compatibility means that your system
+      meet the required dependencies to JIT install the op.
+--------------------------------------------------
+JIT compiled ops requires ninja
+ninja .................. [92m[OKAY][0m
+--------------------------------------------------
+op name ................ installed .. compatible
+--------------------------------------------------
+--------------------------------------------------
+DeepSpeed C++/CUDA extension op report
+--------------------------------------------------
+NOTE: Ops not installed will be just-in-time (JIT) compiled at
+      runtime if needed. Op compatibility means that your system
+      meet the required dependencies to JIT install the op.
+--------------------------------------------------
+JIT compiled ops requires ninja
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+ninja .................. [92m[OKAY][0m
+--------------------------------------------------
+op name ................ installed .. compatible
+--------------------------------------------------
+--------------------------------------------------
+DeepSpeed C++/CUDA extension op report
+--------------------------------------------------
+NOTE: Ops not installed will be just-in-time (JIT) compiled at
+      runtime if needed. Op compatibility means that your system
+      meet the required dependencies to JIT install the op.
+--------------------------------------------------
+JIT compiled ops requires ninja
+ninja .................. [92m[OKAY][0m
+--------------------------------------------------
+op name ................ installed .. compatible
+--------------------------------------------------
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+async_io ............... [93m[NO][0m ....... [93m[NO][0m
+fused_adam ............. [93m[NO][0m ....... [92m[OKAY][0m
+cpu_adam ............... [93m[NO][0m ....... [92m[OKAY][0m
+cpu_adagrad ............ [93m[NO][0m ....... [92m[OKAY][0m
+cpu_lion ............... [93m[NO][0m ....... [92m[OKAY][0m
+dc ..................... [93m[NO][0m ....... [92m[OKAY][0m
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+evoformer_attn ......... [93m[NO][0m ....... [93m[NO][0m
+fp_quantizer ........... [93m[NO][0m ....... [92m[OKAY][0m
+fused_lamb ............. [93m[NO][0m ....... [92m[OKAY][0m
+fused_lion ............. [93m[NO][0m ....... [92m[OKAY][0m
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+gds .................... [93m[NO][0m ....... [93m[NO][0m
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+async_io ............... [93m[NO][0m ....... [93m[NO][0m
+fused_adam ............. [93m[NO][0m ....... [92m[OKAY][0m
+cpu_adam ............... [93m[NO][0m ....... [92m[OKAY][0m
+cpu_adagrad ............ [93m[NO][0m ....... [92m[OKAY][0m
+cpu_lion ............... [93m[NO][0m ....... [92m[OKAY][0m
+dc ..................... [93m[NO][0m ....... [92m[OKAY][0m
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+evoformer_attn ......... [93m[NO][0m ....... [93m[NO][0m
+transformer_inference .. [93m[NO][0m ....... [92m[OKAY][0m
+fp_quantizer ........... [93m[NO][0m ....... [92m[OKAY][0m
+fused_lamb ............. [93m[NO][0m ....... [92m[OKAY][0m
+fused_lion ............. [93m[NO][0m ....... [92m[OKAY][0m
+inference_core_ops ..... [93m[NO][0m ....... [92m[OKAY][0m
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+async_io ............... [93m[NO][0m ....... [93m[NO][0m
+fused_adam ............. [93m[NO][0m ....... [92m[OKAY][0m
+cpu_adam ............... [93m[NO][0m ....... [92m[OKAY][0m
+cpu_adagrad ............ [93m[NO][0m ....... [92m[OKAY][0m
+cpu_lion ............... [93m[NO][0m ....... [92m[OKAY][0m
+dc ..................... [93m[NO][0m ....... [92m[OKAY][0m
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+evoformer_attn ......... [93m[NO][0m ....... [93m[NO][0m
+cutlass_ops ............ [93m[NO][0m ....... [92m[OKAY][0m
+quantizer .............. [93m[NO][0m ....... [92m[OKAY][0m
+fp_quantizer ........... [93m[NO][0m ....... [92m[OKAY][0m
+fused_lamb ............. [93m[NO][0m ....... [92m[OKAY][0m
+fused_lion ............. [93m[NO][0m ....... [92m[OKAY][0m
+ragged_device_ops ...... [93m[NO][0m ....... [92m[OKAY][0m
+ragged_ops ............. [93m[NO][0m ....... [92m[OKAY][0m
+random_ltd ............. [93m[NO][0m ....... [92m[OKAY][0m
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.5
+[93m [WARNING] [0m using untested triton version (3.1.0), only 1.0.0 is known to be compatible
+sparse_attn ............ [93m[NO][0m ....... [93m[NO][0m
+spatial_inference ...... [93m[NO][0m ....... [92m[OKAY][0m
+transformer ............ [93m[NO][0m ....... [92m[OKAY][0m
+stochastic_transformer . [93m[NO][0m ....... [92m[OKAY][0m
+utils .................. [93m[NO][0m ....... [92m[OKAY][0m
+--------------------------------------------------
+DeepSpeed general environment info:
+torch install path ............... ['/u/namanr2/.conda/envs/ucp_env/lib/python3.10/site-packages/torch']
+torch version .................... 2.5.1+cu121
+deepspeed install path ........... ['/u/namanr2/.conda/envs/ucp_env/lib/python3.10/site-packages/deepspeed']
+deepspeed info ................... 0.18.4, unknown, unknown
+torch cuda version ............... 12.1
+torch hip version ................ None
+nvcc version ..................... 12.8
+deepspeed wheel compiled w. ...... torch 0.0, cuda 0.0
+shared memory (/dev/shm) size .... 125.81 GB
+**** Git info for Megatron: git_hash=aab2f31 git_branch=main ****
+gds .................... [93m[NO][0m ....... [93m[NO][0m
+gds .................... [93m[NO][0m ....... [93m[NO][0m
+transformer_inference .. [93m[NO][0m ....... [92m[OKAY][0m
+transformer_inference .. [93m[NO][0m ....... [92m[OKAY][0m
+inference_core_ops ..... [93m[NO][0m ....... [92m[OKAY][0m
+inference_core_ops ..... [93m[NO][0m ....... [92m[OKAY][0m
+cutlass_ops ............ [93m[NO][0m ....... [92m[OKAY][0m
+quantizer .............. [93m[NO][0m ....... [92m[OKAY][0m
+cutlass_ops ............ [93m[NO][0m ....... [92m[OKAY][0m
+quantizer .............. [93m[NO][0m ragged_device_ops.......  [92m[OKAY][0m......
+ [93m[NO][0m ....... [92m[OKAY][0m
+ragged_device_ops ...... [93m[NO][0m ....... [92m[OKAY][0m
+ragged_ops ............. [93m[NO][0m ....... [92m[OKAY][0m
+random_ltd ............. [93m[NO][0m ....... [92m[OKAY][0m
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.5
+[93m [WARNING] [0m using untested triton version (3.1.0), only 1.0.0 is known to be compatible
+sparse_attn ............ [93m[NO][0m ....... [93m[NO][0m
+ragged_ops ............. [93m[NO][0m ....... [92m[OKAY][0m
+random_ltd ............. [93m[NO][0m ....... [92m[OKAY][0m
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.5
+[93m [WARNING] [0m using untested triton version (3.1.0), only 1.0.0 is known to be compatible
+sparse_attn ............ [93m[NO][0m ....... [93m[NO][0m
+spatial_inference ...... [93m[NO][0m ....... [92m[OKAY][0m
+transformer ............ [93m[NO][0m ....... [92m[OKAY][0m
+stochastic_transformer . [93m[NO][0m ....... [92m[OKAY][0m
+utils .................. [93m[NO][0m ....... [92m[OKAY][0m
+--------------------------------------------------
+spatial_inference ...... [93m[NO][0m ....... [92m[OKAY][0m
+transformer ............ [93m[NO][0m ....... [92m[OKAY][0m
+stochastic_transformer . [93m[NO][0m ....... [92m[OKAY][0m
+utils .................. [93m[NO][0m ....... [92m[OKAY][0m
+--------------------------------------------------
+DeepSpeed general environment info:
+torch install path ............... ['/u/namanr2/.conda/envs/ucp_env/lib/python3.10/site-packages/torch']
+torch version .................... 2.5.1+cu121
+deepspeed install path ........... ['/u/namanr2/.conda/envs/ucp_env/lib/python3.10/site-packages/deepspeed']
+deepspeed info ................... 0.18.4, unknown, unknown
+torch cuda version ............... 12.1
+torch hip version ................ None
+nvcc version ..................... 12.8
+deepspeed wheel compiled w. ...... torch 0.0, cuda 0.0
+shared memory (/dev/shm) size .... 125.81 GB
+DeepSpeed general environment info:
+torch install path ............... ['/u/namanr2/.conda/envs/ucp_env/lib/python3.10/site-packages/torch']
+torch version .................... 2.5.1+cu121
+deepspeed install path ........... ['/u/namanr2/.conda/envs/ucp_env/lib/python3.10/site-packages/deepspeed']
+deepspeed info ................... 0.18.4, unknown, unknown
+torch cuda version ............... 12.1
+torch hip version ................ None
+nvcc version ..................... 12.8
+deepspeed wheel compiled w. ...... torch 0.0, cuda 0.0
+shared memory (/dev/shm) size .... 125.81 GB
+--------------------------------------------------
+DeepSpeed C++/CUDA extension op report
+--------------------------------------------------
+NOTE: Ops not installed will be just-in-time (JIT) compiled at
+      runtime if needed. Op compatibility means that your system
+      meet the required dependencies to JIT install the op.
+--------------------------------------------------
+JIT compiled ops requires ninja
+ninja .................. [92m[OKAY][0m
+--------------------------------------------------
+op name ................ installed .. compatible
+--------------------------------------------------
+**** Git info for Megatron: git_hash=aab2f31 git_branch=main ****
+**** Git info for Megatron: git_hash=aab2f31 git_branch=main ****
+> setting tensorboard ...
+WARNING: WANDB writing requested but no legit wandb project or experiment name provided, therefore no WANDB logs will be written according to random generated project or experiment name.
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+async_io ............... [93m[NO][0m ....... [93m[NO][0m
+fused_adam ............. [93m[NO][0m ....... [92m[OKAY][0m
+cpu_adam ............... [93m[NO][0m ....... [92m[OKAY][0m
+cpu_adagrad ............ [93m[NO][0m ....... [92m[OKAY][0m
+cpu_lion ............... [93m[NO][0m ....... [92m[OKAY][0m
+dc ..................... [93m[NO][0m ....... [92m[OKAY][0m
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+evoformer_attn ......... [93m[NO][0m ....... [93m[NO][0m
+fp_quantizer ........... [93m[NO][0m ....... [92m[OKAY][0m
+fused_lamb ............. [93m[NO][0m ....... [92m[OKAY][0m
+fused_lion ............. [93m[NO][0m ....... [92m[OKAY][0m
+gds .................... [93m[NO][0m ....... [93m[NO][0m
+transformer_inference .. [93m[NO][0m ....... [92m[OKAY][0m
+inference_core_ops ..... [93m[NO][0m ....... [92m[OKAY][0m
+cutlass_ops ............ [93m[NO][0m ....... [92m[OKAY][0m
+quantizer .............. [93m[NO][0m ....... [92m[OKAY][0m
+ragged_device_ops ...... [93m[NO][0m ....... [92m[OKAY][0m
+ragged_ops ............. [93m[NO][0m ....... [92m[OKAY][0m
+random_ltd ............. [93m[NO][0m ....... [92m[OKAY][0m
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.5
+[93m [WARNING] [0m using untested triton version (3.1.0), only 1.0.0 is known to be compatible
+sparse_attn ............ [93m[NO][0m ....... [93m[NO][0m
+spatial_inference ...... [93m[NO][0m ....... [92m[OKAY][0m
+transformer ............ [93m[NO][0m ....... [92m[OKAY][0m
+stochastic_transformer . [93m[NO][0m ....... [92m[OKAY][0m
+utils .................. [93m[NO][0m ....... [92m[OKAY][0m
+--------------------------------------------------
+DeepSpeed general environment info:
+torch install path ............... ['/u/namanr2/.conda/envs/ucp_env/lib/python3.10/site-packages/torch']
+torch version .................... 2.5.1+cu121
+deepspeed install path ........... ['/u/namanr2/.conda/envs/ucp_env/lib/python3.10/site-packages/deepspeed']
+deepspeed info ................... 0.18.4, unknown, unknown
+torch cuda version ............... 12.1
+torch hip version ................ None
+nvcc version ..................... 12.8
+deepspeed wheel compiled w. ...... torch 0.0, cuda 0.0
+shared memory (/dev/shm) size .... 125.81 GB
+**** Git info for Megatron: git_hash=aab2f31 git_branch=main ****
+using world size: 4, data-parallel-size: 4, sequence-parallel size: 1, tensor-model-parallel size: 1, pipeline-model-parallel size: 1 
+accumulate and all-reduce gradients in fp32 for bfloat16 data type.
+using torch.bfloat16 for parameters ...
+------------------------ arguments ------------------------
+  accumulate_allreduce_grads_in_fp32 .............. True
+  adam_beta1 ...................................... 0.9
+  adam_beta2 ...................................... 0.95
+  adam_eps ........................................ 1e-08
+  add_bias_linear ................................. True
+  add_position_embedding .......................... True
+  adlr_autoresume ................................. False
+  adlr_autoresume_interval ........................ 1000
+  aml_data_download_path .......................... None
+  apply_layernorm_1p .............................. False
+  apply_query_key_layer_scaling ................... True
+  apply_residual_connection_post_layernorm ........ False
+  async_tensor_model_parallel_allreduce ........... False
+  attention_dropout ............................... 0.1
+  attention_softmax_in_fp32 ....................... False
+  barrier_with_L1_time ............................ True
+  bert_binary_head ................................ True
+  bert_embedder_type .............................. megatron
+  bert_load ....................................... None
+  bf16 ............................................ True
+  bias_dropout_fusion ............................. True
+  bias_gelu_fusion ................................ True
+  biencoder_projection_dim ........................ 0
+  biencoder_shared_query_context_model ............ False
+  block_data_path ................................. None
+  checkpoint_activations .......................... True
+  checkpoint_in_cpu ............................... False
+  checkpoint_num_layers ........................... 1
+  classes_fraction ................................ 1.0
+  clip_grad ....................................... 1.0
+  compression_training ............................ False
+  consumed_train_samples .......................... 0
+  consumed_train_tokens ........................... 0
+  consumed_valid_samples .......................... 0
+  contigious_checkpointing ........................ False
+  cpu_optimizer ................................... False
+  cpu_torch_adam .................................. False
+  create_moe_param_group .......................... False
+  curriculum_learning_legacy ...................... False
+  data_cache_path ................................. None
+  data_efficiency_curriculum_learning ............. False
+  data_impl ....................................... infer
+  data_parallel_random_init ....................... False
+  data_parallel_size .............................. 4
+  data_path ....................................... ['/u/namanr2/Univ_Ckpt/Megatron-DeepSpeed/data/my-gpt2_text_document']
+  data_per_class_fraction ......................... 1.0
+  data_sharding ................................... True
+  dataloader_type ................................. single
+  DDP_impl ........................................ local
+  decoder_num_layers .............................. None
+  decoder_seq_length .............................. None
+  deepscale ....................................... False
+  deepscale_config ................................ None
+  deepspeed ....................................... True
+  deepspeed_activation_checkpointing .............. True
+  deepspeed_config ................................ ds_config_bf16_source.json
+  dino_bottleneck_size ............................ 256
+  dino_freeze_last_layer .......................... 1
+  dino_head_hidden_size ........................... 2048
+  dino_local_crops_number ......................... 10
+  dino_local_img_size ............................. 96
+  dino_norm_last_layer ............................ False
+  dino_teacher_temp ............................... 0.07
+  dino_warmup_teacher_temp ........................ 0.04
+  dino_warmup_teacher_temp_epochs ................. 30
+  distribute_checkpointed_activations ............. False
+  distribute_saved_activations .................... False
+  distributed_backend ............................. nccl
+  distributed_timeout_minutes ..................... 10
+  ds_fused_adam ................................... False
+  ds_inference .................................... False
+  ds_pipeline_enabled ............................. True
+  ds_sequence_parallel_fpdt ....................... False
+  ds_sequence_parallel_fpdt_chunk_size ............ 65536
+  ds_sequence_parallel_fpdt_offloading ............ False
+  ds_sequence_parallel_size ....................... 1
+  embedding_path .................................. None
+  embedding_weights_in_fp32 ....................... False
+  empty_unused_memory_level ....................... 0
+  enable_expert_tensor_parallelism ................ False
+  enable_zbh1_exact_semantics ..................... False
+  enable_zbh1_pipeline ............................ False
+  encoder_num_layers .............................. 4
+  encoder_seq_length .............................. 512
+  end_weight_decay ................................ 0.1
+  eod_mask_loss ................................... False
+  eval_interval ................................... 100
+  eval_iters ...................................... 40
+  evidence_data_path .............................. None
+  exit_duration_in_mins ........................... None
+  exit_interval ................................... None
+  exit_on_missing_checkpoint ...................... False
+  exit_signal_handler ............................. False
+  expert_interval ................................. 2
+  ffn_hidden_size ................................. 2048
+  finetune ........................................ False
+  force_ds_sequence_parallel ...................... False
+  fp16 ............................................ False
+  fp16_lm_cross_entropy ........................... False
+  fp32_residual_connection ........................ False
+  fp8_amax_compute_algo ........................... most_recent
+  fp8_amax_history_len ............................ 1
+  fp8_e4m3 ........................................ False
+  fp8_hybrid ...................................... False
+  fp8_interval .................................... 1
+  fp8_margin ...................................... 0
+  fp8_wgrad ....................................... True
+  global_batch_size ............................... 16
+  gradient_accumulation_fusion .................... True
+  head_lr_mult .................................... 1.0
+  hidden_dropout .................................. 0.1
+  hidden_size ..................................... 512
+  hidden_size_teacher ............................. None
+  hysteresis ...................................... 2
+  ict_head_size ................................... None
+  ict_load ........................................ None
+  img_h ........................................... 224
+  img_w ........................................... 224
+  indexer_batch_size .............................. 128
+  indexer_log_interval ............................ 1000
+  inference ....................................... False
+  inference_batch_times_seqlen_threshold .......... 512
+  init_method_std ................................. 0.006
+  init_method_xavier_uniform ...................... False
+  initial_loss_scale .............................. 4294967296
+  iter_per_epoch .................................. 1250
+  kd .............................................. False
+  kd_alpha_ce ..................................... 1
+  kd_beta_ce ...................................... 1
+  kd_temp ......................................... 1.0
+  kill_switch_file ................................ None
+  kv_channels ..................................... 16
+  layernorm_epsilon ............................... 1e-05
+  lazy_mpu_init ................................... None
+  load ............................................ None
+  load_tag ........................................ None
+  load_teacher .................................... None
+  local_rank ...................................... 0
+  log_batch_size_to_tensorboard ................... False
+  log_interval .................................... 1
+  log_learning_rate_to_tensorboard ................ True
+  log_loss_scale_to_tensorboard ................... True
+  log_memory_to_tensorboard ....................... False
+  log_num_zeros_in_grad ........................... False
+  log_optimizer_states_to_tensorboard ............. False
+  log_params_norm ................................. False
+  log_timers_to_tensorboard ....................... False
+  log_validation_ppl_to_tensorboard ............... False
+  log_world_size_to_tensorboard ................... False
+  loss_scale ...................................... None
+  loss_scale_window ............................... 1000
+  lr .............................................. 0.006
+  lr_decay_iters .................................. None
+  lr_decay_samples ................................ None
+  lr_decay_style .................................. cosine
+  lr_decay_tokens ................................. None
+  lr_warmup_fraction .............................. None
+  lr_warmup_iters ................................. 0
+  lr_warmup_samples ............................... 0
+  lr_warmup_tokens ................................ None
+  make_vocab_size_divisible_by .................... 128
+  mask_factor ..................................... 1.0
+  mask_prob ....................................... 0.15
+  mask_type ....................................... random
+  masked_softmax_fusion ........................... True
+  max_position_embeddings ......................... 512
+  max_tokens_to_oom ............................... 12000
+  mem_efficient_ln ................................ True
+  memory_centric_tiled_linear ..................... False
+  merge_file ...................................... data/gpt2-merges.txt
+  micro_batch_size ................................ 4
+  min_loss_scale .................................. 1.0
+  min_lr .......................................... 0.0006
+  mlp_type ........................................ standard
+  mmap_warmup ..................................... False
+  moe_eval_capacity_factor ........................ 1.0
+  moe_expert_parallel_size ........................ 1
+  moe_loss_coeff .................................. 0.1
+  moe_min_capacity ................................ 4
+  moe_token_dropping .............................. True
+  moe_top2_2nd_expert_sampling .................... True
+  moe_train_capacity_factor ....................... 1.0
+  mos ............................................. False
+  no_load_lr_state ................................ False
+  no_load_optim ................................... None
+  no_load_rng ..................................... None
+  no_persist_layer_norm ........................... False
+  no_pipeline_parallel ............................ False
+  no_save_optim ................................... None
+  no_save_rng ..................................... None
+  normalization ................................... layernorm
+  num_attention_heads ............................. 32
+  num_attention_heads_teacher ..................... None
+  num_channels .................................... 3
+  num_classes ..................................... 1000
+  num_experts ..................................... [1]
+  num_experts_switch .............................. None
+  num_experts_teacher ............................. [1]
+  num_key_value_heads ............................. 32
+  num_layers ...................................... 4
+  num_layers_per_virtual_pipeline_stage ........... None
+  num_layers_teacher .............................. None
+  num_workers ..................................... 2
+  onnx_safe ....................................... None
+  openai_gelu ..................................... False
+  optimizer ....................................... adam
+  output_bert_embeddings .......................... False
+  overlap_p2p_comm ................................ False
+  override_opt_param_scheduler .................... False
+  params_dtype .................................... torch.bfloat16
+  partition_activations ........................... False
+  patch_dim ....................................... 16
+  perform_initialization .......................... True
+  pipeline_model_parallel_size .................... 1
+  pipeline_model_parallel_split_rank .............. None
+  profile ......................................... None
+  profile_backward ................................ False
+  profile_ranks ................................... None
+  profile_steps ................................... 2,3
+  query_in_block_prob ............................. 0.1
+  rampup_batch_size ............................... None
+  random_ltd ...................................... False
+  rank ............................................ 0
+  recompute_granularity ........................... None
+  recompute_method ................................ None
+  recompute_num_layers ............................ 1
+  remote_device ................................... none
+  repeated_dataloader ............................. False
+  reset_attention_mask ............................ False
+  reset_iteration ................................. False
+  reset_position_ids .............................. False
+  retriever_report_topk_accuracies ................ []
+  retriever_score_scaling ......................... False
+  retriever_seq_length ............................ 256
+  retro_add_retriever ............................. False
+  retro_cyclic_train_iters ........................ None
+  retro_encoder_attention_dropout ................. 0.1
+  retro_encoder_hidden_dropout .................... 0.1
+  retro_encoder_layers ............................ 2
+  retro_num_neighbors ............................. 2
+  retro_num_retrieved_chunks ...................... 2
+  retro_return_doc_ids ............................ False
+  retro_workdir ................................... None
+  return_data_index ............................... False
+  rope_theta ...................................... 10000
+  rotary_percent .................................. 1.0
+  sample_rate ..................................... 1.0
+  save ............................................ z1_uni_ckpt/checkpoints/gpt2/source_bf16_dp4
+  save_interval ................................... 100
+  scatter_gather_tensors_in_pipeline .............. True
+  scattered_embeddings ............................ False
+  seed ............................................ 1234
+  seq_length ...................................... 512
+  sequence_parallel ............................... False
+  sgd_momentum .................................... 0.9
+  short_seq_prob .................................. 0.1
+  skip_train ...................................... False
+  split ........................................... 98,2,0
+  split_transformers .............................. False
+  squared_relu .................................... False
+  standalone_embedding_stage ...................... False
+  start_weight_decay .............................. 0.1
+  swiglu .......................................... False
+  swin_backbone_type .............................. tiny
+  synchronize_each_layer .......................... False
+  tensor_model_parallel_size ...................... 1
+  tensorboard_dir ................................. z1_uni_ckpt/tensorboard/bf16/source_dp4
+  tensorboard_log_interval ........................ 1
+  tensorboard_queue_size .......................... 1000
+  test_data_path .................................. None
+  tile_factor ..................................... 1
+  timing_log_level ................................ 0
+  timing_log_option ............................... minmax
+  titles_data_path ................................ None
+  tokenizer_model ................................. None
+  tokenizer_type .................................. GPT2BPETokenizer
+  topk ............................................ 1
+  train_data_exact_num_epochs ..................... None
+  train_data_path ................................. None
+  train_desc_path ................................. None
+  train_doc_idx_path .............................. None
+  train_idx_path .................................. None
+  train_iters ..................................... 200
+  train_sample_idx_path ........................... None
+  train_samples ................................... None
+  train_shuffle_idx_path .......................... None
+  train_tokens .................................... None
+  transformer_impl ................................ local
+  transformer_pipeline_model_parallel_size ........ 1
+  trust_remote_code ............................... False
+  universal_checkpoint ............................ False
+  untie_embeddings_and_output_weights ............. False
+  use_checkpoint_args ............................. False
+  use_checkpoint_opt_param_scheduler .............. False
+  use_contiguous_buffers_in_local_ddp ............. True
+  use_cpu_initialization .......................... None
+  use_dataset_only ................................ False
+  use_distributed_optimizer ....................... False
+  use_flash_attn .................................. False
+  use_flash_attn_builder .......................... False
+  use_flash_attn_triton ........................... False
+  use_flash_attn_v1 ............................... False
+  use_flash_attn_v2 ............................... False
+  use_one_sent_docs ............................... False
+  use_pin_memory .................................. False
+  use_ring_exchange_p2p ........................... False
+  use_rotary_position_embeddings .................. False
+  use_tutel ....................................... False
+  valid_data_path ................................. None
+  variable_seq_lengths ............................ False
+  virtual_pipeline_model_parallel_size ............ None
+  vision_backbone_type ............................ vit
+  vision_pretraining .............................. False
+  vision_pretraining_type ......................... classify
+  vocab_extra_ids ................................. 0
+  vocab_file ...................................... data/gpt2-vocab.json
+  vocab_size ...................................... None
+  wandb_exp_name .................................. 
+  wandb_project ................................... 
+  wandb_save_dir .................................. 
+  weight_decay .................................... 0.1
+  weight_decay_incr_style ......................... constant
+  world_size ...................................... 4
+  zero_allgather_bucket_size ...................... 0.0
+  zero_contigious_gradients ....................... False
+  zero_reduce_bucket_size ......................... 0.0
+  zero_reduce_scatter ............................. False
+  zero_stage ...................................... 1
+-------------------- end of arguments ---------------------
+setting number of micro-batches to constant 1
+> building GPT2BPETokenizer tokenizer ...
+ > padded vocab (size: 50257) with 47 dummy tokens (new size: 50304)
+> initializing torch distributed ...
+> initialized tensor model parallel with size 1
+> initialized pipeline model parallel with size 1
+> setting random seeds to 1234 ...
+> compiling dataset index builder ...
+make: Entering directory '/u/namanr2/Univ_Ckpt/Megatron-DeepSpeed/megatron/data'
+make: Nothing to be done for 'default'.
+make: Leaving directory '/u/namanr2/Univ_Ckpt/Megatron-DeepSpeed/megatron/data'
+>>> done with dataset index builder. Compilation time: 0.093 seconds
+> compiling and loading fused kernels ...
+ninja: no work to do.
+ninja: no work to do.
+ninja: no work to do.
+>>> done with compiling and loading fused kernels. Compilation time: 2.248 seconds
+time to initialize megatron (seconds): 5.639
+[after megatron is initialized] datetime: 2026-01-15 09:03:33 
+building GPT model ...
+Before Building Model
+MA 0.0 GB         Max_MA 0.13 GB         CA 0.0 GB         Max_CA 0 GB 
+CPU Virtual Memory:  used = 23.42 GB, percent = 9.3%
+SEED_LAYERS=False BASE_SEED=1234 SEED_FN=None
+Using topology: {ProcessCoord(pipe=0, data=0, model=0): 0, ProcessCoord(pipe=0, data=1, model=0): 1, ProcessCoord(pipe=0, data=2, model=0): 2, ProcessCoord(pipe=0, data=3, model=0): 3}
+stage=0 layers=9
+     0: _to_float16
+     1: EmbeddingPipe
+     2: ParallelTransformerLayerPipe
+     3: ParallelTransformerLayerPipe
+     4: ParallelTransformerLayerPipe
+     5: ParallelTransformerLayerPipe
+     6: MixedFusedLayerNorm
+     7: EmbeddingPipe
+     8: float16_to_fp32
+  loss: loss_func
+After Building Model
+MA 0.07 GB         Max_MA 0.08 GB         CA 0.09 GB         Max_CA 0 GB 
+CPU Virtual Memory:  used = 24.35 GB, percent = 9.7%
+ > number of parameters on (tensor, pipeline) model parallel rank (0, 0): 38628352
+> learning rate decay style: cosine
+DeepSpeed is enabled.
+Before initializing optimizer states
+MA 0.11 GB         Max_MA 0.11 GB         CA 0.11 GB         Max_CA 0 GB 
+CPU Virtual Memory:  used = 24.56 GB, percent = 9.8%
+After initializing optimizer states
+MA 0.11 GB         Max_MA 0.14 GB         CA 0.15 GB         Max_CA 0 GB 
+CPU Virtual Memory:  used = 24.56 GB, percent = 9.8%
+After initializing ZeRO optimizer
+MA 0.11 GB         Max_MA 0.11 GB         CA 0.15 GB         Max_CA 0 GB 
+CPU Virtual Memory:  used = 24.56 GB, percent = 9.8%
+[after model, optimizer, and learning rate scheduler are built] datetime: 2026-01-15 09:03:35 
+> building train, validation, and test datasets ...
+ > datasets target sizes (minimum size):
+    train:      3200
+    validation: 1920
+    test:       640
+> building train, validation, and test datasets for GPT ...
+Single data path provided for train, valid & test
+ > building dataset index ...
+    reading sizes...
+    reading pointers...
+    reading document index...
+    creating numpy buffer of mmap...
+    creating memory view of numpy buffer...
+ > finished creating indexed dataset in 0.002308 seconds
+    number of documents: 79000
+ > dataset split:
+    train:
+     document indices in [0, 77420) total of 77420 documents
+    validation:
+     document indices in [77420, 79000) total of 1580 documents
+    test:
+     document indices in [79000, 79000) total of 0 documents
+ > loading doc-idx mapping from /u/namanr2/Univ_Ckpt/Megatron-DeepSpeed/data/index-cache/dcef44fc8695afcdb8824718c10951c6_doc_idx.npy
+ > loading sample-idx mapping from /u/namanr2/Univ_Ckpt/Megatron-DeepSpeed/data/index-cache/dcef44fc8695afcdb8824718c10951c6_sample_idx.npy
+ > loading shuffle-idx mapping from /u/namanr2/Univ_Ckpt/Megatron-DeepSpeed/data/index-cache/dcef44fc8695afcdb8824718c10951c6_shuffle_idx.npy
+    loaded indexed file in 0.003 seconds
+    total number of samples: 447561
+    total number of epochs: 1
+ > loading doc-idx mapping from /u/namanr2/Univ_Ckpt/Megatron-DeepSpeed/data/index-cache/b23fc49bb10cca7e44aa0fead3827e97_doc_idx.npy
+ > loading sample-idx mapping from /u/namanr2/Univ_Ckpt/Megatron-DeepSpeed/data/index-cache/b23fc49bb10cca7e44aa0fead3827e97_sample_idx.npy
+ > loading shuffle-idx mapping from /u/namanr2/Univ_Ckpt/Megatron-DeepSpeed/data/index-cache/b23fc49bb10cca7e44aa0fead3827e97_shuffle_idx.npy
+    loaded indexed file in 0.003 seconds
+    total number of samples: 9980
+    total number of epochs: 1
+> finished creating GPT datasets ...
+[after dataloaders are built] datetime: 2026-01-15 09:03:36 
+done with setup ...
+(min, max) time across ranks (ms):
+    model-and-optimizer-setup ......................: (1751.69, 2171.95)
+    train/valid/test-data-iterators-setup ..........: (311.97, 325.90)
+training ...
+[before the start of training step] datetime: 2026-01-15 09:03:36 
+steps: 1 loss: 10.8337 iter time (s): 0.276 samples/sec: 57.908
+ iteration        1/     200 | consumed samples:           16 | consumed tokens:         8192 | elapsed time per iteration (ms): 278.6 | learning rate: 6.000E-03 | global batch size:    16 | lm loss: 1.083369E+01 | loss scale: 1.0 | grad norm: 3.309 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 57.429 | tokens per gpu per second (tgs): 7350.972 | TFLOPs: 2.38 |
+[Rank 0] (after 1 iterations) memory (MB) | allocated: 659.37939453125 | max allocated: 2570.0029296875 | reserved: 3732.0 | max reserved: 3732.0
+steps: 2 loss: 10.2966 iter time (s): 0.054 samples/sec: 297.144
+ iteration        2/     200 | consumed samples:           32 | consumed tokens:        16384 | elapsed time per iteration (ms): 57.7 | learning rate: 5.999E-03 | global batch size:    16 | lm loss: 1.029659E+01 | loss scale: 1.0 | grad norm: 4.171 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 277.528 | tokens per gpu per second (tgs): 35523.635 | TFLOPs: 11.49 |
+steps: 3 loss: 8.7508 iter time (s): 0.052 samples/sec: 306.800
+ iteration        3/     200 | consumed samples:           48 | consumed tokens:        24576 | elapsed time per iteration (ms): 55.1 | learning rate: 5.997E-03 | global batch size:    16 | lm loss: 8.750830E+00 | loss scale: 1.0 | grad norm: 1.499 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.292 | tokens per gpu per second (tgs): 37157.393 | TFLOPs: 12.02 |
+steps: 4 loss: 8.5601 iter time (s): 0.053 samples/sec: 301.851
+ iteration        4/     200 | consumed samples:           64 | consumed tokens:        32768 | elapsed time per iteration (ms): 56.0 | learning rate: 5.995E-03 | global batch size:    16 | lm loss: 8.560138E+00 | loss scale: 1.0 | grad norm: 1.321 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 285.534 | tokens per gpu per second (tgs): 36548.403 | TFLOPs: 11.82 |
+steps: 5 loss: 9.3817 iter time (s): 0.052 samples/sec: 307.446
+ iteration        5/     200 | consumed samples:           80 | consumed tokens:        40960 | elapsed time per iteration (ms): 55.0 | learning rate: 5.992E-03 | global batch size:    16 | lm loss: 9.381673E+00 | loss scale: 1.0 | grad norm: 2.297 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.901 | tokens per gpu per second (tgs): 37235.350 | TFLOPs: 12.05 |
+steps: 6 loss: 9.3562 iter time (s): 0.052 samples/sec: 304.944
+ iteration        6/     200 | consumed samples:           96 | consumed tokens:        49152 | elapsed time per iteration (ms): 55.5 | learning rate: 5.988E-03 | global batch size:    16 | lm loss: 9.356161E+00 | loss scale: 1.0 | grad norm: 2.426 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 288.382 | tokens per gpu per second (tgs): 36912.932 | TFLOPs: 11.94 |
+steps: 7 loss: 9.3271 iter time (s): 0.052 samples/sec: 308.234
+ iteration        7/     200 | consumed samples:          112 | consumed tokens:        57344 | elapsed time per iteration (ms): 54.8 | learning rate: 5.984E-03 | global batch size:    16 | lm loss: 9.327137E+00 | loss scale: 1.0 | grad norm: 1.072 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.778 | tokens per gpu per second (tgs): 37347.542 | TFLOPs: 12.08 |
+steps: 8 loss: 8.8287 iter time (s): 0.052 samples/sec: 304.896
+ iteration        8/     200 | consumed samples:          128 | consumed tokens:        65536 | elapsed time per iteration (ms): 55.4 | learning rate: 5.979E-03 | global batch size:    16 | lm loss: 8.828723E+00 | loss scale: 1.0 | grad norm: 1.443 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 288.584 | tokens per gpu per second (tgs): 36938.806 | TFLOPs: 11.95 |
+steps: 9 loss: 8.7758 iter time (s): 0.052 samples/sec: 307.258
+ iteration        9/     200 | consumed samples:          144 | consumed tokens:        73728 | elapsed time per iteration (ms): 55.0 | learning rate: 5.973E-03 | global batch size:    16 | lm loss: 8.775761E+00 | loss scale: 1.0 | grad norm: 1.502 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.683 | tokens per gpu per second (tgs): 37207.448 | TFLOPs: 12.04 |
+steps: 10 loss: 8.2650 iter time (s): 0.052 samples/sec: 305.349
+ iteration       10/     200 | consumed samples:          160 | consumed tokens:        81920 | elapsed time per iteration (ms): 55.3 | learning rate: 5.967E-03 | global batch size:    16 | lm loss: 8.264977E+00 | loss scale: 1.0 | grad norm: 1.443 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.305 | tokens per gpu per second (tgs): 37031.007 | TFLOPs: 11.98 |
+steps: 11 loss: 8.2185 iter time (s): 0.052 samples/sec: 308.167
+ iteration       11/     200 | consumed samples:          176 | consumed tokens:        90112 | elapsed time per iteration (ms): 54.8 | learning rate: 5.960E-03 | global batch size:    16 | lm loss: 8.218464E+00 | loss scale: 1.0 | grad norm: 1.195 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.755 | tokens per gpu per second (tgs): 37344.619 | TFLOPs: 12.08 |
+steps: 12 loss: 8.5403 iter time (s): 0.052 samples/sec: 305.462
+ iteration       12/     200 | consumed samples:          192 | consumed tokens:        98304 | elapsed time per iteration (ms): 55.3 | learning rate: 5.952E-03 | global batch size:    16 | lm loss: 8.540322E+00 | loss scale: 1.0 | grad norm: 1.291 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.237 | tokens per gpu per second (tgs): 37022.389 | TFLOPs: 11.98 |
+steps: 13 loss: 8.3802 iter time (s): 0.052 samples/sec: 308.094
+ iteration       13/     200 | consumed samples:          208 | consumed tokens:       106496 | elapsed time per iteration (ms): 54.9 | learning rate: 5.944E-03 | global batch size:    16 | lm loss: 8.380227E+00 | loss scale: 1.0 | grad norm: 0.840 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.703 | tokens per gpu per second (tgs): 37337.964 | TFLOPs: 12.08 |
+steps: 14 loss: 8.1104 iter time (s): 0.052 samples/sec: 305.809
+ iteration       14/     200 | consumed samples:          224 | consumed tokens:       114688 | elapsed time per iteration (ms): 55.2 | learning rate: 5.935E-03 | global batch size:    16 | lm loss: 8.110419E+00 | loss scale: 1.0 | grad norm: 0.846 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.644 | tokens per gpu per second (tgs): 37074.480 | TFLOPs: 11.99 |
+steps: 15 loss: 8.7070 iter time (s): 0.052 samples/sec: 306.830
+ iteration       15/     200 | consumed samples:          240 | consumed tokens:       122880 | elapsed time per iteration (ms): 55.1 | learning rate: 5.925E-03 | global batch size:    16 | lm loss: 8.707014E+00 | loss scale: 1.0 | grad norm: 1.908 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.293 | tokens per gpu per second (tgs): 37157.554 | TFLOPs: 12.02 |
+steps: 16 loss: 8.2071 iter time (s): 0.052 samples/sec: 308.289
+ iteration       16/     200 | consumed samples:          256 | consumed tokens:       131072 | elapsed time per iteration (ms): 54.9 | learning rate: 5.915E-03 | global batch size:    16 | lm loss: 8.207077E+00 | loss scale: 1.0 | grad norm: 1.557 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.669 | tokens per gpu per second (tgs): 37333.582 | TFLOPs: 12.08 |
+steps: 17 loss: 9.0256 iter time (s): 0.052 samples/sec: 308.581
+ iteration       17/     200 | consumed samples:          272 | consumed tokens:       139264 | elapsed time per iteration (ms): 54.8 | learning rate: 5.904E-03 | global batch size:    16 | lm loss: 9.025585E+00 | loss scale: 1.0 | grad norm: 1.670 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.986 | tokens per gpu per second (tgs): 37374.191 | TFLOPs: 12.09 |
+steps: 18 loss: 8.5298 iter time (s): 0.052 samples/sec: 306.739
+ iteration       18/     200 | consumed samples:          288 | consumed tokens:       147456 | elapsed time per iteration (ms): 55.1 | learning rate: 5.893E-03 | global batch size:    16 | lm loss: 8.529821E+00 | loss scale: 1.0 | grad norm: 1.011 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.315 | tokens per gpu per second (tgs): 37160.286 | TFLOPs: 12.02 |
+steps: 19 loss: 8.3373 iter time (s): 0.052 samples/sec: 308.801
+ iteration       19/     200 | consumed samples:          304 | consumed tokens:       155648 | elapsed time per iteration (ms): 54.8 | learning rate: 5.881E-03 | global batch size:    16 | lm loss: 8.337254E+00 | loss scale: 1.0 | grad norm: 0.802 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 292.053 | tokens per gpu per second (tgs): 37382.812 | TFLOPs: 12.09 |
+steps: 20 loss: 8.4684 iter time (s): 0.052 samples/sec: 306.343
+ iteration       20/     200 | consumed samples:          320 | consumed tokens:       163840 | elapsed time per iteration (ms): 55.2 | learning rate: 5.868E-03 | global batch size:    16 | lm loss: 8.468399E+00 | loss scale: 1.0 | grad norm: 1.015 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.108 | tokens per gpu per second (tgs): 37133.780 | TFLOPs: 12.01 |
+steps: 21 loss: 8.2809 iter time (s): 0.052 samples/sec: 308.112
+ iteration       21/     200 | consumed samples:          336 | consumed tokens:       172032 | elapsed time per iteration (ms): 54.9 | learning rate: 5.854E-03 | global batch size:    16 | lm loss: 8.280859E+00 | loss scale: 1.0 | grad norm: 0.695 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.477 | tokens per gpu per second (tgs): 37309.097 | TFLOPs: 12.07 |
+steps: 22 loss: 8.5550 iter time (s): 0.052 samples/sec: 306.529
+ iteration       22/     200 | consumed samples:          352 | consumed tokens:       180224 | elapsed time per iteration (ms): 55.1 | learning rate: 5.840E-03 | global batch size:    16 | lm loss: 8.554961E+00 | loss scale: 1.0 | grad norm: 0.726 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.249 | tokens per gpu per second (tgs): 37151.929 | TFLOPs: 12.02 |
+steps: 23 loss: 8.0889 iter time (s): 0.052 samples/sec: 308.624
+ iteration       23/     200 | consumed samples:          368 | consumed tokens:       188416 | elapsed time per iteration (ms): 54.8 | learning rate: 5.826E-03 | global batch size:    16 | lm loss: 8.088927E+00 | loss scale: 1.0 | grad norm: 0.885 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 292.068 | tokens per gpu per second (tgs): 37384.764 | TFLOPs: 12.09 |
+steps: 24 loss: 8.5231 iter time (s): 0.052 samples/sec: 307.023
+ iteration       24/     200 | consumed samples:          384 | consumed tokens:       196608 | elapsed time per iteration (ms): 55.0 | learning rate: 5.810E-03 | global batch size:    16 | lm loss: 8.523148E+00 | loss scale: 1.0 | grad norm: 0.917 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.865 | tokens per gpu per second (tgs): 37230.670 | TFLOPs: 12.04 |
+steps: 25 loss: 8.1951 iter time (s): 0.052 samples/sec: 308.703
+ iteration       25/     200 | consumed samples:          400 | consumed tokens:       204800 | elapsed time per iteration (ms): 54.7 | learning rate: 5.794E-03 | global batch size:    16 | lm loss: 8.195124E+00 | loss scale: 1.0 | grad norm: 0.945 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 292.241 | tokens per gpu per second (tgs): 37406.905 | TFLOPs: 12.10 |
+steps: 26 loss: 8.3631 iter time (s): 0.052 samples/sec: 306.673
+ iteration       26/     200 | consumed samples:          416 | consumed tokens:       212992 | elapsed time per iteration (ms): 55.1 | learning rate: 5.778E-03 | global batch size:    16 | lm loss: 8.363057E+00 | loss scale: 1.0 | grad norm: 0.564 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.491 | tokens per gpu per second (tgs): 37182.806 | TFLOPs: 12.03 |
+steps: 27 loss: 8.2085 iter time (s): 0.052 samples/sec: 307.300
+ iteration       27/     200 | consumed samples:          432 | consumed tokens:       221184 | elapsed time per iteration (ms): 55.0 | learning rate: 5.761E-03 | global batch size:    16 | lm loss: 8.208488E+00 | loss scale: 1.0 | grad norm: 0.773 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.851 | tokens per gpu per second (tgs): 37228.895 | TFLOPs: 12.04 |
+steps: 28 loss: 8.2877 iter time (s): 0.052 samples/sec: 306.228
+ iteration       28/     200 | consumed samples:          448 | consumed tokens:       229376 | elapsed time per iteration (ms): 55.2 | learning rate: 5.743E-03 | global batch size:    16 | lm loss: 8.287722E+00 | loss scale: 1.0 | grad norm: 0.610 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.958 | tokens per gpu per second (tgs): 37114.687 | TFLOPs: 12.01 |
+steps: 29 loss: 8.1254 iter time (s): 0.052 samples/sec: 306.920
+ iteration       29/     200 | consumed samples:          464 | consumed tokens:       237568 | elapsed time per iteration (ms): 55.1 | learning rate: 5.725E-03 | global batch size:    16 | lm loss: 8.125374E+00 | loss scale: 1.0 | grad norm: 0.614 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.569 | tokens per gpu per second (tgs): 37192.787 | TFLOPs: 12.03 |
+steps: 30 loss: 8.2772 iter time (s): 0.052 samples/sec: 306.733
+ iteration       30/     200 | consumed samples:          480 | consumed tokens:       245760 | elapsed time per iteration (ms): 55.1 | learning rate: 5.706E-03 | global batch size:    16 | lm loss: 8.277238E+00 | loss scale: 1.0 | grad norm: 0.608 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.440 | tokens per gpu per second (tgs): 37176.369 | TFLOPs: 12.03 |
+steps: 31 loss: 8.2035 iter time (s): 0.052 samples/sec: 308.052
+ iteration       31/     200 | consumed samples:          496 | consumed tokens:       253952 | elapsed time per iteration (ms): 54.9 | learning rate: 5.686E-03 | global batch size:    16 | lm loss: 8.203506E+00 | loss scale: 1.0 | grad norm: 0.690 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.661 | tokens per gpu per second (tgs): 37332.609 | TFLOPs: 12.08 |
+steps: 32 loss: 8.3296 iter time (s): 0.052 samples/sec: 306.625
+ iteration       32/     200 | consumed samples:          512 | consumed tokens:       262144 | elapsed time per iteration (ms): 55.1 | learning rate: 5.666E-03 | global batch size:    16 | lm loss: 8.329608E+00 | loss scale: 1.0 | grad norm: 0.686 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.275 | tokens per gpu per second (tgs): 37155.143 | TFLOPs: 12.02 |
+steps: 33 loss: 8.1534 iter time (s): 0.052 samples/sec: 307.803
+ iteration       33/     200 | consumed samples:          528 | consumed tokens:       270336 | elapsed time per iteration (ms): 54.9 | learning rate: 5.645E-03 | global batch size:    16 | lm loss: 8.153378E+00 | loss scale: 1.0 | grad norm: 0.564 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.262 | tokens per gpu per second (tgs): 37281.570 | TFLOPs: 12.06 |
+steps: 34 loss: 8.0114 iter time (s): 0.054 samples/sec: 298.398
+ iteration       34/     200 | consumed samples:          544 | consumed tokens:       278528 | elapsed time per iteration (ms): 56.8 | learning rate: 5.624E-03 | global batch size:    16 | lm loss: 8.011414E+00 | loss scale: 1.0 | grad norm: 0.506 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 281.576 | tokens per gpu per second (tgs): 36041.734 | TFLOPs: 11.66 |
+steps: 35 loss: 8.0519 iter time (s): 0.052 samples/sec: 306.517
+ iteration       35/     200 | consumed samples:          560 | consumed tokens:       286720 | elapsed time per iteration (ms): 55.2 | learning rate: 5.602E-03 | global batch size:    16 | lm loss: 8.051869E+00 | loss scale: 1.0 | grad norm: 0.515 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.749 | tokens per gpu per second (tgs): 37087.926 | TFLOPs: 12.00 |
+steps: 36 loss: 8.4708 iter time (s): 0.052 samples/sec: 306.553
+ iteration       36/     200 | consumed samples:          576 | consumed tokens:       294912 | elapsed time per iteration (ms): 55.2 | learning rate: 5.580E-03 | global batch size:    16 | lm loss: 8.470818E+00 | loss scale: 1.0 | grad norm: 0.448 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.091 | tokens per gpu per second (tgs): 37131.694 | TFLOPs: 12.01 |
+steps: 37 loss: 8.1822 iter time (s): 0.052 samples/sec: 308.544
+ iteration       37/     200 | consumed samples:          592 | consumed tokens:       303104 | elapsed time per iteration (ms): 54.8 | learning rate: 5.557E-03 | global batch size:    16 | lm loss: 8.182216E+00 | loss scale: 1.0 | grad norm: 0.615 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.745 | tokens per gpu per second (tgs): 37343.320 | TFLOPs: 12.08 |
+steps: 38 loss: 8.4379 iter time (s): 0.052 samples/sec: 306.246
+ iteration       38/     200 | consumed samples:          608 | consumed tokens:       311296 | elapsed time per iteration (ms): 55.2 | learning rate: 5.533E-03 | global batch size:    16 | lm loss: 8.437948E+00 | loss scale: 1.0 | grad norm: 0.657 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.865 | tokens per gpu per second (tgs): 37102.664 | TFLOPs: 12.00 |
+steps: 39 loss: 8.2108 iter time (s): 0.052 samples/sec: 308.185
+ iteration       39/     200 | consumed samples:          624 | consumed tokens:       319488 | elapsed time per iteration (ms): 54.9 | learning rate: 5.509E-03 | global batch size:    16 | lm loss: 8.210779E+00 | loss scale: 1.0 | grad norm: 0.529 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.690 | tokens per gpu per second (tgs): 37336.341 | TFLOPs: 12.08 |
+steps: 40 loss: 8.1043 iter time (s): 0.052 samples/sec: 306.553
+ iteration       40/     200 | consumed samples:          640 | consumed tokens:       327680 | elapsed time per iteration (ms): 55.2 | learning rate: 5.484E-03 | global batch size:    16 | lm loss: 8.104279E+00 | loss scale: 1.0 | grad norm: 0.450 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.090 | tokens per gpu per second (tgs): 37131.533 | TFLOPs: 12.01 |
+steps: 41 loss: 8.1241 iter time (s): 0.052 samples/sec: 306.782
+ iteration       41/     200 | consumed samples:          656 | consumed tokens:       335872 | elapsed time per iteration (ms): 55.2 | learning rate: 5.459E-03 | global batch size:    16 | lm loss: 8.124072E+00 | loss scale: 1.0 | grad norm: 0.526 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.108 | tokens per gpu per second (tgs): 37133.780 | TFLOPs: 12.01 |
+steps: 42 loss: 8.1918 iter time (s): 0.052 samples/sec: 306.318
+ iteration       42/     200 | consumed samples:          672 | consumed tokens:       344064 | elapsed time per iteration (ms): 55.2 | learning rate: 5.433E-03 | global batch size:    16 | lm loss: 8.191786E+00 | loss scale: 1.0 | grad norm: 0.562 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.787 | tokens per gpu per second (tgs): 37092.731 | TFLOPs: 12.00 |
+steps: 43 loss: 8.0626 iter time (s): 0.052 samples/sec: 307.651
+ iteration       43/     200 | consumed samples:          688 | consumed tokens:       352256 | elapsed time per iteration (ms): 55.0 | learning rate: 5.407E-03 | global batch size:    16 | lm loss: 8.062564E+00 | loss scale: 1.0 | grad norm: 0.569 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.088 | tokens per gpu per second (tgs): 37259.253 | TFLOPs: 12.05 |
+steps: 44 loss: 8.0949 iter time (s): 0.052 samples/sec: 306.625
+ iteration       44/     200 | consumed samples:          704 | consumed tokens:       360448 | elapsed time per iteration (ms): 55.1 | learning rate: 5.380E-03 | global batch size:    16 | lm loss: 8.094882E+00 | loss scale: 1.0 | grad norm: 0.517 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.219 | tokens per gpu per second (tgs): 37148.073 | TFLOPs: 12.02 |
+steps: 45 loss: 8.0652 iter time (s): 0.052 samples/sec: 308.076
+ iteration       45/     200 | consumed samples:          720 | consumed tokens:       368640 | elapsed time per iteration (ms): 54.9 | learning rate: 5.353E-03 | global batch size:    16 | lm loss: 8.065216E+00 | loss scale: 1.0 | grad norm: 0.555 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.538 | tokens per gpu per second (tgs): 37316.877 | TFLOPs: 12.07 |
+steps: 46 loss: 7.9279 iter time (s): 0.052 samples/sec: 306.343
+ iteration       46/     200 | consumed samples:          736 | consumed tokens:       376832 | elapsed time per iteration (ms): 55.2 | learning rate: 5.325E-03 | global batch size:    16 | lm loss: 7.927876E+00 | loss scale: 1.0 | grad norm: 0.479 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.044 | tokens per gpu per second (tgs): 37125.595 | TFLOPs: 12.01 |
+steps: 47 loss: 7.9477 iter time (s): 0.052 samples/sec: 307.639
+ iteration       47/     200 | consumed samples:          752 | consumed tokens:       385024 | elapsed time per iteration (ms): 54.9 | learning rate: 5.297E-03 | global batch size:    16 | lm loss: 7.947677E+00 | loss scale: 1.0 | grad norm: 0.459 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.240 | tokens per gpu per second (tgs): 37278.657 | TFLOPs: 12.06 |
+steps: 48 loss: 8.0052 iter time (s): 0.052 samples/sec: 306.487
+ iteration       48/     200 | consumed samples:          768 | consumed tokens:       393216 | elapsed time per iteration (ms): 55.2 | learning rate: 5.268E-03 | global batch size:    16 | lm loss: 8.005244E+00 | loss scale: 1.0 | grad norm: 0.535 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.059 | tokens per gpu per second (tgs): 37127.521 | TFLOPs: 12.01 |
+steps: 49 loss: 8.0177 iter time (s): 0.052 samples/sec: 307.900
+ iteration       49/     200 | consumed samples:          784 | consumed tokens:       401408 | elapsed time per iteration (ms): 54.9 | learning rate: 5.239E-03 | global batch size:    16 | lm loss: 8.017686E+00 | loss scale: 1.0 | grad norm: 0.471 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.288 | tokens per gpu per second (tgs): 37284.806 | TFLOPs: 12.06 |
+steps: 50 loss: 7.9695 iter time (s): 0.052 samples/sec: 306.228
+ iteration       50/     200 | consumed samples:          800 | consumed tokens:       409600 | elapsed time per iteration (ms): 55.2 | learning rate: 5.209E-03 | global batch size:    16 | lm loss: 7.969486E+00 | loss scale: 1.0 | grad norm: 0.472 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.762 | tokens per gpu per second (tgs): 37089.528 | TFLOPs: 12.00 |
+steps: 51 loss: 7.9248 iter time (s): 0.052 samples/sec: 309.259
+ iteration       51/     200 | consumed samples:          816 | consumed tokens:       417792 | elapsed time per iteration (ms): 54.7 | learning rate: 5.179E-03 | global batch size:    16 | lm loss: 7.924842E+00 | loss scale: 1.0 | grad norm: 0.403 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 292.421 | tokens per gpu per second (tgs): 37429.887 | TFLOPs: 12.11 |
+steps: 52 loss: 7.9993 iter time (s): 0.052 samples/sec: 306.836
+ iteration       52/     200 | consumed samples:          832 | consumed tokens:       425984 | elapsed time per iteration (ms): 55.1 | learning rate: 5.148E-03 | global batch size:    16 | lm loss: 7.999320E+00 | loss scale: 1.0 | grad norm: 0.445 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.391 | tokens per gpu per second (tgs): 37170.095 | TFLOPs: 12.02 |
+steps: 53 loss: 8.0350 iter time (s): 0.052 samples/sec: 307.706
+ iteration       53/     200 | consumed samples:          848 | consumed tokens:       434176 | elapsed time per iteration (ms): 55.0 | learning rate: 5.117E-03 | global batch size:    16 | lm loss: 8.035028E+00 | loss scale: 1.0 | grad norm: 0.424 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.130 | tokens per gpu per second (tgs): 37264.587 | TFLOPs: 12.05 |
+steps: 54 loss: 8.0668 iter time (s): 0.052 samples/sec: 305.791
+ iteration       54/     200 | consumed samples:          864 | consumed tokens:       442368 | elapsed time per iteration (ms): 55.3 | learning rate: 5.086E-03 | global batch size:    16 | lm loss: 8.066835E+00 | loss scale: 1.0 | grad norm: 0.381 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.285 | tokens per gpu per second (tgs): 37028.453 | TFLOPs: 11.98 |
+steps: 55 loss: 8.0355 iter time (s): 0.052 samples/sec: 308.210
+ iteration       55/     200 | consumed samples:          880 | consumed tokens:       450560 | elapsed time per iteration (ms): 54.8 | learning rate: 5.054E-03 | global batch size:    16 | lm loss: 8.035456E+00 | loss scale: 1.0 | grad norm: 0.416 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.807 | tokens per gpu per second (tgs): 37351.277 | TFLOPs: 12.08 |
+steps: 56 loss: 7.8837 iter time (s): 0.052 samples/sec: 307.192
+ iteration       56/     200 | consumed samples:          896 | consumed tokens:       458752 | elapsed time per iteration (ms): 55.6 | learning rate: 5.021E-03 | global batch size:    16 | lm loss: 7.883679E+00 | loss scale: 1.0 | grad norm: 0.404 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 287.602 | tokens per gpu per second (tgs): 36813.111 | TFLOPs: 11.91 |
+steps: 57 loss: 8.0702 iter time (s): 0.052 samples/sec: 307.930
+ iteration       57/     200 | consumed samples:          912 | consumed tokens:       466944 | elapsed time per iteration (ms): 54.9 | learning rate: 4.988E-03 | global batch size:    16 | lm loss: 8.070189E+00 | loss scale: 1.0 | grad norm: 0.502 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.299 | tokens per gpu per second (tgs): 37286.263 | TFLOPs: 12.06 |
+steps: 58 loss: 8.0454 iter time (s): 0.052 samples/sec: 305.899
+ iteration       58/     200 | consumed samples:          928 | consumed tokens:       475136 | elapsed time per iteration (ms): 55.3 | learning rate: 4.955E-03 | global batch size:    16 | lm loss: 8.045433E+00 | loss scale: 1.0 | grad norm: 0.564 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.140 | tokens per gpu per second (tgs): 37009.947 | TFLOPs: 11.97 |
+steps: 59 loss: 7.9878 iter time (s): 0.052 samples/sec: 308.350
+ iteration       59/     200 | consumed samples:          944 | consumed tokens:       483328 | elapsed time per iteration (ms): 54.8 | learning rate: 4.921E-03 | global batch size:    16 | lm loss: 7.987826E+00 | loss scale: 1.0 | grad norm: 0.463 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.982 | tokens per gpu per second (tgs): 37373.703 | TFLOPs: 12.09 |
+steps: 60 loss: 7.7839 iter time (s): 0.052 samples/sec: 306.751
+ iteration       60/     200 | consumed samples:          960 | consumed tokens:       491520 | elapsed time per iteration (ms): 55.1 | learning rate: 4.887E-03 | global batch size:    16 | lm loss: 7.783860E+00 | loss scale: 1.0 | grad norm: 0.452 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.393 | tokens per gpu per second (tgs): 37170.256 | TFLOPs: 12.02 |
+steps: 61 loss: 7.9741 iter time (s): 0.052 samples/sec: 309.553
+ iteration       61/     200 | consumed samples:          976 | consumed tokens:       499712 | elapsed time per iteration (ms): 54.6 | learning rate: 4.853E-03 | global batch size:    16 | lm loss: 7.974086E+00 | loss scale: 1.0 | grad norm: 0.436 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 292.981 | tokens per gpu per second (tgs): 37501.624 | TFLOPs: 12.13 |
+steps: 62 loss: 7.9398 iter time (s): 0.052 samples/sec: 306.487
+ iteration       62/     200 | consumed samples:          992 | consumed tokens:       507904 | elapsed time per iteration (ms): 55.2 | learning rate: 4.818E-03 | global batch size:    16 | lm loss: 7.939790E+00 | loss scale: 1.0 | grad norm: 0.408 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.865 | tokens per gpu per second (tgs): 37102.664 | TFLOPs: 12.00 |
+steps: 63 loss: 8.0325 iter time (s): 0.052 samples/sec: 308.185
+ iteration       63/     200 | consumed samples:         1008 | consumed tokens:       516096 | elapsed time per iteration (ms): 54.8 | learning rate: 4.782E-03 | global batch size:    16 | lm loss: 8.032462E+00 | loss scale: 1.0 | grad norm: 0.366 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.718 | tokens per gpu per second (tgs): 37339.911 | TFLOPs: 12.08 |
+steps: 64 loss: 7.9391 iter time (s): 0.052 samples/sec: 306.451
+ iteration       64/     200 | consumed samples:         1024 | consumed tokens:       524288 | elapsed time per iteration (ms): 55.1 | learning rate: 4.747E-03 | global batch size:    16 | lm loss: 7.939078E+00 | loss scale: 1.0 | grad norm: 0.535 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.277 | tokens per gpu per second (tgs): 37155.464 | TFLOPs: 12.02 |
+steps: 65 loss: 7.7027 iter time (s): 0.052 samples/sec: 307.888
+ iteration       65/     200 | consumed samples:         1040 | consumed tokens:       532480 | elapsed time per iteration (ms): 54.9 | learning rate: 4.711E-03 | global batch size:    16 | lm loss: 7.702679E+00 | loss scale: 1.0 | grad norm: 0.416 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.240 | tokens per gpu per second (tgs): 37278.657 | TFLOPs: 12.06 |
+steps: 66 loss: 7.7660 iter time (s): 0.052 samples/sec: 306.096
+ iteration       66/     200 | consumed samples:         1056 | consumed tokens:       540672 | elapsed time per iteration (ms): 55.2 | learning rate: 4.674E-03 | global batch size:    16 | lm loss: 7.766001E+00 | loss scale: 1.0 | grad norm: 0.506 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.782 | tokens per gpu per second (tgs): 37092.090 | TFLOPs: 12.00 |
+steps: 67 loss: 7.8127 iter time (s): 0.052 samples/sec: 308.125
+ iteration       67/     200 | consumed samples:         1072 | consumed tokens:       548864 | elapsed time per iteration (ms): 54.9 | learning rate: 4.638E-03 | global batch size:    16 | lm loss: 7.812737E+00 | loss scale: 1.0 | grad norm: 0.432 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.618 | tokens per gpu per second (tgs): 37327.093 | TFLOPs: 12.07 |
+steps: 68 loss: 7.9439 iter time (s): 0.052 samples/sec: 306.962
+ iteration       68/     200 | consumed samples:         1088 | consumed tokens:       557056 | elapsed time per iteration (ms): 55.1 | learning rate: 4.601E-03 | global batch size:    16 | lm loss: 7.943859E+00 | loss scale: 1.0 | grad norm: 0.389 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.530 | tokens per gpu per second (tgs): 37187.796 | TFLOPs: 12.03 |
+steps: 69 loss: 7.7816 iter time (s): 0.052 samples/sec: 308.082
+ iteration       69/     200 | consumed samples:         1104 | consumed tokens:       565248 | elapsed time per iteration (ms): 54.9 | learning rate: 4.563E-03 | global batch size:    16 | lm loss: 7.781647E+00 | loss scale: 1.0 | grad norm: 0.437 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.442 | tokens per gpu per second (tgs): 37304.560 | TFLOPs: 12.07 |
+steps: 70 loss: 7.9953 iter time (s): 0.052 samples/sec: 306.721
+ iteration       70/     200 | consumed samples:         1120 | consumed tokens:       573440 | elapsed time per iteration (ms): 55.1 | learning rate: 4.526E-03 | global batch size:    16 | lm loss: 7.995305E+00 | loss scale: 1.0 | grad norm: 0.375 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.469 | tokens per gpu per second (tgs): 37180.070 | TFLOPs: 12.03 |
+steps: 71 loss: 7.8155 iter time (s): 0.052 samples/sec: 307.888
+ iteration       71/     200 | consumed samples:         1136 | consumed tokens:       581632 | elapsed time per iteration (ms): 55.0 | learning rate: 4.488E-03 | global batch size:    16 | lm loss: 7.815469E+00 | loss scale: 1.0 | grad norm: 0.426 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.154 | tokens per gpu per second (tgs): 37267.659 | TFLOPs: 12.06 |
+steps: 72 loss: 7.8241 iter time (s): 0.052 samples/sec: 306.788
+ iteration       72/     200 | consumed samples:         1152 | consumed tokens:       589824 | elapsed time per iteration (ms): 55.1 | learning rate: 4.450E-03 | global batch size:    16 | lm loss: 7.824084E+00 | loss scale: 1.0 | grad norm: 0.445 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.408 | tokens per gpu per second (tgs): 37172.186 | TFLOPs: 12.02 |
+steps: 73 loss: 8.1174 iter time (s): 0.052 samples/sec: 307.192
+ iteration       73/     200 | consumed samples:         1168 | consumed tokens:       598016 | elapsed time per iteration (ms): 55.0 | learning rate: 4.411E-03 | global batch size:    16 | lm loss: 8.117443E+00 | loss scale: 1.0 | grad norm: 0.446 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.778 | tokens per gpu per second (tgs): 37219.539 | TFLOPs: 12.04 |
+steps: 74 loss: 7.9091 iter time (s): 0.052 samples/sec: 306.258
+ iteration       74/     200 | consumed samples:         1184 | consumed tokens:       606208 | elapsed time per iteration (ms): 55.2 | learning rate: 4.372E-03 | global batch size:    16 | lm loss: 7.909142E+00 | loss scale: 1.0 | grad norm: 0.417 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.015 | tokens per gpu per second (tgs): 37121.905 | TFLOPs: 12.01 |
+steps: 75 loss: 7.7105 iter time (s): 0.052 samples/sec: 309.167
+ iteration       75/     200 | consumed samples:         1200 | consumed tokens:       614400 | elapsed time per iteration (ms): 54.7 | learning rate: 4.333E-03 | global batch size:    16 | lm loss: 7.710457E+00 | loss scale: 1.0 | grad norm: 0.396 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 292.383 | tokens per gpu per second (tgs): 37424.995 | TFLOPs: 12.11 |
+steps: 76 loss: 7.7909 iter time (s): 0.052 samples/sec: 306.541
+ iteration       76/     200 | consumed samples:         1216 | consumed tokens:       622592 | elapsed time per iteration (ms): 55.2 | learning rate: 4.294E-03 | global batch size:    16 | lm loss: 7.790893E+00 | loss scale: 1.0 | grad norm: 0.331 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.047 | tokens per gpu per second (tgs): 37126.077 | TFLOPs: 12.01 |
+steps: 77 loss: 7.7473 iter time (s): 0.052 samples/sec: 307.821
+ iteration       77/     200 | consumed samples:         1232 | consumed tokens:       630784 | elapsed time per iteration (ms): 54.9 | learning rate: 4.254E-03 | global batch size:    16 | lm loss: 7.747334E+00 | loss scale: 1.0 | grad norm: 0.354 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.379 | tokens per gpu per second (tgs): 37296.462 | TFLOPs: 12.06 |
+steps: 78 loss: 7.7071 iter time (s): 0.052 samples/sec: 306.625
+ iteration       78/     200 | consumed samples:         1248 | consumed tokens:       638976 | elapsed time per iteration (ms): 55.1 | learning rate: 4.215E-03 | global batch size:    16 | lm loss: 7.707141E+00 | loss scale: 1.0 | grad norm: 0.430 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.224 | tokens per gpu per second (tgs): 37148.715 | TFLOPs: 12.02 |
+steps: 79 loss: 8.1875 iter time (s): 0.052 samples/sec: 308.551
+ iteration       79/     200 | consumed samples:         1264 | consumed tokens:       647168 | elapsed time per iteration (ms): 54.8 | learning rate: 4.175E-03 | global batch size:    16 | lm loss: 8.187463E+00 | loss scale: 1.0 | grad norm: 0.583 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 292.048 | tokens per gpu per second (tgs): 37382.161 | TFLOPs: 12.09 |
+steps: 80 loss: 7.7575 iter time (s): 0.052 samples/sec: 306.367
+ iteration       80/     200 | consumed samples:         1280 | consumed tokens:       655360 | elapsed time per iteration (ms): 55.2 | learning rate: 4.134E-03 | global batch size:    16 | lm loss: 7.757523E+00 | loss scale: 1.0 | grad norm: 0.396 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.006 | tokens per gpu per second (tgs): 37120.782 | TFLOPs: 12.01 |
+steps: 81 loss: 7.7272 iter time (s): 0.053 samples/sec: 302.652
+ iteration       81/     200 | consumed samples:         1296 | consumed tokens:       663552 | elapsed time per iteration (ms): 55.8 | learning rate: 4.094E-03 | global batch size:    16 | lm loss: 7.727235E+00 | loss scale: 1.0 | grad norm: 0.366 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 286.795 | tokens per gpu per second (tgs): 36709.750 | TFLOPs: 11.88 |
+steps: 82 loss: 7.7527 iter time (s): 0.052 samples/sec: 306.758
+ iteration       82/     200 | consumed samples:         1312 | consumed tokens:       671744 | elapsed time per iteration (ms): 55.1 | learning rate: 4.053E-03 | global batch size:    16 | lm loss: 7.752668E+00 | loss scale: 1.0 | grad norm: 0.506 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.366 | tokens per gpu per second (tgs): 37166.878 | TFLOPs: 12.02 |
+steps: 83 loss: 7.6877 iter time (s): 0.052 samples/sec: 307.494
+ iteration       83/     200 | consumed samples:         1328 | consumed tokens:       679936 | elapsed time per iteration (ms): 55.0 | learning rate: 4.012E-03 | global batch size:    16 | lm loss: 7.687662E+00 | loss scale: 1.0 | grad norm: 0.390 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.034 | tokens per gpu per second (tgs): 37252.305 | TFLOPs: 12.05 |
+steps: 84 loss: 7.6795 iter time (s): 0.052 samples/sec: 305.564
+ iteration       84/     200 | consumed samples:         1344 | consumed tokens:       688128 | elapsed time per iteration (ms): 55.3 | learning rate: 3.971E-03 | global batch size:    16 | lm loss: 7.679488E+00 | loss scale: 1.0 | grad norm: 0.423 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.120 | tokens per gpu per second (tgs): 37007.395 | TFLOPs: 11.97 |
+steps: 85 loss: 7.6149 iter time (s): 0.052 samples/sec: 308.544
+ iteration       85/     200 | consumed samples:         1360 | consumed tokens:       696320 | elapsed time per iteration (ms): 54.8 | learning rate: 3.930E-03 | global batch size:    16 | lm loss: 7.614880E+00 | loss scale: 1.0 | grad norm: 0.360 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 292.016 | tokens per gpu per second (tgs): 37378.094 | TFLOPs: 12.09 |
+steps: 86 loss: 7.6587 iter time (s): 0.052 samples/sec: 305.893
+ iteration       86/     200 | consumed samples:         1376 | consumed tokens:       704512 | elapsed time per iteration (ms): 55.2 | learning rate: 3.889E-03 | global batch size:    16 | lm loss: 7.658684E+00 | loss scale: 1.0 | grad norm: 0.324 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.628 | tokens per gpu per second (tgs): 37072.400 | TFLOPs: 11.99 |
+steps: 87 loss: 7.6029 iter time (s): 0.052 samples/sec: 307.767
+ iteration       87/     200 | consumed samples:         1392 | consumed tokens:       712704 | elapsed time per iteration (ms): 54.9 | learning rate: 3.848E-03 | global batch size:    16 | lm loss: 7.602919E+00 | loss scale: 1.0 | grad norm: 0.344 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.229 | tokens per gpu per second (tgs): 37277.363 | TFLOPs: 12.06 |
+steps: 88 loss: 7.8010 iter time (s): 0.052 samples/sec: 306.770
+ iteration       88/     200 | consumed samples:         1408 | consumed tokens:       720896 | elapsed time per iteration (ms): 55.1 | learning rate: 3.806E-03 | global batch size:    16 | lm loss: 7.801041E+00 | loss scale: 1.0 | grad norm: 0.364 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.359 | tokens per gpu per second (tgs): 37165.914 | TFLOPs: 12.02 |
+steps: 89 loss: 7.9426 iter time (s): 0.052 samples/sec: 307.603
+ iteration       89/     200 | consumed samples:         1424 | consumed tokens:       729088 | elapsed time per iteration (ms): 55.0 | learning rate: 3.764E-03 | global batch size:    16 | lm loss: 7.942564E+00 | loss scale: 1.0 | grad norm: 0.373 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.049 | tokens per gpu per second (tgs): 37254.244 | TFLOPs: 12.05 |
+steps: 90 loss: 7.4589 iter time (s): 0.052 samples/sec: 306.060
+ iteration       90/     200 | consumed samples:         1440 | consumed tokens:       737280 | elapsed time per iteration (ms): 55.2 | learning rate: 3.722E-03 | global batch size:    16 | lm loss: 7.458883E+00 | loss scale: 1.0 | grad norm: 0.401 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.763 | tokens per gpu per second (tgs): 37089.688 | TFLOPs: 12.00 |
+steps: 91 loss: 7.7560 iter time (s): 0.052 samples/sec: 308.368
+ iteration       91/     200 | consumed samples:         1456 | consumed tokens:       745472 | elapsed time per iteration (ms): 54.8 | learning rate: 3.680E-03 | global batch size:    16 | lm loss: 7.755974E+00 | loss scale: 1.0 | grad norm: 0.343 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 292.007 | tokens per gpu per second (tgs): 37376.956 | TFLOPs: 12.09 |
+steps: 92 loss: 8.0451 iter time (s): 0.052 samples/sec: 307.464
+ iteration       92/     200 | consumed samples:         1472 | consumed tokens:       753664 | elapsed time per iteration (ms): 55.0 | learning rate: 3.638E-03 | global batch size:    16 | lm loss: 8.045145E+00 | loss scale: 1.0 | grad norm: 0.462 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.964 | tokens per gpu per second (tgs): 37243.422 | TFLOPs: 12.05 |
+steps: 93 loss: 7.5130 iter time (s): 0.052 samples/sec: 308.331
+ iteration       93/     200 | consumed samples:         1488 | consumed tokens:       761856 | elapsed time per iteration (ms): 54.8 | learning rate: 3.596E-03 | global batch size:    16 | lm loss: 7.512977E+00 | loss scale: 1.0 | grad norm: 0.361 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.925 | tokens per gpu per second (tgs): 37366.387 | TFLOPs: 12.09 |
+steps: 94 loss: 7.8016 iter time (s): 0.053 samples/sec: 303.776
+ iteration       94/     200 | consumed samples:         1504 | consumed tokens:       770048 | elapsed time per iteration (ms): 55.6 | learning rate: 3.554E-03 | global batch size:    16 | lm loss: 7.801605E+00 | loss scale: 1.0 | grad norm: 0.309 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 287.786 | tokens per gpu per second (tgs): 36836.634 | TFLOPs: 11.92 |
+steps: 95 loss: 7.7616 iter time (s): 0.052 samples/sec: 308.862
+ iteration       95/     200 | consumed samples:         1520 | consumed tokens:       778240 | elapsed time per iteration (ms): 54.8 | learning rate: 3.512E-03 | global batch size:    16 | lm loss: 7.761627E+00 | loss scale: 1.0 | grad norm: 0.340 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 292.211 | tokens per gpu per second (tgs): 37402.996 | TFLOPs: 12.10 |
+steps: 96 loss: 7.6518 iter time (s): 0.052 samples/sec: 307.809
+ iteration       96/     200 | consumed samples:         1536 | consumed tokens:       786432 | elapsed time per iteration (ms): 54.9 | learning rate: 3.470E-03 | global batch size:    16 | lm loss: 7.651783E+00 | loss scale: 1.0 | grad norm: 0.364 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.332 | tokens per gpu per second (tgs): 37290.471 | TFLOPs: 12.06 |
+steps: 97 loss: 7.7700 iter time (s): 0.052 samples/sec: 308.581
+ iteration       97/     200 | consumed samples:         1552 | consumed tokens:       794624 | elapsed time per iteration (ms): 54.8 | learning rate: 3.427E-03 | global batch size:    16 | lm loss: 7.769981E+00 | loss scale: 1.0 | grad norm: 0.352 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 292.032 | tokens per gpu per second (tgs): 37380.046 | TFLOPs: 12.09 |
+steps: 98 loss: 7.4828 iter time (s): 0.052 samples/sec: 306.493
+ iteration       98/     200 | consumed samples:         1568 | consumed tokens:       802816 | elapsed time per iteration (ms): 55.1 | learning rate: 3.385E-03 | global batch size:    16 | lm loss: 7.482788E+00 | loss scale: 1.0 | grad norm: 0.295 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.223 | tokens per gpu per second (tgs): 37148.555 | TFLOPs: 12.02 |
+steps: 99 loss: 7.6463 iter time (s): 0.052 samples/sec: 308.575
+ iteration       99/     200 | consumed samples:         1584 | consumed tokens:       811008 | elapsed time per iteration (ms): 54.8 | learning rate: 3.342E-03 | global batch size:    16 | lm loss: 7.646276E+00 | loss scale: 1.0 | grad norm: 0.337 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 292.042 | tokens per gpu per second (tgs): 37381.347 | TFLOPs: 12.09 |
+steps: 100 loss: 7.3931 iter time (s): 0.052 samples/sec: 305.444
+ iteration      100/     200 | consumed samples:         1600 | consumed tokens:       819200 | elapsed time per iteration (ms): 55.3 | learning rate: 3.300E-03 | global batch size:    16 | lm loss: 7.393088E+00 | loss scale: 1.0 | grad norm: 0.313 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.232 | tokens per gpu per second (tgs): 37021.750 | TFLOPs: 11.98 |
+-----------------------------------------------------------------------------------------------
+ validation loss at iteration 100 | lm loss value: 7.576035E+00 | lm loss PPL: 1.950877E+03 | 
+-----------------------------------------------------------------------------------------------
+saving checkpoint at iteration     100 to z1_uni_ckpt/checkpoints/gpt2/source_bf16_dp4
+  successfully saved checkpoint at iteration     100 to z1_uni_ckpt/checkpoints/gpt2/source_bf16_dp4
+Checkpoint Save GB: 0.541, GB/Sec: 1.29, Latency(second): 0.42
+(min, max) time across ranks (ms):
+    save-checkpoint ................................: (419.51, 419.52)
+steps: 101 loss: 7.7563 iter time (s): 0.053 samples/sec: 302.043
+ iteration      101/     200 | consumed samples:         1616 | consumed tokens:       827392 | elapsed time per iteration (ms): 1106.5 | learning rate: 3.258E-03 | global batch size:    16 | lm loss: 7.756275E+00 | loss scale: 1.0 | grad norm: 0.343 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 14.460 | tokens per gpu per second (tgs): 1850.937 | TFLOPs: 0.60 |
+steps: 102 loss: 7.6497 iter time (s): 0.052 samples/sec: 307.125
+ iteration      102/     200 | consumed samples:         1632 | consumed tokens:       835584 | elapsed time per iteration (ms): 55.0 | learning rate: 3.215E-03 | global batch size:    16 | lm loss: 7.649725E+00 | loss scale: 1.0 | grad norm: 0.311 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.683 | tokens per gpu per second (tgs): 37207.448 | TFLOPs: 12.04 |
+steps: 103 loss: 7.5865 iter time (s): 0.052 samples/sec: 306.013
+ iteration      103/     200 | consumed samples:         1648 | consumed tokens:       843776 | elapsed time per iteration (ms): 55.2 | learning rate: 3.173E-03 | global batch size:    16 | lm loss: 7.586460E+00 | loss scale: 1.0 | grad norm: 0.388 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.716 | tokens per gpu per second (tgs): 37083.603 | TFLOPs: 12.00 |
+steps: 104 loss: 7.7147 iter time (s): 0.052 samples/sec: 306.999
+ iteration      104/     200 | consumed samples:         1664 | consumed tokens:       851968 | elapsed time per iteration (ms): 55.1 | learning rate: 3.130E-03 | global batch size:    16 | lm loss: 7.714707E+00 | loss scale: 1.0 | grad norm: 0.397 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.457 | tokens per gpu per second (tgs): 37178.461 | TFLOPs: 12.03 |
+steps: 105 loss: 7.6317 iter time (s): 0.052 samples/sec: 306.090
+ iteration      105/     200 | consumed samples:         1680 | consumed tokens:       860160 | elapsed time per iteration (ms): 55.2 | learning rate: 3.088E-03 | global batch size:    16 | lm loss: 7.631702E+00 | loss scale: 1.0 | grad norm: 0.389 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.953 | tokens per gpu per second (tgs): 37114.046 | TFLOPs: 12.01 |
+steps: 106 loss: 7.2741 iter time (s): 0.052 samples/sec: 308.106
+ iteration      106/     200 | consumed samples:         1696 | consumed tokens:       868352 | elapsed time per iteration (ms): 54.9 | learning rate: 3.046E-03 | global batch size:    16 | lm loss: 7.274067E+00 | loss scale: 1.0 | grad norm: 0.332 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.581 | tokens per gpu per second (tgs): 37322.390 | TFLOPs: 12.07 |
+steps: 107 loss: 7.7947 iter time (s): 0.053 samples/sec: 304.379
+ iteration      107/     200 | consumed samples:         1712 | consumed tokens:       876544 | elapsed time per iteration (ms): 55.5 | learning rate: 3.004E-03 | global batch size:    16 | lm loss: 7.794701E+00 | loss scale: 1.0 | grad norm: 0.404 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 288.460 | tokens per gpu per second (tgs): 36922.928 | TFLOPs: 11.94 |
+steps: 108 loss: 7.6260 iter time (s): 0.052 samples/sec: 306.054
+ iteration      108/     200 | consumed samples:         1728 | consumed tokens:       884736 | elapsed time per iteration (ms): 55.3 | learning rate: 2.962E-03 | global batch size:    16 | lm loss: 7.625988E+00 | loss scale: 1.0 | grad norm: 0.381 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.416 | tokens per gpu per second (tgs): 37045.220 | TFLOPs: 11.98 |
+steps: 109 loss: 7.3447 iter time (s): 0.052 samples/sec: 305.689
+ iteration      109/     200 | consumed samples:         1744 | consumed tokens:       892928 | elapsed time per iteration (ms): 55.3 | learning rate: 2.920E-03 | global batch size:    16 | lm loss: 7.344743E+00 | loss scale: 1.0 | grad norm: 0.592 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.502 | tokens per gpu per second (tgs): 37056.247 | TFLOPs: 11.99 |
+steps: 110 loss: 7.4562 iter time (s): 0.052 samples/sec: 309.161
+ iteration      110/     200 | consumed samples:         1760 | consumed tokens:       901120 | elapsed time per iteration (ms): 54.7 | learning rate: 2.878E-03 | global batch size:    16 | lm loss: 7.456172E+00 | loss scale: 1.0 | grad norm: 0.280 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 292.329 | tokens per gpu per second (tgs): 37418.148 | TFLOPs: 12.10 |
+steps: 111 loss: 7.7653 iter time (s): 0.052 samples/sec: 306.367
+ iteration      111/     200 | consumed samples:         1776 | consumed tokens:       909312 | elapsed time per iteration (ms): 55.1 | learning rate: 2.836E-03 | global batch size:    16 | lm loss: 7.765306E+00 | loss scale: 1.0 | grad norm: 0.327 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.266 | tokens per gpu per second (tgs): 37154.018 | TFLOPs: 12.02 |
+steps: 112 loss: 7.4975 iter time (s): 0.052 samples/sec: 307.864
+ iteration      112/     200 | consumed samples:         1792 | consumed tokens:       917504 | elapsed time per iteration (ms): 54.9 | learning rate: 2.794E-03 | global batch size:    16 | lm loss: 7.497540E+00 | loss scale: 1.0 | grad norm: 0.334 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.361 | tokens per gpu per second (tgs): 37294.195 | TFLOPs: 12.06 |
+steps: 113 loss: 7.2937 iter time (s): 0.052 samples/sec: 306.192
+ iteration      113/     200 | consumed samples:         1808 | consumed tokens:       925696 | elapsed time per iteration (ms): 55.2 | learning rate: 2.752E-03 | global batch size:    16 | lm loss: 7.293725E+00 | loss scale: 1.0 | grad norm: 0.333 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.964 | tokens per gpu per second (tgs): 37115.329 | TFLOPs: 12.01 |
+steps: 114 loss: 7.6099 iter time (s): 0.052 samples/sec: 308.380
+ iteration      114/     200 | consumed samples:         1824 | consumed tokens:       933888 | elapsed time per iteration (ms): 54.8 | learning rate: 2.711E-03 | global batch size:    16 | lm loss: 7.609922E+00 | loss scale: 1.0 | grad norm: 0.344 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.860 | tokens per gpu per second (tgs): 37358.099 | TFLOPs: 12.08 |
+steps: 115 loss: 7.6545 iter time (s): 0.052 samples/sec: 306.031
+ iteration      115/     200 | consumed samples:         1840 | consumed tokens:       942080 | elapsed time per iteration (ms): 55.2 | learning rate: 2.670E-03 | global batch size:    16 | lm loss: 7.654516E+00 | loss scale: 1.0 | grad norm: 0.342 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.897 | tokens per gpu per second (tgs): 37106.831 | TFLOPs: 12.00 |
+steps: 116 loss: 7.2828 iter time (s): 0.052 samples/sec: 308.477
+ iteration      116/     200 | consumed samples:         1856 | consumed tokens:       950272 | elapsed time per iteration (ms): 54.8 | learning rate: 2.629E-03 | global batch size:    16 | lm loss: 7.282835E+00 | loss scale: 1.0 | grad norm: 0.372 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.917 | tokens per gpu per second (tgs): 37365.412 | TFLOPs: 12.09 |
+steps: 117 loss: 7.4255 iter time (s): 0.052 samples/sec: 306.842
+ iteration      117/     200 | consumed samples:         1872 | consumed tokens:       958464 | elapsed time per iteration (ms): 55.1 | learning rate: 2.588E-03 | global batch size:    16 | lm loss: 7.425503E+00 | loss scale: 1.0 | grad norm: 0.313 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.365 | tokens per gpu per second (tgs): 37166.718 | TFLOPs: 12.02 |
+steps: 118 loss: 7.5039 iter time (s): 0.052 samples/sec: 308.264
+ iteration      118/     200 | consumed samples:         1888 | consumed tokens:       966656 | elapsed time per iteration (ms): 54.9 | learning rate: 2.547E-03 | global batch size:    16 | lm loss: 7.503938E+00 | loss scale: 1.0 | grad norm: 0.310 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.557 | tokens per gpu per second (tgs): 37319.309 | TFLOPs: 12.07 |
+steps: 119 loss: 7.4713 iter time (s): 0.052 samples/sec: 306.535
+ iteration      119/     200 | consumed samples:         1904 | consumed tokens:       974848 | elapsed time per iteration (ms): 55.1 | learning rate: 2.506E-03 | global batch size:    16 | lm loss: 7.471327E+00 | loss scale: 1.0 | grad norm: 0.302 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.227 | tokens per gpu per second (tgs): 37149.037 | TFLOPs: 12.02 |
+steps: 120 loss: 7.3731 iter time (s): 0.052 samples/sec: 308.356
+ iteration      120/     200 | consumed samples:         1920 | consumed tokens:       983040 | elapsed time per iteration (ms): 54.8 | learning rate: 2.466E-03 | global batch size:    16 | lm loss: 7.373137E+00 | loss scale: 1.0 | grad norm: 0.343 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.903 | tokens per gpu per second (tgs): 37363.624 | TFLOPs: 12.09 |
+steps: 121 loss: 7.3075 iter time (s): 0.052 samples/sec: 306.252
+ iteration      121/     200 | consumed samples:         1936 | consumed tokens:       991232 | elapsed time per iteration (ms): 55.1 | learning rate: 2.425E-03 | global batch size:    16 | lm loss: 7.307478E+00 | loss scale: 1.0 | grad norm: 0.365 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.169 | tokens per gpu per second (tgs): 37141.648 | TFLOPs: 12.01 |
+steps: 122 loss: 7.3710 iter time (s): 0.052 samples/sec: 308.947
+ iteration      122/     200 | consumed samples:         1952 | consumed tokens:       999424 | elapsed time per iteration (ms): 54.7 | learning rate: 2.385E-03 | global batch size:    16 | lm loss: 7.370986E+00 | loss scale: 1.0 | grad norm: 0.314 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 292.315 | tokens per gpu per second (tgs): 37416.355 | TFLOPs: 12.10 |
+steps: 123 loss: 7.5352 iter time (s): 0.053 samples/sec: 304.640
+ iteration      123/     200 | consumed samples:         1968 | consumed tokens:      1007616 | elapsed time per iteration (ms): 55.4 | learning rate: 2.346E-03 | global batch size:    16 | lm loss: 7.535199E+00 | loss scale: 1.0 | grad norm: 0.308 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 288.574 | tokens per gpu per second (tgs): 36937.535 | TFLOPs: 11.95 |
+steps: 124 loss: 7.3068 iter time (s): 0.052 samples/sec: 308.947
+ iteration      124/     200 | consumed samples:         1984 | consumed tokens:      1015808 | elapsed time per iteration (ms): 54.7 | learning rate: 2.306E-03 | global batch size:    16 | lm loss: 7.306806E+00 | loss scale: 1.0 | grad norm: 0.330 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 292.323 | tokens per gpu per second (tgs): 37417.333 | TFLOPs: 12.10 |
+steps: 125 loss: 7.5830 iter time (s): 0.053 samples/sec: 302.429
+ iteration      125/     200 | consumed samples:         2000 | consumed tokens:      1024000 | elapsed time per iteration (ms): 56.5 | learning rate: 2.267E-03 | global batch size:    16 | lm loss: 7.583040E+00 | loss scale: 1.0 | grad norm: 0.299 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 283.301 | tokens per gpu per second (tgs): 36262.505 | TFLOPs: 11.73 |
+steps: 126 loss: 7.2015 iter time (s): 0.052 samples/sec: 307.688
+ iteration      126/     200 | consumed samples:         2016 | consumed tokens:      1032192 | elapsed time per iteration (ms): 54.9 | learning rate: 2.228E-03 | global batch size:    16 | lm loss: 7.201461E+00 | loss scale: 1.0 | grad norm: 0.308 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.333 | tokens per gpu per second (tgs): 37290.633 | TFLOPs: 12.06 |
+steps: 127 loss: 7.4346 iter time (s): 0.052 samples/sec: 307.228
+ iteration      127/     200 | consumed samples:         2032 | consumed tokens:      1040384 | elapsed time per iteration (ms): 55.0 | learning rate: 2.189E-03 | global batch size:    16 | lm loss: 7.434642E+00 | loss scale: 1.0 | grad norm: 0.328 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.024 | tokens per gpu per second (tgs): 37251.013 | TFLOPs: 12.05 |
+steps: 128 loss: 7.2807 iter time (s): 0.052 samples/sec: 308.477
+ iteration      128/     200 | consumed samples:         2048 | consumed tokens:      1048576 | elapsed time per iteration (ms): 54.8 | learning rate: 2.150E-03 | global batch size:    16 | lm loss: 7.280725E+00 | loss scale: 1.0 | grad norm: 0.266 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 292.041 | tokens per gpu per second (tgs): 37381.185 | TFLOPs: 12.09 |
+steps: 129 loss: 7.4896 iter time (s): 0.052 samples/sec: 306.878
+ iteration      129/     200 | consumed samples:         2064 | consumed tokens:      1056768 | elapsed time per iteration (ms): 55.1 | learning rate: 2.112E-03 | global batch size:    16 | lm loss: 7.489575E+00 | loss scale: 1.0 | grad norm: 0.329 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.576 | tokens per gpu per second (tgs): 37193.754 | TFLOPs: 12.03 |
+steps: 130 loss: 7.1666 iter time (s): 0.052 samples/sec: 305.701
+ iteration      130/     200 | consumed samples:         2080 | consumed tokens:      1064960 | elapsed time per iteration (ms): 55.3 | learning rate: 2.074E-03 | global batch size:    16 | lm loss: 7.166590E+00 | loss scale: 1.0 | grad norm: 0.285 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.080 | tokens per gpu per second (tgs): 37002.294 | TFLOPs: 11.97 |
+steps: 131 loss: 7.5306 iter time (s): 0.052 samples/sec: 306.276
+ iteration      131/     200 | consumed samples:         2096 | consumed tokens:      1073152 | elapsed time per iteration (ms): 55.1 | learning rate: 2.037E-03 | global batch size:    16 | lm loss: 7.530621E+00 | loss scale: 1.0 | grad norm: 0.316 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.158 | tokens per gpu per second (tgs): 37140.202 | TFLOPs: 12.01 |
+steps: 132 loss: 7.3462 iter time (s): 0.052 samples/sec: 305.839
+ iteration      132/     200 | consumed samples:         2112 | consumed tokens:      1081344 | elapsed time per iteration (ms): 55.3 | learning rate: 1.999E-03 | global batch size:    16 | lm loss: 7.346226E+00 | loss scale: 1.0 | grad norm: 0.280 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.553 | tokens per gpu per second (tgs): 37062.803 | TFLOPs: 11.99 |
+steps: 133 loss: 7.3974 iter time (s): 0.053 samples/sec: 304.053
+ iteration      133/     200 | consumed samples:         2128 | consumed tokens:      1089536 | elapsed time per iteration (ms): 55.7 | learning rate: 1.962E-03 | global batch size:    16 | lm loss: 7.397389E+00 | loss scale: 1.0 | grad norm: 0.289 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 287.472 | tokens per gpu per second (tgs): 36796.396 | TFLOPs: 11.90 |
+steps: 134 loss: 7.6317 iter time (s): 0.052 samples/sec: 308.125
+ iteration      134/     200 | consumed samples:         2144 | consumed tokens:      1097728 | elapsed time per iteration (ms): 54.9 | learning rate: 1.926E-03 | global batch size:    16 | lm loss: 7.631662E+00 | loss scale: 1.0 | grad norm: 0.334 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.357 | tokens per gpu per second (tgs): 37293.709 | TFLOPs: 12.06 |
+steps: 135 loss: 7.3884 iter time (s): 0.052 samples/sec: 306.318
+ iteration      135/     200 | consumed samples:         2160 | consumed tokens:      1105920 | elapsed time per iteration (ms): 55.2 | learning rate: 1.889E-03 | global batch size:    16 | lm loss: 7.388409E+00 | loss scale: 1.0 | grad norm: 0.313 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.958 | tokens per gpu per second (tgs): 37114.687 | TFLOPs: 12.01 |
+steps: 136 loss: 7.5200 iter time (s): 0.053 samples/sec: 302.324
+ iteration      136/     200 | consumed samples:         2176 | consumed tokens:      1114112 | elapsed time per iteration (ms): 55.8 | learning rate: 1.853E-03 | global batch size:    16 | lm loss: 7.519976E+00 | loss scale: 1.0 | grad norm: 0.301 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 286.632 | tokens per gpu per second (tgs): 36688.896 | TFLOPs: 11.87 |
+steps: 137 loss: 7.1839 iter time (s): 0.053 samples/sec: 303.640
+ iteration      137/     200 | consumed samples:         2192 | consumed tokens:      1122304 | elapsed time per iteration (ms): 56.0 | learning rate: 1.818E-03 | global batch size:    16 | lm loss: 7.183891E+00 | loss scale: 1.0 | grad norm: 0.371 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 285.784 | tokens per gpu per second (tgs): 36580.309 | TFLOPs: 11.83 |
+steps: 138 loss: 7.0495 iter time (s): 0.052 samples/sec: 308.283
+ iteration      138/     200 | consumed samples:         2208 | consumed tokens:      1130496 | elapsed time per iteration (ms): 54.9 | learning rate: 1.782E-03 | global batch size:    16 | lm loss: 7.049546E+00 | loss scale: 1.0 | grad norm: 0.295 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.584 | tokens per gpu per second (tgs): 37322.714 | TFLOPs: 12.07 |
+steps: 139 loss: 7.4599 iter time (s): 0.052 samples/sec: 306.349
+ iteration      139/     200 | consumed samples:         2224 | consumed tokens:      1138688 | elapsed time per iteration (ms): 55.2 | learning rate: 1.747E-03 | global batch size:    16 | lm loss: 7.459867E+00 | loss scale: 1.0 | grad norm: 0.418 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.895 | tokens per gpu per second (tgs): 37106.511 | TFLOPs: 12.00 |
+steps: 140 loss: 7.3629 iter time (s): 0.052 samples/sec: 308.058
+ iteration      140/     200 | consumed samples:         2240 | consumed tokens:      1146880 | elapsed time per iteration (ms): 54.9 | learning rate: 1.713E-03 | global batch size:    16 | lm loss: 7.362925E+00 | loss scale: 1.0 | grad norm: 0.454 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.584 | tokens per gpu per second (tgs): 37322.714 | TFLOPs: 12.07 |
+steps: 141 loss: 7.2780 iter time (s): 0.052 samples/sec: 306.553
+ iteration      141/     200 | consumed samples:         2256 | consumed tokens:      1155072 | elapsed time per iteration (ms): 55.2 | learning rate: 1.679E-03 | global batch size:    16 | lm loss: 7.278028E+00 | loss scale: 1.0 | grad norm: 0.300 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.052 | tokens per gpu per second (tgs): 37126.718 | TFLOPs: 12.01 |
+steps: 142 loss: 7.1664 iter time (s): 0.052 samples/sec: 307.059
+ iteration      142/     200 | consumed samples:         2272 | consumed tokens:      1163264 | elapsed time per iteration (ms): 55.1 | learning rate: 1.645E-03 | global batch size:    16 | lm loss: 7.166388E+00 | loss scale: 1.0 | grad norm: 0.307 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.403 | tokens per gpu per second (tgs): 37171.543 | TFLOPs: 12.02 |
+steps: 143 loss: 7.1821 iter time (s): 0.052 samples/sec: 306.457
+ iteration      143/     200 | consumed samples:         2288 | consumed tokens:      1171456 | elapsed time per iteration (ms): 55.1 | learning rate: 1.612E-03 | global batch size:    16 | lm loss: 7.182102E+00 | loss scale: 1.0 | grad norm: 0.306 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.149 | tokens per gpu per second (tgs): 37139.078 | TFLOPs: 12.01 |
+steps: 144 loss: 7.0180 iter time (s): 0.052 samples/sec: 308.301
+ iteration      144/     200 | consumed samples:         2304 | consumed tokens:      1179648 | elapsed time per iteration (ms): 54.8 | learning rate: 1.579E-03 | global batch size:    16 | lm loss: 7.018015E+00 | loss scale: 1.0 | grad norm: 0.287 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.849 | tokens per gpu per second (tgs): 37356.637 | TFLOPs: 12.08 |
+steps: 145 loss: 7.4641 iter time (s): 0.052 samples/sec: 306.204
+ iteration      145/     200 | consumed samples:         2320 | consumed tokens:      1187840 | elapsed time per iteration (ms): 55.2 | learning rate: 1.546E-03 | global batch size:    16 | lm loss: 7.464146E+00 | loss scale: 1.0 | grad norm: 0.346 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.068 | tokens per gpu per second (tgs): 37128.644 | TFLOPs: 12.01 |
+steps: 146 loss: 7.0735 iter time (s): 0.052 samples/sec: 308.161
+ iteration      146/     200 | consumed samples:         2336 | consumed tokens:      1196032 | elapsed time per iteration (ms): 54.9 | learning rate: 1.514E-03 | global batch size:    16 | lm loss: 7.073461E+00 | loss scale: 1.0 | grad norm: 0.306 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.576 | tokens per gpu per second (tgs): 37321.741 | TFLOPs: 12.07 |
+steps: 147 loss: 7.1765 iter time (s): 0.052 samples/sec: 307.101
+ iteration      147/     200 | consumed samples:         2352 | consumed tokens:      1204224 | elapsed time per iteration (ms): 55.1 | learning rate: 1.483E-03 | global batch size:    16 | lm loss: 7.176473E+00 | loss scale: 1.0 | grad norm: 0.299 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.501 | tokens per gpu per second (tgs): 37184.093 | TFLOPs: 12.03 |
+steps: 148 loss: 7.4138 iter time (s): 0.052 samples/sec: 307.973
+ iteration      148/     200 | consumed samples:         2368 | consumed tokens:      1212416 | elapsed time per iteration (ms): 54.9 | learning rate: 1.452E-03 | global batch size:    16 | lm loss: 7.413754E+00 | loss scale: 1.0 | grad norm: 0.352 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.480 | tokens per gpu per second (tgs): 37309.421 | TFLOPs: 12.07 |
+steps: 149 loss: 7.0912 iter time (s): 0.052 samples/sec: 306.379
+ iteration      149/     200 | consumed samples:         2384 | consumed tokens:      1220608 | elapsed time per iteration (ms): 55.1 | learning rate: 1.421E-03 | global batch size:    16 | lm loss: 7.091240E+00 | loss scale: 1.0 | grad norm: 0.342 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.123 | tokens per gpu per second (tgs): 37135.707 | TFLOPs: 12.01 |
+steps: 150 loss: 7.1850 iter time (s): 0.052 samples/sec: 308.185
+ iteration      150/     200 | consumed samples:         2400 | consumed tokens:      1228800 | elapsed time per iteration (ms): 54.9 | learning rate: 1.391E-03 | global batch size:    16 | lm loss: 7.184967E+00 | loss scale: 1.0 | grad norm: 0.313 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.595 | tokens per gpu per second (tgs): 37324.174 | TFLOPs: 12.07 |
+steps: 151 loss: 7.1158 iter time (s): 0.052 samples/sec: 306.571
+ iteration      151/     200 | consumed samples:         2416 | consumed tokens:      1236992 | elapsed time per iteration (ms): 55.1 | learning rate: 1.361E-03 | global batch size:    16 | lm loss: 7.115802E+00 | loss scale: 1.0 | grad norm: 0.349 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.325 | tokens per gpu per second (tgs): 37161.572 | TFLOPs: 12.02 |
+steps: 152 loss: 7.2591 iter time (s): 0.053 samples/sec: 302.160
+ iteration      152/     200 | consumed samples:         2432 | consumed tokens:      1245184 | elapsed time per iteration (ms): 55.9 | learning rate: 1.332E-03 | global batch size:    16 | lm loss: 7.259116E+00 | loss scale: 1.0 | grad norm: 0.268 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 286.055 | tokens per gpu per second (tgs): 36615.081 | TFLOPs: 11.84 |
+steps: 153 loss: 7.4401 iter time (s): 0.052 samples/sec: 305.689
+ iteration      153/     200 | consumed samples:         2448 | consumed tokens:      1253376 | elapsed time per iteration (ms): 55.3 | learning rate: 1.303E-03 | global batch size:    16 | lm loss: 7.440122E+00 | loss scale: 1.0 | grad norm: 0.331 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.357 | tokens per gpu per second (tgs): 37037.713 | TFLOPs: 11.98 |
+steps: 154 loss: 7.1017 iter time (s): 0.052 samples/sec: 308.477
+ iteration      154/     200 | consumed samples:         2464 | consumed tokens:      1261568 | elapsed time per iteration (ms): 54.8 | learning rate: 1.275E-03 | global batch size:    16 | lm loss: 7.101665E+00 | loss scale: 1.0 | grad norm: 0.262 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.875 | tokens per gpu per second (tgs): 37360.049 | TFLOPs: 12.09 |
+steps: 155 loss: 7.4712 iter time (s): 0.052 samples/sec: 305.959
+ iteration      155/     200 | consumed samples:         2480 | consumed tokens:      1269760 | elapsed time per iteration (ms): 55.2 | learning rate: 1.247E-03 | global batch size:    16 | lm loss: 7.471189E+00 | loss scale: 1.0 | grad norm: 0.354 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.714 | tokens per gpu per second (tgs): 37083.443 | TFLOPs: 12.00 |
+steps: 156 loss: 7.2638 iter time (s): 0.052 samples/sec: 307.827
+ iteration      156/     200 | consumed samples:         2496 | consumed tokens:      1277952 | elapsed time per iteration (ms): 54.9 | learning rate: 1.220E-03 | global batch size:    16 | lm loss: 7.263754E+00 | loss scale: 1.0 | grad norm: 0.343 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.393 | tokens per gpu per second (tgs): 37298.243 | TFLOPs: 12.07 |
+steps: 157 loss: 7.0143 iter time (s): 0.052 samples/sec: 305.989
+ iteration      157/     200 | consumed samples:         2512 | consumed tokens:      1286144 | elapsed time per iteration (ms): 55.2 | learning rate: 1.193E-03 | global batch size:    16 | lm loss: 7.014277E+00 | loss scale: 1.0 | grad norm: 0.312 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.885 | tokens per gpu per second (tgs): 37105.228 | TFLOPs: 12.00 |
+steps: 158 loss: 7.2050 iter time (s): 0.052 samples/sec: 308.825
+ iteration      158/     200 | consumed samples:         2528 | consumed tokens:      1294336 | elapsed time per iteration (ms): 54.7 | learning rate: 1.167E-03 | global batch size:    16 | lm loss: 7.204975E+00 | loss scale: 1.0 | grad norm: 0.296 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 292.290 | tokens per gpu per second (tgs): 37413.096 | TFLOPs: 12.10 |
+steps: 159 loss: 7.2577 iter time (s): 0.053 samples/sec: 302.663
+ iteration      159/     200 | consumed samples:         2544 | consumed tokens:      1302528 | elapsed time per iteration (ms): 55.8 | learning rate: 1.141E-03 | global batch size:    16 | lm loss: 7.257681E+00 | loss scale: 1.0 | grad norm: 0.284 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 286.655 | tokens per gpu per second (tgs): 36691.874 | TFLOPs: 11.87 |
+steps: 160 loss: 7.2321 iter time (s): 0.052 samples/sec: 309.075
+ iteration      160/     200 | consumed samples:         2560 | consumed tokens:      1310720 | elapsed time per iteration (ms): 54.7 | learning rate: 1.116E-03 | global batch size:    16 | lm loss: 7.232125E+00 | loss scale: 1.0 | grad norm: 0.306 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 292.478 | tokens per gpu per second (tgs): 37437.228 | TFLOPs: 12.11 |
+steps: 161 loss: 7.1734 iter time (s): 0.052 samples/sec: 305.731
+ iteration      161/     200 | consumed samples:         2576 | consumed tokens:      1318912 | elapsed time per iteration (ms): 55.3 | learning rate: 1.091E-03 | global batch size:    16 | lm loss: 7.173410E+00 | loss scale: 1.0 | grad norm: 0.282 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.348 | tokens per gpu per second (tgs): 37036.595 | TFLOPs: 11.98 |
+steps: 162 loss: 7.3295 iter time (s): 0.052 samples/sec: 308.052
+ iteration      162/     200 | consumed samples:         2592 | consumed tokens:      1327104 | elapsed time per iteration (ms): 54.9 | learning rate: 1.067E-03 | global batch size:    16 | lm loss: 7.329470E+00 | loss scale: 1.0 | grad norm: 0.324 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.413 | tokens per gpu per second (tgs): 37300.835 | TFLOPs: 12.07 |
+steps: 163 loss: 7.0637 iter time (s): 0.052 samples/sec: 306.643
+ iteration      163/     200 | consumed samples:         2608 | consumed tokens:      1335296 | elapsed time per iteration (ms): 55.1 | learning rate: 1.043E-03 | global batch size:    16 | lm loss: 7.063695E+00 | loss scale: 1.0 | grad norm: 0.289 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.159 | tokens per gpu per second (tgs): 37140.363 | TFLOPs: 12.01 |
+steps: 164 loss: 7.1061 iter time (s): 0.052 samples/sec: 308.746
+ iteration      164/     200 | consumed samples:         2624 | consumed tokens:      1343488 | elapsed time per iteration (ms): 54.8 | learning rate: 1.020E-03 | global batch size:    16 | lm loss: 7.106121E+00 | loss scale: 1.0 | grad norm: 0.317 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 292.132 | tokens per gpu per second (tgs): 37392.901 | TFLOPs: 12.10 |
+steps: 165 loss: 7.0894 iter time (s): 0.052 samples/sec: 305.857
+ iteration      165/     200 | consumed samples:         2640 | consumed tokens:      1351680 | elapsed time per iteration (ms): 55.3 | learning rate: 9.979E-04 | global batch size:    16 | lm loss: 7.089361E+00 | loss scale: 1.0 | grad norm: 0.272 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.526 | tokens per gpu per second (tgs): 37059.285 | TFLOPs: 11.99 |
+steps: 166 loss: 7.1726 iter time (s): 0.052 samples/sec: 307.561
+ iteration      166/     200 | consumed samples:         2656 | consumed tokens:      1359872 | elapsed time per iteration (ms): 55.0 | learning rate: 9.760E-04 | global batch size:    16 | lm loss: 7.172550E+00 | loss scale: 1.0 | grad norm: 0.347 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.123 | tokens per gpu per second (tgs): 37263.779 | TFLOPs: 12.05 |
+steps: 167 loss: 7.3650 iter time (s): 0.053 samples/sec: 303.528
+ iteration      167/     200 | consumed samples:         2672 | consumed tokens:      1368064 | elapsed time per iteration (ms): 55.7 | learning rate: 9.547E-04 | global batch size:    16 | lm loss: 7.364976E+00 | loss scale: 1.0 | grad norm: 0.265 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 287.393 | tokens per gpu per second (tgs): 36786.311 | TFLOPs: 11.90 |
+steps: 168 loss: 7.2733 iter time (s): 0.052 samples/sec: 306.625
+ iteration      168/     200 | consumed samples:         2688 | consumed tokens:      1376256 | elapsed time per iteration (ms): 55.2 | learning rate: 9.340E-04 | global batch size:    16 | lm loss: 7.273260E+00 | loss scale: 1.0 | grad norm: 0.265 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.848 | tokens per gpu per second (tgs): 37100.581 | TFLOPs: 12.00 |
+steps: 169 loss: 7.0921 iter time (s): 0.052 samples/sec: 306.433
+ iteration      169/     200 | consumed samples:         2704 | consumed tokens:      1384448 | elapsed time per iteration (ms): 55.1 | learning rate: 9.138E-04 | global batch size:    16 | lm loss: 7.092053E+00 | loss scale: 1.0 | grad norm: 0.313 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.316 | tokens per gpu per second (tgs): 37160.447 | TFLOPs: 12.02 |
+steps: 170 loss: 7.1207 iter time (s): 0.052 samples/sec: 308.362
+ iteration      170/     200 | consumed samples:         2720 | consumed tokens:      1392640 | elapsed time per iteration (ms): 54.8 | learning rate: 8.943E-04 | global batch size:    16 | lm loss: 7.120662E+00 | loss scale: 1.0 | grad norm: 0.284 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 292.123 | tokens per gpu per second (tgs): 37391.762 | TFLOPs: 12.10 |
+steps: 171 loss: 7.1856 iter time (s): 0.052 samples/sec: 307.174
+ iteration      171/     200 | consumed samples:         2736 | consumed tokens:      1400832 | elapsed time per iteration (ms): 55.0 | learning rate: 8.753E-04 | global batch size:    16 | lm loss: 7.185591E+00 | loss scale: 1.0 | grad norm: 0.283 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.097 | tokens per gpu per second (tgs): 37260.385 | TFLOPs: 12.05 |
+steps: 172 loss: 7.3402 iter time (s): 0.052 samples/sec: 308.880
+ iteration      172/     200 | consumed samples:         2752 | consumed tokens:      1409024 | elapsed time per iteration (ms): 54.7 | learning rate: 8.570E-04 | global batch size:    16 | lm loss: 7.340216E+00 | loss scale: 1.0 | grad norm: 0.333 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 292.601 | tokens per gpu per second (tgs): 37452.898 | TFLOPs: 12.12 |
+steps: 173 loss: 7.0645 iter time (s): 0.053 samples/sec: 303.345
+ iteration      173/     200 | consumed samples:         2768 | consumed tokens:      1417216 | elapsed time per iteration (ms): 56.1 | learning rate: 8.392E-04 | global batch size:    16 | lm loss: 7.064508E+00 | loss scale: 1.0 | grad norm: 0.280 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 285.341 | tokens per gpu per second (tgs): 36523.694 | TFLOPs: 11.81 |
+steps: 174 loss: 7.0460 iter time (s): 0.054 samples/sec: 297.093
+ iteration      174/     200 | consumed samples:         2784 | consumed tokens:      1425408 | elapsed time per iteration (ms): 56.9 | learning rate: 8.221E-04 | global batch size:    16 | lm loss: 7.046031E+00 | loss scale: 1.0 | grad norm: 0.271 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 281.302 | tokens per gpu per second (tgs): 36006.684 | TFLOPs: 11.65 |
+steps: 175 loss: 7.0893 iter time (s): 0.052 samples/sec: 306.806
+ iteration      175/     200 | consumed samples:         2800 | consumed tokens:      1433600 | elapsed time per iteration (ms): 55.0 | learning rate: 8.055E-04 | global batch size:    16 | lm loss: 7.089323E+00 | loss scale: 1.0 | grad norm: 0.285 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.705 | tokens per gpu per second (tgs): 37210.188 | TFLOPs: 12.04 |
+steps: 176 loss: 7.2324 iter time (s): 0.052 samples/sec: 307.815
+ iteration      176/     200 | consumed samples:         2816 | consumed tokens:      1441792 | elapsed time per iteration (ms): 54.9 | learning rate: 7.896E-04 | global batch size:    16 | lm loss: 7.232397E+00 | loss scale: 1.0 | grad norm: 0.269 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.460 | tokens per gpu per second (tgs): 37306.829 | TFLOPs: 12.07 |
+steps: 177 loss: 7.0457 iter time (s): 0.052 samples/sec: 306.043
+ iteration      177/     200 | consumed samples:         2832 | consumed tokens:      1449984 | elapsed time per iteration (ms): 55.2 | learning rate: 7.743E-04 | global batch size:    16 | lm loss: 7.045710E+00 | loss scale: 1.0 | grad norm: 0.303 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.681 | tokens per gpu per second (tgs): 37079.121 | TFLOPs: 11.99 |
+steps: 178 loss: 7.4666 iter time (s): 0.052 samples/sec: 308.441
+ iteration      178/     200 | consumed samples:         2848 | consumed tokens:      1458176 | elapsed time per iteration (ms): 54.8 | learning rate: 7.596E-04 | global batch size:    16 | lm loss: 7.466611E+00 | loss scale: 1.0 | grad norm: 0.353 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 292.094 | tokens per gpu per second (tgs): 37388.018 | TFLOPs: 12.09 |
+steps: 179 loss: 7.4116 iter time (s): 0.052 samples/sec: 305.689
+ iteration      179/     200 | consumed samples:         2864 | consumed tokens:      1466368 | elapsed time per iteration (ms): 55.3 | learning rate: 7.456E-04 | global batch size:    16 | lm loss: 7.411558E+00 | loss scale: 1.0 | grad norm: 0.291 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.232 | tokens per gpu per second (tgs): 37021.750 | TFLOPs: 11.98 |
+steps: 180 loss: 7.2866 iter time (s): 0.052 samples/sec: 305.983
+ iteration      180/     200 | consumed samples:         2880 | consumed tokens:      1474560 | elapsed time per iteration (ms): 55.2 | learning rate: 7.321E-04 | global batch size:    16 | lm loss: 7.286550E+00 | loss scale: 1.0 | grad norm: 0.263 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.838 | tokens per gpu per second (tgs): 37099.299 | TFLOPs: 12.00 |
+steps: 181 loss: 7.0890 iter time (s): 0.052 samples/sec: 306.007
+ iteration      181/     200 | consumed samples:         2896 | consumed tokens:      1482752 | elapsed time per iteration (ms): 55.2 | learning rate: 7.194E-04 | global batch size:    16 | lm loss: 7.088969E+00 | loss scale: 1.0 | grad norm: 0.371 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.893 | tokens per gpu per second (tgs): 37106.350 | TFLOPs: 12.00 |
+steps: 182 loss: 7.0204 iter time (s): 0.052 samples/sec: 307.864
+ iteration      182/     200 | consumed samples:         2912 | consumed tokens:      1490944 | elapsed time per iteration (ms): 54.9 | learning rate: 7.072E-04 | global batch size:    16 | lm loss: 7.020361E+00 | loss scale: 1.0 | grad norm: 0.280 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.519 | tokens per gpu per second (tgs): 37314.445 | TFLOPs: 12.07 |
+steps: 183 loss: 7.3387 iter time (s): 0.052 samples/sec: 305.218
+ iteration      183/     200 | consumed samples:         2928 | consumed tokens:      1499136 | elapsed time per iteration (ms): 55.4 | learning rate: 6.957E-04 | global batch size:    16 | lm loss: 7.338662E+00 | loss scale: 1.0 | grad norm: 0.264 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.028 | tokens per gpu per second (tgs): 36995.601 | TFLOPs: 11.97 |
+steps: 184 loss: 7.3378 iter time (s): 0.052 samples/sec: 307.585
+ iteration      184/     200 | consumed samples:         2944 | consumed tokens:      1507328 | elapsed time per iteration (ms): 55.0 | learning rate: 6.848E-04 | global batch size:    16 | lm loss: 7.337775E+00 | loss scale: 1.0 | grad norm: 0.322 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.018 | tokens per gpu per second (tgs): 37250.367 | TFLOPs: 12.05 |
+steps: 185 loss: 7.2719 iter time (s): 0.052 samples/sec: 305.857
+ iteration      185/     200 | consumed samples:         2960 | consumed tokens:      1515520 | elapsed time per iteration (ms): 55.2 | learning rate: 6.746E-04 | global batch size:    16 | lm loss: 7.271875E+00 | loss scale: 1.0 | grad norm: 0.276 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.694 | tokens per gpu per second (tgs): 37080.882 | TFLOPs: 12.00 |
+steps: 186 loss: 7.2955 iter time (s): 0.052 samples/sec: 308.015
+ iteration      186/     200 | consumed samples:         2976 | consumed tokens:      1523712 | elapsed time per iteration (ms): 54.9 | learning rate: 6.650E-04 | global batch size:    16 | lm loss: 7.295482E+00 | loss scale: 1.0 | grad norm: 0.287 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.600 | tokens per gpu per second (tgs): 37324.822 | TFLOPs: 12.07 |
+steps: 187 loss: 7.2171 iter time (s): 0.052 samples/sec: 306.216
+ iteration      187/     200 | consumed samples:         2992 | consumed tokens:      1531904 | elapsed time per iteration (ms): 55.2 | learning rate: 6.561E-04 | global batch size:    16 | lm loss: 7.217134E+00 | loss scale: 1.0 | grad norm: 0.293 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.031 | tokens per gpu per second (tgs): 37123.991 | TFLOPs: 12.01 |
+steps: 188 loss: 7.3191 iter time (s): 0.052 samples/sec: 308.587
+ iteration      188/     200 | consumed samples:         3008 | consumed tokens:      1540096 | elapsed time per iteration (ms): 55.1 | learning rate: 6.478E-04 | global batch size:    16 | lm loss: 7.319138E+00 | loss scale: 1.0 | grad norm: 0.278 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.169 | tokens per gpu per second (tgs): 37141.648 | TFLOPs: 12.01 |
+steps: 189 loss: 6.9358 iter time (s): 0.052 samples/sec: 305.426
+ iteration      189/     200 | consumed samples:         3024 | consumed tokens:      1548288 | elapsed time per iteration (ms): 55.3 | learning rate: 6.402E-04 | global batch size:    16 | lm loss: 6.935827E+00 | loss scale: 1.0 | grad norm: 0.301 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.260 | tokens per gpu per second (tgs): 37025.261 | TFLOPs: 11.98 |
+steps: 190 loss: 7.1260 iter time (s): 0.052 samples/sec: 308.301
+ iteration      190/     200 | consumed samples:         3040 | consumed tokens:      1556480 | elapsed time per iteration (ms): 54.8 | learning rate: 6.332E-04 | global batch size:    16 | lm loss: 7.125998E+00 | loss scale: 1.0 | grad norm: 0.260 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.781 | tokens per gpu per second (tgs): 37348.029 | TFLOPs: 12.08 |
+steps: 191 loss: 7.2091 iter time (s): 0.052 samples/sec: 307.991
+ iteration      191/     200 | consumed samples:         3056 | consumed tokens:      1564672 | elapsed time per iteration (ms): 54.9 | learning rate: 6.269E-04 | global batch size:    16 | lm loss: 7.209113E+00 | loss scale: 1.0 | grad norm: 0.292 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.633 | tokens per gpu per second (tgs): 37329.039 | TFLOPs: 12.08 |
+steps: 192 loss: 7.1782 iter time (s): 0.052 samples/sec: 308.831
+ iteration      192/     200 | consumed samples:         3072 | consumed tokens:      1572864 | elapsed time per iteration (ms): 54.7 | learning rate: 6.213E-04 | global batch size:    16 | lm loss: 7.178228E+00 | loss scale: 1.0 | grad norm: 0.261 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 292.276 | tokens per gpu per second (tgs): 37411.304 | TFLOPs: 12.10 |
+steps: 193 loss: 7.2872 iter time (s): 0.052 samples/sec: 307.017
+ iteration      193/     200 | consumed samples:         3088 | consumed tokens:      1581056 | elapsed time per iteration (ms): 55.0 | learning rate: 6.163E-04 | global batch size:    16 | lm loss: 7.287165E+00 | loss scale: 1.0 | grad norm: 0.282 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.648 | tokens per gpu per second (tgs): 37202.936 | TFLOPs: 12.03 |
+steps: 194 loss: 7.0537 iter time (s): 0.052 samples/sec: 307.979
+ iteration      194/     200 | consumed samples:         3104 | consumed tokens:      1589248 | elapsed time per iteration (ms): 54.9 | learning rate: 6.120E-04 | global batch size:    16 | lm loss: 7.053720E+00 | loss scale: 1.0 | grad norm: 0.281 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.629 | tokens per gpu per second (tgs): 37328.553 | TFLOPs: 12.08 |
+steps: 195 loss: 7.1959 iter time (s): 0.052 samples/sec: 306.379
+ iteration      195/     200 | consumed samples:         3120 | consumed tokens:      1597440 | elapsed time per iteration (ms): 55.1 | learning rate: 6.083E-04 | global batch size:    16 | lm loss: 7.195857E+00 | loss scale: 1.0 | grad norm: 0.294 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 290.277 | tokens per gpu per second (tgs): 37155.464 | TFLOPs: 12.02 |
+steps: 196 loss: 7.1145 iter time (s): 0.054 samples/sec: 297.019
+ iteration      196/     200 | consumed samples:         3136 | consumed tokens:      1605632 | elapsed time per iteration (ms): 56.9 | learning rate: 6.053E-04 | global batch size:    16 | lm loss: 7.114475E+00 | loss scale: 1.0 | grad norm: 0.245 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 281.428 | tokens per gpu per second (tgs): 36022.841 | TFLOPs: 11.65 |
+steps: 197 loss: 7.2779 iter time (s): 0.052 samples/sec: 305.785
+ iteration      197/     200 | consumed samples:         3152 | consumed tokens:      1613824 | elapsed time per iteration (ms): 55.3 | learning rate: 6.030E-04 | global batch size:    16 | lm loss: 7.277947E+00 | loss scale: 1.0 | grad norm: 0.284 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 289.311 | tokens per gpu per second (tgs): 37031.805 | TFLOPs: 11.98 |
+steps: 198 loss: 7.1531 iter time (s): 0.052 samples/sec: 308.331
+ iteration      198/     200 | consumed samples:         3168 | consumed tokens:      1622016 | elapsed time per iteration (ms): 54.8 | learning rate: 6.013E-04 | global batch size:    16 | lm loss: 7.153068E+00 | loss scale: 1.0 | grad norm: 0.285 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.911 | tokens per gpu per second (tgs): 37364.599 | TFLOPs: 12.09 |
+steps: 199 loss: 7.2876 iter time (s): 0.053 samples/sec: 304.427
+ iteration      199/     200 | consumed samples:         3184 | consumed tokens:      1630208 | elapsed time per iteration (ms): 55.5 | learning rate: 6.003E-04 | global batch size:    16 | lm loss: 7.287552E+00 | loss scale: 1.0 | grad norm: 0.284 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 288.310 | tokens per gpu per second (tgs): 36903.734 | TFLOPs: 11.94 |
+steps: 200 loss: 7.0810 iter time (s): 0.052 samples/sec: 307.548
+ iteration      200/     200 | consumed samples:         3200 | consumed tokens:      1638400 | elapsed time per iteration (ms): 54.9 | learning rate: 6.000E-04 | global batch size:    16 | lm loss: 7.081041E+00 | loss scale: 1.0 | grad norm: 0.273 | num zeros: 0.0 | actual seqlen:   512 | number of skipped iterations:   0 | number of nan iterations:   0 | samples per second: 291.267 | tokens per gpu per second (tgs): 37282.217 | TFLOPs: 12.06 |
+-----------------------------------------------------------------------------------------------
+ validation loss at iteration 200 | lm loss value: 7.102803E+00 | lm loss PPL: 1.215369E+03 | 
+-----------------------------------------------------------------------------------------------
+saving checkpoint at iteration     200 to z1_uni_ckpt/checkpoints/gpt2/source_bf16_dp4
+  successfully saved checkpoint at iteration     200 to z1_uni_ckpt/checkpoints/gpt2/source_bf16_dp4
+Checkpoint Save GB: 0.541, GB/Sec: 1.26, Latency(second): 0.431
+(min, max) time across ranks (ms):
+    save-checkpoint ................................: (430.62, 430.64)
+[after training is done] datetime: 2026-01-15 09:03:49 
+saving checkpoint at iteration     200 to z1_uni_ckpt/checkpoints/gpt2/source_bf16_dp4
+  successfully saved checkpoint at iteration     200 to z1_uni_ckpt/checkpoints/gpt2/source_bf16_dp4
+Evaluating iter 1/40
+Evaluating iter 2/40
+Evaluating iter 3/40
+Evaluating iter 4/40
+Evaluating iter 5/40
+Evaluating iter 6/40
+Evaluating iter 7/40
+Evaluating iter 8/40
+Evaluating iter 9/40
+Evaluating iter 10/40
+Evaluating iter 11/40
+Evaluating iter 12/40
+Evaluating iter 13/40
+Evaluating iter 14/40
+Evaluating iter 15/40
+Evaluating iter 16/40
+Evaluating iter 17/40
+Evaluating iter 18/40
+Evaluating iter 19/40
+Evaluating iter 20/40
+Evaluating iter 21/40
+Evaluating iter 22/40
+Evaluating iter 23/40
+Evaluating iter 24/40
+Evaluating iter 25/40
+Evaluating iter 26/40
+Evaluating iter 27/40
+Evaluating iter 28/40
+Evaluating iter 29/40
+Evaluating iter 30/40
+Evaluating iter 31/40
+Evaluating iter 32/40
+Evaluating iter 33/40
+Evaluating iter 34/40
+Evaluating iter 35/40
+Evaluating iter 36/40
+Evaluating iter 37/40
+Evaluating iter 38/40
+Evaluating iter 39/40
+Evaluating iter 40/40
+--------------------------------------------------------------------------------------------------------------------------------------
+ validation loss at iteration 200 on 640-sample draw from validation set | lm loss value: 7.136041E+00 | lm loss PPL: 1.256444E+03 | 
+--------------------------------------------------------------------------------------------------------------------------------------
+[2026-01-15 09:03:56,181] [INFO] [launch.py:367:main] Process 2874318 exits successfully.
+[2026-01-15 09:03:56,182] [INFO] [launch.py:367:main] Process 2874319 exits successfully.
+[2026-01-15 09:03:56,182] [INFO] [launch.py:367:main] Process 2874320 exits successfully.
+[2026-01-15 09:03:56,182] [INFO] [launch.py:367:main] Process 2874317 exits successfully.
