@@ -9,3 +9,5 @@ __pycache__/
 *.pyc
 .DS_Store
 wandb/
+Megatron-DeepSpeed/data/oscar-1GB.jsonl
+Megatron-DeepSpeed/data/index-cache/
